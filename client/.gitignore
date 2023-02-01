@@ -8,13 +8,12 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+#dist   -- permitimos subir la carpeta dist para ir actualizando alli las actualizaciones del frontend
 dist-ssr
 *.local
 
 # Editor directories and files
 .vscode/*
-.env
 !.vscode/extensions.json
 .idea
 .DS_Store
