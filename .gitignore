@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-#dist   -- permitimos subir la carpeta dist para ir actualizando alli las actualizaciones del frontend
+dist
 dist-ssr
 *.local
 
