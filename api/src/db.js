@@ -37,12 +37,12 @@ const { Category, Order, User ,Phone } = sequelize.models; //extraer datos y asi
 // Product.hasMany(Reviews);
 //relation user Phones
 const Phone_Category = sequelize.define('phone_category', {}, { timestamps: false, freezeTableName: true });
-Phone.belongsToMany(Category,{through: 'Phone_Category'})
-Category.belongsToMany(Phone,{through: 'Phone_Category'}); //se utiliza para crear una asociación de muchos a muchos entre dos tablas
+Phone.belongsToMany(Category,{through: Phone_Category})
+Category.belongsToMany(Phone,{through: Phone_Category}); //se utiliza para crear una asociación de muchos a muchos entre dos tablas
 
 const Phone_Order = sequelize.define('phone_order', {}, { timestamps: false, freezeTableName: true });
-Phone.belongsToMany(Order,{through: 'Phone_Order'})
-Order.belongsToMany(Phone,{through: 'Phone_Order'}); 
+Phone.belongsToMany(Order,{through: Phone_Order})
+Order.belongsToMany(Phone,{through: Phone_Order}); 
 
 //aqui las demasrelaciones 
 
