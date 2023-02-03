@@ -1,8 +1,8 @@
-import  React  from 'react';
-import { Cart } from './Cart.component';
+import Cart from "../cart/Cart"
 
-export const Navbar: React.FC<{}> = ()=>{
-    return (
+const Navbar = ()=>{
+
+    return (<>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container px-4 px-lg-5">
                 <a className="navbar-brand" href="#!">Start Bootstrap</a>
@@ -25,5 +25,7 @@ export const Navbar: React.FC<{}> = ()=>{
                 </div>
             </div>
         </nav>
-    )
+    </>)
 }
+
+export default Navbar;
