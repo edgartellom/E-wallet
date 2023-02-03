@@ -1,5 +1,6 @@
 import  React  from 'react';
 import { Cart } from './Cart.component';
+import { SearchBar } from './SearchBar.component';
 
 export const Navbar: React.FC<{}> = ()=>{
     return (
@@ -20,7 +21,8 @@ export const Navbar: React.FC<{}> = ()=>{
                                 <li><a className="dropdown-item" href="#!">New Arrivals</a></li>
                             </ul>
                         </li>
-                    </ul>
+            </ul>
+            <SearchBar />
                     <Cart></Cart>
                 </div>
             </div>
