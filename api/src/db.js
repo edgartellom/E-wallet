@@ -1,9 +1,7 @@
-
+require('dotenv').config();
 const { Sequelize} = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-
-
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
@@ -33,13 +31,18 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Usuarios ,Phones } = sequelize.models; //extraer datos y asignarlos como variables
+const { Category, Order, User ,Phone } = sequelize.models; //extraer datos y asignarlos como variables
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 //relation user Phones
-Phones.belongsToMany(Usuarios,{through: 'USER_PHONES'})
-Usuarios.belongsToMany(Phones,{through: 'USER_PHONES'}); //se utiliza para crear una asociación de muchos a muchos entre dos tablas
+const Phone_Category = sequelize.define('phone_category', {}, { timestamps: false, freezeTableName: true });
+Phone.belongsToMany(Category,{through: Phone_Category})
+Category.belongsToMany(Phone,{through: Phone_Category}); //se utiliza para crear una asociación de muchos a muchos entre dos tablas
+
+const Phone_Order = sequelize.define('phone_order', {}, { timestamps: false, freezeTableName: true });
+Phone.belongsToMany(Order,{through: Phone_Order})
+Order.belongsToMany(Phone,{through: Phone_Order}); 
 
 //aqui las demasrelaciones 
 
