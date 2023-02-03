@@ -44,6 +44,21 @@ const getPhones = async () => {
     return await Phone.findAll();
 }
 
+const updatePhone = async ({id,brand,model,price,image,detail}) => {
+    let phone = await Phone.findByPk(id);
+    if(!phone) return {error:"PHONE NOT FOUND"};
+    phone.id = id;
+    phone.brand = brand;
+    phone.model = model;
+    phone.price = price;
+    phone.image = image;
+    phone.detail = detail;
+    await phone.save();
+    return phone;
+}
+
+
 module.exports = {
-    getPhones
+    getPhones,
+    updatePhone
 }
