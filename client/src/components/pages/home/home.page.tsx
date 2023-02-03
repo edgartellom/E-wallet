@@ -36,7 +36,7 @@ export const Home = () => {
                     <div className="col mb-5">
                         <div className="card h-100">
                             
-                            <div className="badge bg-dark text-white position-absolute"  >Sale</div>
+                            <div className="badge inner-card bg-dark text-white position-absolute"  >Sale</div>
                             
                             <img className="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
                             
@@ -56,7 +56,7 @@ export const Home = () => {
                                     <span className="text-muted text-decoration-line-through">$20.00</span>
                                     $18.00
                                 </div>
-                            </div>
+                            </div>pt
                             <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
                             </div>
@@ -65,7 +65,7 @@ export const Home = () => {
                     <div className="col mb-5">
                         <div className="card h-100">
                             
-                            <div className="badge bg-dark text-white position-absolute"  >Sale</div>
+                            <div className="badge inner-card bg-dark text-white position-absolute"  >Sale</div>
                             
                             <img className="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
                            
@@ -113,7 +113,7 @@ export const Home = () => {
                     <div className="col mb-5">
                         <div className="card h-100">
                             
-                            <div className="badge bg-dark text-white position-absolute"  >Sale</div>
+                            <div className="badge inner-card bg-dark text-white position-absolute"  >Sale</div>
                             
                             <img className="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
                             
@@ -153,7 +153,7 @@ export const Home = () => {
                     <div className="col mb-5">
                         <div className="card h-100">
                             
-                            <div className="badge bg-dark text-white position-absolute"  >Sale</div>
+                            <div className="badge inner-card bg-dark text-white position-absolute"  >Sale</div>
                            
                             <img className="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
                            
