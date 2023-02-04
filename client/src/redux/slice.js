@@ -9,14 +9,21 @@ const initialState = {
     adder:0,
     products:[{
         id:1,
-        title:"title1",
+        name:"name1",
         description:"description1",
-        completed: false
-    }
-        
-    ]
-
+        price: 0,
+        pictures: "pic1"
+    },
+    {
+      id:2,
+      name:"name2",
+      description:"description2",
+      price: 10,
+      pictures: "pic2"
+  },
     
+    ],
+    category:[]  
 }
 
 export const getTodos = createAsyncThunk(
@@ -34,6 +41,7 @@ export const getTodos = createAsyncThunk(
         }
     }
 );
+
 
 
 
@@ -55,17 +63,18 @@ export const counterSlice = createSlice({
      },
     
      deleteProduct:(state,action) => {
-        const productFound = state.find(task => task.id === action.payload)
-        if(taskFound){
-           state.products.splice(state.indexOf(productFound), 1)
+        const productFound = state.products.find(task => task.id === action.payload)
+        if(productFound){
+           state.products.splice(state.products.indexOf(productFound), 1)
         }
      },
      updateProduct:(state, action) => {
-        const {id, title,description} = action.payload
-        const foundProduct = state.find(p => p.products.id === id)
+        const {id, name,description, price} = action.payload
+        const foundProduct = state.products.find(p => p.products.id === id)
         if(foundProduct){
-           foundProduct.title = title
+           foundProduct.pictures = pictures
            foundProduct.description = description
+           foundProduct.price = price
         }
      }
     },
@@ -87,4 +96,4 @@ export const counterSlice = createSlice({
 })
 
 export default counterSlice.reducer
-export const {add, addition} = counterSlice.actions
+export const {add, addition, addProduct, deleteProduct, updateProduct} = counterSlice.actions

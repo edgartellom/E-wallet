@@ -18,6 +18,7 @@ const Navbar = ()=>{
                                 <li><hr className="dropdown-divider" /></li>
                                 <li><a className="dropdown-item" href="#!">Popular Items</a></li>
                                 <li><a className="dropdown-item" href="#!">New Arrivals</a></li>
+                                <li><a className="dropdown-item" href="/creating">Create a phone</a></li>
                             </ul>
                         </li>
                     </ul>
