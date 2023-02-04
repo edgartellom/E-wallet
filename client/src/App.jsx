@@ -1,19 +1,20 @@
+import './App.css';
+import Navbar from './commons/navbar/Navbar';
+import HomePage from './pages/home/Home';
+import Footer from './commons/footer/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import './App.css'
-import Navbar from './commons/Navbar/Navbar'
-import Footer from './commons/Footer/Footer'
-import HomePage from './pages/home/Home'
-import SeeAllProducts from './components/createProducts/seeAllProducts'
-
+  
 function App() {
 
   return (
-    <>
-      <SeeAllProducts />
-      <Navbar></Navbar>
-      <HomePage></HomePage>
-      <Footer></Footer>
-    </>
+    <BrowserRouter>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<HomePage />} /> 
+      </Routes>
+      <Footer/>
+      </BrowserRouter>
   )
 }
 
