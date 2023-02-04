@@ -6,7 +6,17 @@ const initialState = {
     counter:[],
     status:'idle',
     error:null,
-    adder:0
+    adder:0,
+    products:[{
+        id:1,
+        title:"title1",
+        description:"description1",
+        completed: false
+    }
+        
+    ]
+
+    
 }
 
 export const getTodos = createAsyncThunk(
@@ -26,14 +36,6 @@ export const getTodos = createAsyncThunk(
 );
 
 
-    // extraReducers: (builder) => {
-    // builder.addCase(getTodos.pending, (state) => {
-    //     state.loading = true;
-    // });
-    // builder.addCase(getTodos.fulfilled, (state, action) => {
-    //     state.todos= action.payload;
-    //     state.loading = false;
-    // });
 
 export const counterSlice = createSlice({
    name:'counter',
@@ -47,6 +49,25 @@ export const counterSlice = createSlice({
      addition:(state, action) => {
         state.adder += action.payload   
      },
+     addProduct: (state, action) => {
+        console.log(state, action)
+        state.products.push(action.payload)
+     },
+    
+     deleteProduct:(state,action) => {
+        const productFound = state.find(task => task.id === action.payload)
+        if(taskFound){
+           state.products.splice(state.indexOf(productFound), 1)
+        }
+     },
+     updateProduct:(state, action) => {
+        const {id, title,description} = action.payload
+        const foundProduct = state.find(p => p.products.id === id)
+        if(foundProduct){
+           foundProduct.title = title
+           foundProduct.description = description
+        }
+     }
     },
      extraReducers: (builder) => {
         builder.addCase(getTodos.pending, (state) => {

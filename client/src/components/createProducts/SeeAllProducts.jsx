@@ -6,9 +6,12 @@ function SeeAllProducts() {
     const dispatch = useDispatch()
     const selector = useSelector(state => state.counter.counter)
     const idle = useSelector(state => state.counter.status)
+    const products = useSelector(state => state.counter.products)
 
     const adder = useSelector(state => state.counter.adder)
     console.log(idle)
+    console.log(products)
+
 
     useEffect(() => {
       if(idle === 'idle'){
