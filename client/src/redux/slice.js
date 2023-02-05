@@ -7,7 +7,9 @@ const initialState = {
     status:'idle',
     error:null,
     adder:0,
-    products:[{
+    products:[{  
+      // possible attritubes:
+      //id,brand,model,price,image,detail
         id:1,
         name:"name1",
         description:"description1",
@@ -42,6 +44,17 @@ export const getTodos = createAsyncThunk(
     }
 );
 
+export const createProducts = createAsyncThunk(
+   'products/createProducts',
+   async (payload) => {
+      try{
+         const res = await axios.post("CreateURLHere", payload)
+         return res
+      }catch(e){
+         return console.log("error trying to create")
+      }
+   }
+)
 
 
 
@@ -86,11 +99,13 @@ export const counterSlice = createSlice({
         builder.addCase(getTodos.fulfilled, (state, action) => {
           // Add user to the state array
           state.counter = action.payload
-          
-          
-          
           //state.counter.push(action.payload)
-        })
+        }),
+        builder.addCase(createProducts.fulfilled, (state) =>{
+            state.counter.products.push(action.payload)
+            //state.counter.push(action.payload)
+            // try either 
+        } )
       },
    
 })
