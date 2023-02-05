@@ -1,14 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addProduct } from "../../redux/slice";
+import { addProduct, getTodos } from "../../redux/slice";
 
 //import { getTypes, createRecipes } from "../../redux/action";
 // import { useParams } from "react-router-dom";
 // import {Link} from 'react-router-dom'
-
-import axios from "axios";
-
 
 
 function CreateProduct() {
@@ -60,13 +57,14 @@ function CreateProduct() {
 
   useEffect(() => {
     console.log(products)
-    
+    dispatch(getTodos())
     // if(params.id && recipeDb){  //UPDATE
     //   setInput(recipeDb.find((i) => i.id === params.id))
     // }
 
   }, []);
 
+  console.log(products)
 //   const submitHandle = (e) => {
 //     e.preventDefault()
 //     if(params.id && recipeDb){
