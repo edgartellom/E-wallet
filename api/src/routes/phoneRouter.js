@@ -25,18 +25,64 @@ router.get("/", async  (req, res, next) => {
 
 
 router.post('/', async  (req,res, next) => {
-    try{
-        const {brand, model, price, image, detail  } = req.body;
-        const newPhone = await  Phone.create({
-            brand,
-            model,
-            price,
-            image,
-            detail
-        }); 
+    try {
+            const {
+                    brand,
+                    name,
+                    model,
+                    network,
+                    launch,
+                    dimensions,
+                    weight,
+                    displaySize,
+                    displayResolution,
+                    os,
+                    ram,
+                    internalMemory,
+                    chipset,
+                    cpu,
+                    selfieCameraResolution,
+                    selfieCameraVideo,
+                    mainCameraResolution,
+                    mainCameraVideo,
+                    battery,
+                    price,
+                    color,
+                    image,
+                    category
+                } = req.body;
+            let newPhone = await Phone.create({
+                brand,
+                name,
+                model,
+                network,
+                launch,
+                dimensions,
+                weight,
+                displaySize,
+                displayResolution,
+                os,
+                ram,
+                internalMemory,
+                chipset,
+                cpu,
+                selfieCameraResolution,
+                selfieCameraVideo,
+                mainCameraResolution,
+                mainCameraVideo,
+                battery,
+                price,
+                color,
+                image
+            }); 
+            let categoryDb = await Category.findAll({
+                where: {name: category}
+            })
+            newPhone.addCategory(categoryDb);
             res.status(200).send(newPhone); 
-        }catch(error)
-            {res.status(404).send('NOT FOUND')}
+        } catch(error){
+            res.status(404).send('NOT FOUND')
+        }
             
     });
 
@@ -80,11 +126,11 @@ router.post('/', async  (req,res, next) => {
 
     router.put("/", async (req,res,next) => {
         try {
-            let { id,brand,model,price,image,detail } = req.body;
-            if( !brand || !model || !price || !image || !detail){
+            let { id, brand, name, model, price, color, image } = req.body;
+            if( !brand || !name || !model || !price || !color || !image){
                 return res.status(400).send({error:"Missing info"});
             }else{
-                let modifyPhone = await updatePhone({id,brand,model,price,image,detail});
+                let modifyPhone = await updatePhone({ id, brand, name, model, price, color, image });
             
                 return res.status(200).send(modifyPhone);
             }
