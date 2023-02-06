@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios'
 
@@ -23,7 +23,7 @@ export const getTodos = createAsyncThunk(
     "counter/getCounter",
     async () => {
         try {
-            const response = await axios.get("https://jsonplaceholder.typicode.com/todos");
+            const response = await axios.get("https://localhost:3001/phones");
             console.log(response)
             console.log(response.data)
             
