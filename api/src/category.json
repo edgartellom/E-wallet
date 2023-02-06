@@ -1,21 +1,21 @@
 [
     {
-        "name":"Touchscreen keyboard"
+        "name":"touchscreen keyboard"
     },
 
     {
-        "name":"QWERTY keyboard"
+        "name":"qwerty keyboard"
     },
 
     {
-        "name":"Foldable cell phone"
+        "name":"foldable cell phone"
     },
 
     {
-        "name":"Rugged"
+        "name":"rugged"
     },
 
     {
-        "name":"Dual-Screen"
+        "name":"dual-screen"
     }
 ]

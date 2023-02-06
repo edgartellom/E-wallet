@@ -6,16 +6,16 @@ const router = Router()
 
 router.get("/", async  (req, res, next) => {
     try {
-        const phones = await Phone.findAll();
         const { brand } = req.query;
+        const allPhones = await getAllPhones();
         if(brand){
-            let phoneBrand = phones.filter(el => 
+            let phoneBrand = await allPhones.filter(el => 
                 el.brand.toLowerCase().includes(brand.toLowerCase())
                 );
                 phoneBrand.length ? res.status(200).send(phoneBrand) :
                 res.status(400).send("BRAND NOT FOUND");
         }else{
-            res.status(200).send(phones);
+            res.status(200).send(allPhones);
         }        
     } catch (error) {
         next(error)
@@ -26,7 +26,7 @@ router.get("/", async  (req, res, next) => {
 
 router.post('/', async  (req,res, next) => {
     try {
-            const {
+            let {
                     brand,
                     name,
                     model,
@@ -38,7 +38,7 @@ router.post('/', async  (req,res, next) => {
                     displayResolution,
                     os,
                     ram,
-                    internalMemory,
+                    internMemory,
                     chipset,
                     cpu,
                     selfieCameraResolution,
@@ -63,7 +63,7 @@ router.post('/', async  (req,res, next) => {
                 displayResolution,
                 os,
                 ram,
-                internalMemory,
+                internMemory,
                 chipset,
                 cpu,
                 selfieCameraResolution,
@@ -90,9 +90,9 @@ router.post('/', async  (req,res, next) => {
     router.get("/:id", async  (req, res, next) => {
     try {
         const { id } = req.params;
-        let phones = await getAllPhones();
+        let allPhones = await getAllPhones();
         if (id){
-            let phoneId = await phones.filter(e => e.id == id);
+            let phoneId = await allPhones.filter(e => e.id == id);
             phoneId.length?
             res.status(200).send(phoneId) :
             res.status(404).send('Phone not found!');
@@ -106,9 +106,9 @@ router.post('/', async  (req,res, next) => {
     router.delete("/:id", async  (req, res, next) => {
         try {
             const { id } = req.params;
-            let phones = await getAllPhones();
+            let allPhones = await getAllPhones();
             if (id){
-                let phoneId = await phones.filter(e => e.id == id);
+                let phoneId = await allPhones.filter(e => e.id == id);
                 await Phone.destroy({
                     where: {id: id}
                 })
@@ -116,7 +116,7 @@ router.post('/', async  (req,res, next) => {
                 res.status(200).send(phoneId) :
                 res.status(404).send('Phone not found!');
             }
-            phones = phones.filter(e => e.id != id)
+            allPhones = allPhones.filter(e => e.id != id)
         } catch (error) {
             next(error)
         }
