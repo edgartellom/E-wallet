@@ -1,3 +1,4 @@
+const e = require('express');
 const { Phone, Category } = require('../db');
 const phoneJson = require('../phone.json');
 
@@ -5,7 +6,7 @@ const getApiInfo = async () => {
     let phones = await phoneJson
     try {
         phones.forEach(el => {
-            let categories = el.category.map(category => category.name)
+            
             Phone.findOrCreate({
                 where: {
                     "brand": el.brand,
@@ -34,7 +35,8 @@ const getApiInfo = async () => {
                 }
             })
             // .then(async(phone,created) => {
-            //         let categoryDb = await (Category.findAll({
+                    // let categories = el.category.map(category => category.name)//         
+                    // let categoryDb = await (Category.findAll({
             //             where: {name: categories}
             //         }))
             //         phone.addCategory(categoryDb)
@@ -62,9 +64,8 @@ const getDbInfo = async () => {
 }
 
 const getAllPhones = async () => {
-    const apiInfo = await getApiInfo();
-    const dbInfo = await getDbInfo();
-    const infoTotal = apiInfo.concat(dbInfo);
+    await getApiInfo();
+    const infoTotal = await getDbInfo();
     return infoTotal;
 }
 
