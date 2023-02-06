@@ -1,0 +1,148 @@
+.product-details-action .btn-cart {
+    padding: 1rem 1.5rem;
+    max-width: 198px;
+    color: #c96;
+    border: 0.1rem solid #c96;
+}
+
+.btn-product {
+    color: #c96;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    line-height: 1;
+    transition: all .35s ease;
+    padding-top: 1.9rem;
+    padding-bottom: 1.9rem;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+
+.product-details-action {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    margin-bottom: 3rem;
+}
+
+.product-details-action .btn-cart span {
+    font-size: 1rem;
+    color: inherit;
+    text-transform: uppercase;
+    box-shadow: none;
+    transition: box-shadow .35s ease, color 0s ease;
+    
+}
+
+.ratings-val {
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden; */
+    color: #fcb941;
+}
+
+.ratings, .ratings-val {
+    /* display: inline-block;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    line-height: 1;*/
+    font-family: "molla"; 
+    
+}
+
+a {
+    /* font-family: 'Poppins'; */
+    /* font-family: "Gill Sans", sans-serif; */
+    font-family: system-ui;
+}
+
+a {
+    color: #c96;
+    text-decoration: none; 
+    text-decoration-line: none !important;
+    transition: color 0.3s ease;
+    
+}
+
+.breadcrumb {
+    background-color: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+}
+
+.breadcrumb-item {
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    letter-spacing: 0;
+    text-transform: capitalize;
+}
+
+.breadcrumb-item+.breadcrumb-item {
+    padding-left: 1rem;
+}
+
+.main{
+    box-sizing: border-box;
+}
+
+.product-price {
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.25;
+    color: #c96;
+    margin-bottom: 1.3rem;
+}
+
+.details-filter-row {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    margin-bottom: 2rem;
+}
+
+.product-details .product-price {
+    font-size: 2.4rem;
+}
+
+.details-filter-row .select-custom {
+    margin-bottom: 0;
+    margin-right: 3.9rem;
+}
+
+
+.details-filter-row {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    margin-bottom: 2rem;
+}
+
+.details-filter-row label {
+    display: inline-block;
+    width: 67px;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-bottom: 0;
+}
