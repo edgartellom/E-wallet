@@ -21,7 +21,6 @@ module.exports= (sequelize)=>{
         },
         model: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         network: {
             type: DataTypes.STRING
@@ -76,17 +75,18 @@ module.exports= (sequelize)=>{
         },
         price:{
             type: DataTypes.FLOAT,
-            allowNull: false,
         },
         color: {
             type: DataTypes.ARRAY(DataTypes.STRING),
-            allowNull: false,
         },
         image:{
             type: DataTypes.STRING,
-            allowNull: false,
         },
-            
+        createdInDb: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
+        }
     }, {
         timestamps:false,
         freezeTableName:true
