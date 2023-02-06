@@ -1,7 +1,4 @@
-.notfound img{
-    height: 75%;
-    width: 667p×;
-    height: 375px;
-
+img.notfound {
+  width: auto;
+  height: 10rem;
 }
-
