@@ -1,5 +1,5 @@
 function Product_Card({ props }) {
-  const { id, title, brand, price, image, rating, completed } = props;
+  const { id, name, brand, price, image, rating, completed } = props;
 
   let defaultImage = "https://dummyimage.com/450x300/dee2e6/6c757d.jpg";
 
@@ -14,18 +14,20 @@ function Product_Card({ props }) {
           <img
             className="card-img-top"
             src={image || defaultImage}
-            alt={title}
+            alt={`${brand} ${name}`}
           />
         </a>
 
         <div className="card-body p-4">
           <div className="text-center">
-            <h5 className="fw-bolder">{title}</h5>
+            <h5 className="fw-bolder">{`${brand} ${name}`}</h5>
             <div className="d-flex justify-content-center small text-warning mb-2">
               {/* Para mostrar rating con estrellas */}
-              {Array.from(new Array(rating)).map((_, i) => (
-                <div key={i} className="bi-star-fill"></div>
-              ))}
+              {rating && rating > 0
+                ? Array.from(new Array(rating)).map((_, i) => (
+                    <div key={i} className="bi-star-fill"></div>
+                  ))
+                : ""}
             </div>
             {price ? (
               <>

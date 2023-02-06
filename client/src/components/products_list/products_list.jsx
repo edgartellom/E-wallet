@@ -1,17 +1,19 @@
 import React from "react";
 import Product_Card from "../product_card/product_card";
-import { useDispatch, useSelector } from "react-redux";
-import { add, getTodos } from "../../redux/slice";
 import NotFound from "../not_found/not_found";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductList } from "../../redux/slices/productList.slice";
 
 function Products_List() {
   const dispatch = useDispatch();
-  const loading = useSelector((store) => store.counter.loading);
-  let products = useSelector((store) => store.counter.products);
+  let loading = useSelector((store) => store.product.status);
+  let products = useSelector((store) => store.product.list);
 
   React.useEffect(() => {
-    if (!products.length) dispatch(getTodos());
+    if (!products.length) dispatch(getProductList());
   }, []);
+
+  //console.log("products", products);
 
   return (
     <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
