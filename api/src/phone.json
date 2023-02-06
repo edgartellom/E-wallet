@@ -1,189 +1,204 @@
 [
     {
-    "brand":"Samsung",
-    "model":"Galaxy A14 5G",
-    "network":"5G",
-    "launch":"Released 2023, January 12",
-    "body":{
-        "dimensions":"167.7 x 78 x 9.1 mm (6.60 x 3.07 x 0.36 in)",
-        "weight":"202 g (7.13 oz)"
-    },
-    "display":{
-        "type":"PLS LCD, 90Hz",
-        "size":"6.6 inches, 104.9 cm2 (~80.2% screen-to-body ratio)",
-        "resolution":"1080 x 2408 pixels, 20:9 ratio (~400 ppi density)"
-    },
-    "os":"Android 13, One UI Core 5",    
-    "memory":{
-        "ram":["4GB","6GB","8GB"],
-        "intern":["64GB","128GB"]
-    },
-    "cpu_model":"Octa-core (2x2.4 GHz & 6x2.0 GHz) - SM-A146B",
-    "camera":{
-        "selfie":{
-            "single": "13 MP, f/2.0, (wide)",
-            "video":"1080p@30fps"
+        "brand": "Samsung",
+        "name": "Galaxy A14 5G",
+        "model": "SM-A146",
+        "network": "5G",
+        "launch": "Released 2023, January 12",
+        "dimensions": "167.7 x 78 x 9.1 mm",
+        "weight": 202,
+        "display": {
+            "type": "PLS LCD, 90Hz",
+            "size": "6.6 inches",
+            "resolution": "1080 x 2408 pixels"
         },
-        "main":{
-            "main":"50 MP, f/1.8, (wide), PDAF",
-            "video":"1080p@30fps"
-        }
-    },    
-    "battery":"Li-Po 5000 mAh, non-removable",
-    "price": 169.00,
-    "color":["Black", "Light Green", "Dark Red", "Silver"],
-    "image":"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a14-5g.jpg"
+        "os": "Android 13",   
+        "memory": {
+            "ram": ["4GB","6GB","8GB"],
+            "intern": ["64GB","128GB"]
+        },
+        "chipset": "Exynos 1330",
+        "cpu": "Octa-core (2x2.4 GHz & 6x2.0 GHz)",
+        "cameras": {
+            "selfie": {
+                "resolution": "13 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "50 MP + 2 MP + 2 MP",
+                "video": "1080p@30fps"
+            }
+        },    
+        "battery": 5000,
+        "price": 169.00,
+        "color": ["Black", "Light Green", "Dark Red", "Silver"],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a14-5g.jpg",
+        "category": [
+            {"name" : "Touchscreen keyboard"}
+        ]
     },
     
 
 
     {
-        "brand":"Samsung",
-        "model":"Galaxy F04",
-        "network":"LTE",
-        "launch":"Released 2023, January 12",
-        "body":{
-            "dimensions":"167.7 x 78 x 9.1 mm (6.60 x 3.07 x 0.36 in)",
-            "weight":"188 g (6.63 oz)"
+        "brand": "Samsung",
+        "name": "Galaxy F04",
+        "model": "SM-E045F",
+        "network": "LTE",
+        "launch": "Released 2023, January 12",
+        "dimensions": "167.7 x 78 x 9.1 mm",
+        "weight": 188,
+        "display": {
+            "type": "PLS LCD",
+            "size": "6.5 inches",
+            "resolution": "720 x 1600 pixels"
         },
-        "display":{
-            "type":"PLS LCD",
-            "size":"6.5 inches, 102.0 cm2 (~81.8% screen-to-body ratio)",
-            "resolution":"720 x 1600 pixels, 20:9 ratio (~270 ppi density)"
+        "os": "Android 12",        
+        "memory": {
+            "ram": ["4GB"],
+            "intern": ["64GB"]
         },
-        "os":"Android 12, One UI",        
-        "memory":{
-            "ram":["4GB RAM"],
-            "intern":["64GB"]
-        },
-        "cpu_model":"Octa-core (4x2.35 GHz Cortex-A53 & 4x1.8 GHz Cortex-A53)",
-        "camera":{
-            "selfie":{
-                "single": "5 MP, f/2.2",
-                "video":"Yes"
+        "chipset": "Mediatek MT6765 Helio P35",
+        "cpu": "Octa-core (4x2.35 GHz & 4x1.8 GHz)",
+        "cameras": {
+            "selfie": {
+                "resolution": "5 MP",
+                "video": "Yes"
             },
-            "main":{
-                "main":"13 MP, f/2.2, (wide), AF",
-                "video":"1080p@30fps"
+            "main": {
+                "resolution": "13 MP + 2 MP",
+                "video": "1080p@30fps"
             }
         },    
-        "battery":"Li-Po 5000 mAh, non-removable",
+        "battery": 5000,
         "price": 90,
-        "color":["Jade Purple", "Opal Green"],
-        "image":"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f04-new.jpg"
+        "color": ["Jade Purple", "Opal Green"],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f04-new.jpg",
+        "category": [
+            {"name" : "Touchscreen keyboard"}
+        ]
+    },
+
+
+
+    {
+        "brand": "Samsung",
+        "name": "Galaxy M04",
+        "model": "SM-M045F",
+        "network": "LTE",
+        "launch": "Released 2022, December 16",
+        "dimensions": "164.2 x 75.9 x 9.1 mm",
+        "weight": 188,
+        "display": {
+            "type": "PLS LCD",
+            "size": "6.5 inches",
+            "resolution": "720 x 1600 pixels"
         },
-
-
-
-        {
-            "brand":"Samsung",
-            "model":"Galaxy M04",
-            "network":"LTE",
-            "launch":"Released 2022, December 16",
-            "body":{
-                "dimensions":"164.2 x 75.9 x 9.1 mm (6.46 x 2.99 x 0.36 in)",
-                "weight":"188 g (6.63 oz)"
+        "os": "Android 12",            
+        "memory": {
+            "ram": ["4GB"],
+            "intern": ["64GB","128GB"]
+        },
+        "chipset": "Mediatek MT6765 Helio P35",
+        "cpu": "Octa-core (4x2.35 GHz & 4x1.8 GHz)",
+        "cameras": {
+            "selfie": {
+                "resolution": "5 MP",
+                "video": "Yes"
             },
-            "display":{
-                "type":"PLS LCD",
-                "size":"6.5 inches, 102.0 cm2 (~81.8% screen-to-body ratio)",
-                "resolution":"720 x 1600 pixels, 20:9 ratio (~270 ppi density)"
+            "main": {
+                "resolution": "13 MP + 2 MP",
+                "video": "1080p@30fps"
+            }
+        },    
+        "battery": 5000,
+        "price": 89,
+        "color": ["Sea Glass Green", "Shadow Blue"],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m04-.jpg",
+        "category": [
+            {"name" : "Touchscreen keyboard"}
+        ]
+    },
+
+
+
+    {
+        "brand": "Samsung",
+        "name": "Galaxy A04e",
+        "model": "SM-A042F",
+        "network": "LTE",
+        "launch": "Released 2022, November 07",
+        "dimensions": "164.2 x 75.9 x 9.1 mm",
+        "weight": 188,
+        "display": {
+            "type": "PLS LCD",
+            "size": "6.5 inches",
+            "resolution": "720 x 1600 pixels"
+        },
+        "os": "Android 12",            
+        "memory": {
+            "ram": ["4GB"],
+            "intern": ["32GB","648GB","128GB"]
+        },
+        "chipset": "Mediatek MT6765 Helio P35",
+        "cpu": "Octa-core (4x2.3 GHz & 4x1.8 GHz)",
+        "cameras": {
+            "selfie": {
+                "resolution": "5 MP",
+                "video":"Yes"
             },
-            "os":"Android 12, One UI Core 4.1",            
-            "memory":{
-                "ram":["4GB RAM"],
-                "intern":["64GB","128GB"]
+            "main": {
+                "resolution": "13 MP + 2 MP",
+                "video": "1080p@30fps"
+            }
+        },    
+        "battery": 5000,
+        "price": 118.97,
+        "color": ["Black", "Copper", "Light Blue"],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a04e.jpg",
+        "category": [
+            {"name" : "Touchscreen keyboard"}
+        ]
+    },
+        
+
+
+    {
+        "brand": "Samsung",
+        "name": "Galaxy A04s",
+        "model": "SM-A047F",
+        "network": "LTE",
+        "launch": "Released 2022, September 22",
+        "dimensions": "164.7 x 76.7 x 9.1 mm",
+        "weight": 195,
+        "display":{ 
+            "type": "PLS LCD",
+            "size": "6.5 inches",
+            "resolution": "720 x 1600 pixels"
+        },
+        "os": "Android 12",            
+        "memory": {
+            "ram": ["4GB"],
+            "intern": ["32GB","64GB","128GB"]
+        },
+        "chipset": "Exynos 850",
+        "cpu": "Octa-core (4x2.0 GHz & 4x2.0 GHz)",
+        "cameras": {
+            "selfie": {
+                "resolution": "5 MP",
+                "video": "720p@30fps"
             },
-            "cpu_model":"Octa-core (4x2.35 GHz Cortex-A53 & 4x1.8 GHz Cortex-A53)",
-            "camera":{
-                "selfie":{
-                    "single": "5 MP, f/2.2",
-                    "video":"Yes"
-                },
-                "main":{
-                    "main":"13 MP, f/2.2, (wide), AF",
-                    "video":"1080p@30fps"
-                }
-            },    
-            "battery":"Li-Po 5000 mAh, non-removable",
-            "price":89,
-            "color":["Sea Glass Green", "Shadow Blue"],
-            "image":"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m04-.jpg"
-            },
-
-
-
-            {
-                "brand":"Samsung",
-                "model":"Galaxy A04e",
-                "network":"LTE",
-                "launch":"Released 2022, November 07",
-                "body":{
-                    "dimensions":"164.2 x 75.9 x 9.1 mm (6.46 x 2.99 x 0.36 in)",
-                    "weight":"188 g (6.63 oz)"
-                },
-                "display":{
-                    "type":"PLS LCD",
-                    "size":"6.5 inches, 102.0 cm2 (~81.8% screen-to-body ratio)",
-                    "resolution":"720 x 1600 pixels, 20:9 ratio (~270 ppi density)"
-                },
-                "os":"Android 12, One UI Core 4.1",            
-                "memory":{
-                    "ram":["4GB RAM"],
-                    "intern":["32GB","648GB","128GB"]
-                },
-                "cpu_model":"Octa-core (4x2.3 GHz Cortex-A53 & 4x1.8 GHz Cortex-A53)",
-                "camera":{
-                    "selfie":{
-                        "single": "5 MP, f/2.2",
-                        "video":"Yes"
-                    },
-                    "main":{
-                        "main":"13 MP, f/2.2, (wide), AF",
-                        "video":"1080p@30fps"
-                    }
-                },    
-                "battery":"Li-Po 5000 mAh, non-removable",
-                "price":118.97,
-                "color":["Black", "Copper", "Light Blue"],
-                "image":"https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a04e.jpg"
-                },
-                
-
-
-                {
-                    "brand":"Samsung",
-                    "model":"Galaxy A04s",
-                    "network":"LTE",
-                    "launch":"Released 2022, September 22",
-                    "body":{
-                        "dimensions":"164.7 x 76.7 x 9.1 mm (6.48 x 3.02 x 0.36 in)",
-                        "weight":"195 g (6.88 oz)"
-                    },
-                    "display":{
-                        "type":"PLS LCD, 90Hz, 400 nits (peak)",
-                        "size":"6.5 inches, 102.0 cm2 (~80.7% screen-to-body ratio)",
-                        "resolution":"720 x 1600 pixels, 20:9 ratio (~270 ppi density)"
-                    },
-                    "os":"Android 12, upgradable to Android 13, One UI Core 5",            
-                    "memory":{
-                        "ram":["4GB RAM"],
-                        "intern":["32GB","64GB","128GB"]
-                    },
-                    "cpu_model":"Octa-core (4x2.0 GHz Cortex-A55 & 4x2.0 GHz Cortex-A55)",
-                    "camera":{
-                        "selfie":{
-                            "single": "5 MP, f/2.2, (wide)",
-                            "video":"720p@30fps"
-                        },
-                        "main":{
-                            "main":"50 MP, f/1.8, (wide), PDAF",
-                            "video":"1080p@30fps"
-                        }
-                    },    
-                    "battery":"Li-Po 5000 mAh, non-removable",
-                    "price":132.00,
-                    "color":["Black", "Green", "White", "Copper"],
-                    "image":"https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a04s-3.jpg"
-                    }
+            "main": {
+                "resolution": "50 MP + 2 MP + 2 MP",
+                "video": "1080p@30fps"
+            }
+        },    
+        "battery": 5000,
+        "price": 132.00,
+        "color": ["Black", "Green", "White", "Copper"],
+        "image": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a04s-3.jpg",
+        "category": [
+            {"name" : "Touchscreen keyboard"}
+        ]
+    }
 ]

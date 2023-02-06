@@ -5,29 +5,87 @@ const { DataTypes }= require ('sequelize')
 module.exports= (sequelize)=>{
 
     sequelize.define( 'phone', {
-        id:{
+        id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
             primaryKey:true
         },
-        brand:{
+        brand: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        model:{
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        price:{
-            type: DataTypes.FLOAT
+        model: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
-        image:{
+        network: {
             type: DataTypes.STRING
         },
-        detail:{
-            type: DataTypes.JSON
-        }
+        launch: {
+            type: DataTypes.STRING
+        },
+        dimensions: {
+            type: DataTypes.STRING
+        },
+        weight: {
+            type: DataTypes.INTEGER
+        },
+        displayType: {
+            type: DataTypes.STRING
+        },
+        displaySize: {
+            type: DataTypes.STRING
+        },
+        displayResolution: {
+            type: DataTypes.STRING
+        },
+        os: {
+            type: DataTypes.STRING
+        },
+        ram: {
+            type: DataTypes.ARRAY(DataTypes.STRING)
+        },
+        internMemory: {
+            type: DataTypes.ARRAY(DataTypes.STRING)
+        },
+        chipset: {
+            type: DataTypes.STRING
+        },
+        cpu: {
+            type: DataTypes.STRING
+        },
+        selfieCameraResolution: {
+            type: DataTypes.STRING
+        },
+        selfieCameraVideo: {
+            type: DataTypes.STRING
+        },
+        mainCameraResolution: {
+            type: DataTypes.STRING
+        },
+        mainCameraVideo: {
+            type: DataTypes.STRING
+        },
+        battery: {
+            type: DataTypes.INTEGER
+        },
+        price:{
+            type: DataTypes.FLOAT,
+            allowNull: false,
+        },
+        color: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: false,
+        },
+        image:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
             
     }, {
         timestamps:false,

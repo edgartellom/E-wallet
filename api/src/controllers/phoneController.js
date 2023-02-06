@@ -1,64 +1,88 @@
-const { Phone } = require('../db');
+const { Phone, Category } = require('../db');
 const phoneJson = require('../phone.json');
 
-const getPhones = async () => {
+const getApiInfo = async () => {
     let phones = await phoneJson
-    phones.forEach(phone => {
-        Phone.create({
-            "brand":phone.brand,
-            "model":phone.model,
-            "price":phone.price,
-            "image":phone.image,
-            "detail": {
-                "network": phone.network,
-                "launch": phone.launch,
-                "dimensions": phone.body.dimensions,
-                "weight": phone.body.weight,
-                "display": {
-                    "type": phone.display.type,
-                    "size": phone.display.size,
-                    "resolution": phone.display.resolution
-                },
-                "os": phone.os,
-                "memory": {
-                    "ram": phone.memory.ram,
-                    "intern": phone.memory.intern
-                },
-                "cpu_model": phone.cpu_model,
-                "camera": {
-                    "selfie": {
-                        "single": phone.camera.selfie.single,
-                        "video": phone.camera.selfie.video
-                    },
-                    "main": {
-                        "main": phone.camera.main.main,
-                        "video": phone.camera.main.video
-                    }
-                },
-                "battery": phone.battery,
-                "color": phone.color.map(el => el)
-            }
+    try {
+        phones.forEach(el => {
+            let categories = el.category.map(category => category.name)
+            Phone.findOrCreate({
+                where: {
+                    "brand": el.brand,
+                    "name": el.name,
+                    "model": el.model,
+                    "network": el.network,
+                    "launch": el.launch,
+                    "dimensions": el.dimensions,
+                    "weight": el.weight,
+                    "displayType": el.display.type,
+                    "displaySize": el.display.size,
+                    "displayResolution": el.display.resolution,
+                    "os": el.os,
+                    "ram": el.memory.ram.map(el => el),
+                    "internMemory": el.memory.intern.map(el => el),
+                    "chipset": el.chipset,
+                    "cpu": el.cpu,
+                    "selfieCameraResolution": el.cameras.selfie.resolution,
+                    "selfieCameraVideo": el.cameras.selfie.video,
+                    "mainCameraResolution": el.cameras.main.resolution,
+                    "mainCameraVideo": el.cameras.main.video,
+                    "battery": el.battery,
+                    "price": el.price,
+                    "color": el.color.map(el => el),
+                    "image": el.image
+                }
+            })
+            // .then(async(phone,created) => {
+            //         let categoryDb = await (Category.findAll({
+            //             where: {name: categories}
+            //         }))
+            //         phone.addCategory(categoryDb)
+                
+            // })
         })
-    })
-    console.log('Phones loaded in data base succesfully!');
+    } catch (error) {
+        console.log(error)
+    }
+    console.log('Phones loaded into database succesfully!');
+
     return await Phone.findAll();
 }
 
-const updatePhone = async ({id,brand,model,price,image,detail}) => {
+const getDbInfo = async () => {
+    return await Phone.findAll({
+        include: {
+            model: Category,
+            attributes: ['name'],
+            through: {
+                attributes: []
+            }
+        }
+    });
+}
+
+const getAllPhones = async () => {
+    const apiInfo = await getApiInfo();
+    const dbInfo = await getDbInfo();
+    const infoTotal = apiInfo.concat(dbInfo);
+    return infoTotal;
+}
+
+const updatePhone = async ({ id, brand, name, model, price, color, image }) => {
     let phone = await Phone.findByPk(id);
     if(!phone) return {error:"PHONE NOT FOUND"};
-    phone.id = id;
     phone.brand = brand;
+    phone.name = name;
     phone.model = model;
     phone.price = price;
+    phone.color = color;
     phone.image = image;
-    phone.detail = detail;
     await phone.save();
     return phone;
 }
 
 
 module.exports = {
-    getPhones,
+    getAllPhones,
     updatePhone
 }
