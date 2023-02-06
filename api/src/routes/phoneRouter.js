@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { Phone, Order, Category, User } = require("../db");
-const { getPhones, updatePhone } = require('../controllers/phoneController');
+const { getAllPhones, updatePhone } = require('../controllers/phoneController');
 
 const router = Router()
 
@@ -73,7 +73,7 @@ router.post('/', async  (req,res, next) => {
                 battery,
                 price,
                 color,
-                image
+                image,
             }); 
             let categoryDb = await Category.findAll({
                 where: {name: category}
@@ -90,7 +90,7 @@ router.post('/', async  (req,res, next) => {
     router.get("/:id", async  (req, res, next) => {
     try {
         const { id } = req.params;
-        let phones = await getPhones();
+        let phones = await getAllPhones();
         if (id){
             let phoneId = await phones.filter(e => e.id == id);
             phoneId.length?
@@ -106,7 +106,7 @@ router.post('/', async  (req,res, next) => {
     router.delete("/:id", async  (req, res, next) => {
         try {
             const { id } = req.params;
-            let phones = await getPhones();
+            let phones = await getAllPhones();
             if (id){
                 let phoneId = await phones.filter(e => e.id == id);
                 await Phone.destroy({
