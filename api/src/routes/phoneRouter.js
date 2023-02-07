@@ -24,7 +24,7 @@ router.get("/", async  (req, res, next) => {
 
 
 
-router.post('/', async  (req,res, next) => {
+router.post('/', async  (req,res, next) => {  //some errors trying to create
     try {
             let {
                     brand,

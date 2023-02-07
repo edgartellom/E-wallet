@@ -15,6 +15,7 @@ const Navbar = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/">Home</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/phones">Create phones</Link></li>
             <li className="nav-item dropdown">
               <Link className="nav-link dropdown-toggle" id="navbarDropdown" to="/shop" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</Link>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">

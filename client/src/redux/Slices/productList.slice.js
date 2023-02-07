@@ -13,12 +13,13 @@ export const ProductListSlice = createSlice({
   name: "ProductList",
   initialState,
   reducers: {
-    searchList:(state, action)=>{
-      let words=action.payload;
-      state.list=state.allProducts.filter((i) => {
-        return i.brand.toLowerCase().includes(words.toLowerCase()) || i.name.toLowerCase().includes(words.toLowerCase());
-      });
-    },
+    deleteProduct:(state,action) => {
+      const productFound = state.list.find(p => p.id === action.payload)
+      if(productFound){
+         state.list.splice(state.list.indexOf(productFound), 1)
+      }
+   },
+
   },
   extraReducers: (builder) => {
     builder.addCase(getProductList.pending, (state) => {
@@ -36,6 +37,16 @@ export const ProductListSlice = createSlice({
       state.list = [];
       state.status = STATUSES.ERROR;
     });
+
+    builder.addCase(createProducts.fulfilled, (state, action) => {
+      console.log(action.payload)
+      if(action.payload){
+        state.list.push(action.payload)
+      }
+      
+      // state.list = action.payload
+    })
+    
   },
 });
 
@@ -56,3 +67,27 @@ export const getProductList = createAsyncThunk(
     }
   }
 );
+
+export const createProducts = createAsyncThunk(
+  'products/createProducts',
+  async (payload) => {
+    console.log(payload)
+     try{
+      console.log(payload, "line60")
+        let res = await axios.post("http://localhost:3001/phones", payload)
+        // const myphone = {
+        //   id:10,
+        //   name:"samsungtest",
+        //   brand:"galaxytest",
+        //   price:10
+        // }
+        //console.log("res",res)
+        return res.data
+     }catch(e){
+      console.log("error trying to create", e)
+        return {}
+     }
+  }
+)
+
+export const { deleteProduct } = ProductListSlice.actions 
