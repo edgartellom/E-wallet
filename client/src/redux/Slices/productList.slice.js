@@ -29,6 +29,21 @@ export const ProductListSlice = createSlice({
   },
 });
 
+const orderByNameSlice = createSlice({
+  name: 'orderByName',
+  initialState: {
+    list: [],
+  },
+  reducers: {
+    orderByName: (state, action) => {
+      action.payload === 'asc'
+        ? state.recipes.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
+        : state.recipes.sort((a, b) => (a.name > b.name ? -1 : a.name < b.name ? 1 : 0));
+    },
+  },
+});
+
+export const { orderByName } = orderByNameSlice.actions;
 export default ProductListSlice.reducer;
 
 export const getProductList = createAsyncThunk(

@@ -25,8 +25,8 @@ function Product_Card({ props }) {
               {/* Para mostrar rating con estrellas */}
               {rating && rating > 0
                 ? Array.from(new Array(rating)).map((_, i) => (
-                    <div key={i} className="bi-star-fill"></div>
-                  ))
+                  <div key={i} className="bi-star-fill"></div>
+                ))
                 : ""}
             </div>
             {price ? (
