@@ -13,10 +13,17 @@
             "size": "6.6 inches",
             "resolution": "1080 x 2408 pixels"
         },
-        "os": "Android 13",   
+        "os": "Android 13",
         "memory": {
-            "ram": ["4GB","6GB","8GB"],
-            "intern": ["64GB","128GB"]
+            "ram": [
+                "4GB",
+                "6GB",
+                "8GB"
+            ],
+            "intern": [
+                "64GB",
+                "128GB"
+            ]
         },
         "chipset": "Exynos 1330",
         "cpu": "Octa-core (2x2.4 GHz & 6x2.0 GHz)",
@@ -29,18 +36,22 @@
                 "resolution": "50 MP + 2 MP + 2 MP",
                 "video": "1080p@30fps"
             }
-        },    
+        },
         "battery": 5000,
         "price": 169.00,
-        "color": ["Black", "Light Green", "Dark Red", "Silver"],
+        "color": [
+            "Black",
+            "Light Green",
+            "Dark Red",
+            "Silver"
+        ],
         "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a14-5g.jpg",
         "category": [
-            {"name" : "Touchscreen keyboard"}
+            {
+                "name": "Touchscreen keyboard"
+            }
         ]
     },
-    
-
-
     {
         "id": 2,
         "brand": "Samsung",
@@ -55,10 +66,14 @@
             "size": "6.5 inches",
             "resolution": "720 x 1600 pixels"
         },
-        "os": "Android 12",        
+        "os": "Android 12",
         "memory": {
-            "ram": ["4GB"],
-            "intern": ["64GB"]
+            "ram": [
+                "4GB"
+            ],
+            "intern": [
+                "64GB"
+            ]
         },
         "chipset": "Mediatek MT6765 Helio P35",
         "cpu": "Octa-core (4x2.35 GHz & 4x1.8 GHz)",
@@ -71,18 +86,20 @@
                 "resolution": "13 MP + 2 MP",
                 "video": "1080p@30fps"
             }
-        },    
+        },
         "battery": 5000,
         "price": 90,
-        "color": ["Jade Purple", "Opal Green"],
+        "color": [
+            "Jade Purple",
+            "Opal Green"
+        ],
         "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-f04-new.jpg",
         "category": [
-            {"name" : "Touchscreen keyboard"}
+            {
+                "name": "Touchscreen keyboard"
+            }
         ]
     },
-
-
-
     {
         "id": 3,
         "brand": "Samsung",
@@ -97,10 +114,15 @@
             "size": "6.5 inches",
             "resolution": "720 x 1600 pixels"
         },
-        "os": "Android 12",            
+        "os": "Android 12",
         "memory": {
-            "ram": ["4GB"],
-            "intern": ["64GB","128GB"]
+            "ram": [
+                "4GB"
+            ],
+            "intern": [
+                "64GB",
+                "128GB"
+            ]
         },
         "chipset": "Mediatek MT6765 Helio P35",
         "cpu": "Octa-core (4x2.35 GHz & 4x1.8 GHz)",
@@ -113,18 +135,20 @@
                 "resolution": "13 MP + 2 MP",
                 "video": "1080p@30fps"
             }
-        },    
+        },
         "battery": 5000,
         "price": 89,
-        "color": ["Sea Glass Green", "Shadow Blue"],
+        "color": [
+            "Sea Glass Green",
+            "Shadow Blue"
+        ],
         "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m04-.jpg",
         "category": [
-            {"name" : "Touchscreen keyboard"}
+            {
+                "name": "Touchscreen keyboard"
+            }
         ]
     },
-
-
-
     {
         "id": 4,
         "brand": "Samsung",
@@ -139,34 +163,43 @@
             "size": "6.5 inches",
             "resolution": "720 x 1600 pixels"
         },
-        "os": "Android 12",            
+        "os": "Android 12",
         "memory": {
-            "ram": ["4GB"],
-            "intern": ["32GB","648GB","128GB"]
+            "ram": [
+                "4GB"
+            ],
+            "intern": [
+                "32GB",
+                "648GB",
+                "128GB"
+            ]
         },
         "chipset": "Mediatek MT6765 Helio P35",
         "cpu": "Octa-core (4x2.3 GHz & 4x1.8 GHz)",
         "cameras": {
             "selfie": {
                 "resolution": "5 MP",
-                "video":"Yes"
+                "video": "Yes"
             },
             "main": {
                 "resolution": "13 MP + 2 MP",
                 "video": "1080p@30fps"
             }
-        },    
+        },
         "battery": 5000,
         "price": 118.97,
-        "color": ["Black", "Copper", "Light Blue"],
+        "color": [
+            "Black",
+            "Copper",
+            "Light Blue"
+        ],
         "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a04e.jpg",
         "category": [
-            {"name" : "Touchscreen keyboard"}
+            {
+                "name": "Touchscreen keyboard"
+            }
         ]
     },
-        
-
-
     {
         "id": 5,
         "brand": "Samsung",
@@ -176,15 +209,21 @@
         "launch": "Released 2022, September 22",
         "dimensions": "164.7 x 76.7 x 9.1 mm",
         "weight": 195,
-        "display":{ 
+        "display": {
             "type": "PLS LCD",
             "size": "6.5 inches",
             "resolution": "720 x 1600 pixels"
         },
-        "os": "Android 12",            
+        "os": "Android 12",
         "memory": {
-            "ram": ["4GB"],
-            "intern": ["32GB","64GB","128GB"]
+            "ram": [
+                "4GB"
+            ],
+            "intern": [
+                "32GB",
+                "64GB",
+                "128GB"
+            ]
         },
         "chipset": "Exynos 850",
         "cpu": "Octa-core (4x2.0 GHz & 4x2.0 GHz)",
@@ -197,13 +236,2636 @@
                 "resolution": "50 MP + 2 MP + 2 MP",
                 "video": "1080p@30fps"
             }
-        },    
+        },
         "battery": 5000,
         "price": 132.00,
-        "color": ["Black", "Green", "White", "Copper"],
+        "color": [
+            "Black",
+            "Green",
+            "White",
+            "Copper"
+        ],
         "image": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a04s-3.jpg",
         "category": [
-            {"name" : "Touchscreen keyboard"}
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "brand": "Apple",
+        "name": "iPhone 14",
+        "model": "A2882",
+        "network": "5G",
+        "launch": "Released 2022, September 16",
+        "dimensions": "146.7 x 71.5 x 7.8 mm",
+        "weight": 172,
+        "display": {
+            "type": "OLED",
+            "size": "6.1 inches",
+            "resolution": "1170 x 2532 pixels"
+        },
+        "os": "iOS 16, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "6GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Apple A15 Bionic (5 nm)",
+        "cpu": "Hexa-core (2x3.23 GHz Avalanche + 4x1.82 GHz Blizzard)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/25/30/60fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP",
+                "video": "4K@24/25/30/60fps"
+            }
+        },
+        "battery": 3279,
+        "price": 639.99,
+        "color": [
+            "Midnight",
+            "Purple",
+            "Starlight",
+            "Blue",
+            "Red"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-3.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "brand": "Apple",
+        "name": "iPhone 14 Plus",
+        "model": "A2886",
+        "network": "5G",
+        "launch": "Released 2022, October 07",
+        "dimensions": "160.8 x 78.1 x 7.8 mm",
+        "weight": 203,
+        "display": {
+            "type": "OLED",
+            "size": "6.7 inches",
+            "resolution": "1284 x 2778 pixels"
+        },
+        "os": "iOS 16, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "6GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Apple A15 Bionic (5 nm)",
+        "cpu": "Hexa-core (2x3.23 GHz Avalanche + 4x1.82 GHz Blizzard)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/25/30/60fps, 1080p@25/30/60/120fps, gyro-EIS"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP",
+                "video": "4K@24/25/30/60fps, 1080p@25/30/60/120/240fps"
+            }
+        },
+        "battery": 4323,
+        "price": 720.00,
+        "color": [
+            "Midnight",
+            "Purple",
+            "Starlight",
+            "Blue",
+            "Red"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-plus.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "brand": "Apple",
+        "name": "iPhone 14 Pro",
+        "model": "A2890",
+        "network": "5G",
+        "launch": "Released 2022, September 16",
+        "dimensions": "147.5 x 71.5 x 7.9 mm",
+        "weight": 206,
+        "display": {
+            "type": "OLED, 120Hz",
+            "size": "6.1 inches",
+            "resolution": "1179 x 2556 pixels"
+        },
+        "os": "iOS 16, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "6GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB",
+                "1TB"
+            ]
+        },
+        "chipset": "Apple A16 Bionic (4 nm)",
+        "cpu": "Hexa-core (2x3.46 GHz Everest + 4x2.02 GHz Sawtooth)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/25/30/60fps, 1080p@25/30/60/120fps"
+            },
+            "main": {
+                "resolution": "48 MP + 12 MP + 12 MP",
+                "video": "4K@24/25/30/60fps, 1080p@25/30/60/120/240fps"
+            }
+        },
+        "battery": 3200,
+        "price": 999.99,
+        "color": [
+            "Space Black",
+            "Silver",
+            "Gold",
+            "Deep Purple"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "brand": "Apple",
+        "name": "iPhone 14 Pro Max",
+        "model": "A2894",
+        "network": "5G",
+        "launch": "Released 2022, September 16",
+        "dimensions": "160.7 x 77.6 x 7.9 mm",
+        "weight": 240,
+        "display": {
+            "type": "OLED, 120Hz",
+            "size": "6.7 inches",
+            "resolution": "1290 x 2796 pixels"
+        },
+        "os": "iOS 16, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "6GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB",
+                "1TB"
+            ]
+        },
+        "chipset": "Apple A16 Bionic (4 nm)",
+        "cpu": "Hexa-core (2x3.46 GHz Everest + 4x2.02 GHz Sawtooth)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/25/30/60fps, 1080p@25/30/60/120fps"
+            },
+            "main": {
+                "resolution": "48 MP + 12 MP + 12 MP",
+                "video": "4K@24/25/30/60fps, 1080p@25/30/60/120/240fps"
+            }
+        },
+        "battery": 4323,
+        "price": 1099.99,
+        "color": [
+            "Space Black",
+            "Silver",
+            "Gold",
+            "Deep Purple"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro-max-.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "brand": "Apple",
+        "name": "iPhone 13 mini",
+        "model": "A2628",
+        "network": "5G",
+        "launch": "Released 2021, September 24",
+        "dimensions": "131.5 x 64.2 x 7.7 mm",
+        "weight": 141,
+        "display": {
+            "type": "OLED",
+            "size": "5.4 inches",
+            "resolution": "1080 x 2340"
+        },
+        "os": "iOS 15, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "4GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Apple A15 Bionic (5 nm)",
+        "cpu": "Hexa-core (2x3.23 GHz Avalanche + 4x1.82 GHz Blizzard)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/25/30/60fps, 1080p@25/30/60/120fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 2438,
+        "price": 579.99,
+        "color": [
+            "Starlight",
+            "Midnight",
+            "Blue",
+            "Pink",
+            "Red",
+            "Green"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-mini.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "brand": "Apple",
+        "name": "iPhone 13",
+        "model": "A2633",
+        "network": "5G",
+        "launch": "Released 2021, September 24",
+        "dimensions": "146.7 x 71.5 x 7.7 mm",
+        "weight": 174,
+        "display": {
+            "type": "OLED",
+            "size": "6.1 inches",
+            "resolution": "1170 x 2532 pixels"
+        },
+        "os": "iOS 15, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "4GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "cpu": "Hexa-core (2x3.23 GHz Avalanche + 4x1.82 GHz Blizzard)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/25/30/60fps, 1080p@25/30/60/120fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 3240,
+        "price": 729.99,
+        "color": [
+            "Starlight",
+            "Midnight",
+            "Blue",
+            "Pink",
+            "Red",
+            "Green"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "brand": "Apple",
+        "name": "iPhone 13 Pro",
+        "model": "A2638",
+        "network": "5G",
+        "launch": "Released 2021, September 24",
+        "dimensions": "146.7 x 71.5 x 7.7 mm",
+        "weight": 204,
+        "display": {
+            "type": "OLED, 120Hz",
+            "size": "6.1 inches",
+            "resolution": "1170 x 2532 pixels"
+        },
+        "os": "iOS 15, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "6GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB",
+                "1TB"
+            ]
+        },
+        "chipset": "Apple A15 Bionic (5 nm)",
+        "cpu": "Hexa-core (2x3.23 GHz Avalanche + 4x1.82 GHz Blizzard)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "24/25/30/60fps, 1080p@30/60/120fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP + 12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 3095,
+        "price": 899.99,
+        "color": [
+            "Graphite",
+            "Gold",
+            "Silver",
+            "Sierra Blue",
+            "Alpine Green"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "brand": "Apple",
+        "name": "iPhone 13 Pro Max",
+        "model": "A2643",
+        "network": "5G",
+        "launch": "Released 2021, September 24",
+        "dimensions": "160.8 x 78.1 x 7.7 mm",
+        "weight": 240,
+        "display": {
+            "type": "OLED, 120Hz",
+            "size": "6.7 inches",
+            "resolution": "1284 x 2778 pixels"
+        },
+        "os": "iOS 15, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "6GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB",
+                "1TB"
+            ]
+        },
+        "chipset": "Apple A15 Bionic (5 nm)",
+        "cpu": "Hexa-core (2x3.23 GHz Avalanche + 4x1.82 GHz Blizzard)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "24/25/30/60fps, 1080p@30/60/120fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP + 12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 4352,
+        "price": 1099.99,
+        "color": [
+            "Graphite",
+            "Gold",
+            "Silver",
+            "Sierra Blue",
+            "Alpine Green"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "brand": "Apple",
+        "name": "iPhone 12 mini",
+        "model": "A2399",
+        "network": "5G",
+        "launch": "Released 2020, November 13",
+        "dimensions": "131.5 x 64.2 x 7.4 mm",
+        "weight": 135,
+        "display": {
+            "type": "OLED",
+            "size": "5.4 inches",
+            "resolution": "1080 x 2340 pixels"
+        },
+        "os": "iOS 14.1, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "4GB RAM"
+            ],
+            "intern": [
+                "64GB",
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Apple A14 Bionic (5 nm)",
+        "cpu": "Hexa-core (2x3.1 GHz Firestorm + 4x1.8 GHz Icestorm)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 2227,
+        "price": 419.99,
+        "color": [
+            "Black",
+            "White",
+            "Red",
+            "Green",
+            "Blue",
+            "Purple"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12-mini.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "brand": "Apple",
+        "name": "iPhone 12",
+        "model": "A2403",
+        "network": "5G",
+        "launch": "Released 2020, October 23",
+        "dimensions": "146.7 x 71.5 x 7.4 mm",
+        "weight": 164,
+        "display": {
+            "type": "OLED",
+            "size": "6.1 inches",
+            "resolution": "1170 x 2532 pixels"
+        },
+        "os": "iOS 14.1, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "4GB RAM"
+            ],
+            "intern": [
+                "64GB",
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Apple A14 Bionic (5 nm)",
+        "cpu": "Hexa-core (2x3.1 GHz Firestorm + 4x1.8 GHz Icestorm)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 2815,
+        "price": 399.99,
+        "color": [
+            "Black",
+            "White",
+            "Red",
+            "Green",
+            "Blue",
+            "Purple"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "brand": "Apple",
+        "name": "iPhone 12 Pro",
+        "model": "A2407",
+        "network": "5G",
+        "launch": "Released 2020, October 23",
+        "dimensions": "146.7 x 71.5 x 7.4 mm",
+        "weight": 189,
+        "display": {
+            "type": "OLED",
+            "size": "6.1 inches",
+            "resolution": "1170 x 2532 pixels"
+        },
+        "os": "iOS 14.1, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "4GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Apple A14 Bionic (5 nm)",
+        "cpu": "Hexa-core (2x3.1 GHz Firestorm + 4x1.8 GHz Icestorm)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP + 12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 2815,
+        "price": 729.99,
+        "color": [
+            "Silver",
+            "Graphite",
+            "Gold",
+            "Pacific Blue"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12-pro--.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "brand": "Apple",
+        "name": "iPhone 12 Pro Max",
+        "model": "A2411",
+        "network": "5G",
+        "launch": "Released 2020, October 23",
+        "dimensions": "160.8 x 78.1 x 7.4 mm",
+        "weight": 228,
+        "display": {
+            "type": "OLED",
+            "size": "6.7 inches",
+            "resolution": "1284 x 2778 pixels"
+        },
+        "os": "iOS 14.1, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "4GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Apple A14 Bionic (5 nm)",
+        "cpu": "Hexa-core (2x3.1 GHz Firestorm + 4x1.8 GHz Icestorm)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP + 12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 3687,
+        "price": 709.99,
+        "color": [
+            "Silver",
+            "Graphite",
+            "Gold",
+            "Pacific Blue"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12-pro-max-.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "brand": "Apple",
+        "name": "iPhone 11",
+        "model": "A2221",
+        "network": "LTE",
+        "launch": "Released 2019, September 20",
+        "dimensions": "150.9 x 75.7 x 8.3 mm",
+        "weight": 194,
+        "display": {
+            "type": "IPS LCD",
+            "size": "6.1 inches",
+            "resolution": "828 x 1792 pixels"
+        },
+        "os": "iOS 13, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "4GB RAM"
+            ],
+            "intern": [
+                "64GB",
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Apple A13 Bionic (7 nm+)",
+        "cpu": "Hexa-core (2x2.65 GHz Lightning + 4x1.8 GHz Thunder)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120fps"
+            },
+            "main": {
+                "main": "12 MP, f/1.8, 26mm (wide) - 12 MP, f/2.4, 120˚, 13mm (ultrawide)",
+                "video": "4K@24/30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 3110,
+        "price": 299.99,
+        "color": [
+            "Black",
+            "Green",
+            "Yellow",
+            "Purple",
+            "Red",
+            "White"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "brand": "Apple",
+        "name": "iPhone 11 Pro",
+        "model": "A2215",
+        "network": "LTE",
+        "launch": "Released 2019, September 20",
+        "dimensions": "144 x 71.4 x 8.1 mm",
+        "weight": 188,
+        "display": {
+            "type": "OLED, HDR10",
+            "size": "5.8 inches",
+            "resolution": "1125 x 2436 pixels"
+        },
+        "os": "iOS 13, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "4GB RAM"
+            ],
+            "intern": [
+                "64GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "cpu": "Hexa-core (2x2.65 GHz Lightning + 4x1.8 GHz Thunder)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120fps"
+            },
+            "main": {
+                "main": "12 MP + 12 MP + 12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 3046,
+        "price": 429.99,
+        "color": [
+            "Matte Space Gray",
+            "Matte Silver",
+            "Matte Gold",
+            "Matte Midnight Green"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11-pro.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "brand": "Apple",
+        "name": "iPhone 11 Pro Max",
+        "model": "A2218",
+        "network": "LTE",
+        "launch": "Released 2019, September 20",
+        "dimensions": "158 x 77.8 x 8.1 mm",
+        "weight": 226,
+        "display": {
+            "type": "OLED",
+            "size": "6.5 inches",
+            "resolution": "1242 x 2688 pixels"
+        },
+        "os": "iOS 13, upgradable to iOS 16.3",
+        "memory": {
+            "ram": [
+                "4GB RAM"
+            ],
+            "intern": [
+                "64GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Apple A13 Bionic (7 nm+)",
+        "cpu": "Hexa-core (2x2.65 GHz Lightning + 4x1.8 GHz Thunder)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120fps"
+            },
+            "main": {
+                "main": "12 MP+ 12 MP + 12 MP",
+                "video": "4K@24/30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 3969,
+        "price": 549.99,
+        "color": [
+            "Matte Space Gray",
+            "Matte Silver",
+            "Matte Gold",
+            "Matte Midnight Green"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11-pro-max-.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "brand": "Samsung",
+        "name": "Galaxy Z Flip4",
+        "model": "SM-F721B",
+        "network": "5G",
+        "launch": "Released 2022, August 25",
+        "dimensions": "Unfolded: 165.2 x 71.9 x 6.9 mm - Folded: 84.9 x 71.9 x 15.9-17.1 mm",
+        "weight": 187,
+        "display": {
+            "type": "AMOLED, 120Hz",
+            "size": "6.7 inches",
+            "resolution": "1080 x 2640 pixels"
+        },
+        "os": "Android 12, upgradable to Android 13, One UI 5",
+        "memory": {
+            "ram": [
+                "8GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8475 Snapdragon 8+ Gen 1 (4 nm)",
+        "cpu": "Octa-core (1x3.19 GHz Cortex-X2 & 3x2.75 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510)",
+        "cameras": {
+            "selfie": {
+                "resolution": "10 MP, f/2.4, 26mm (wide)",
+                "video": "4K@30fps"
+            },
+            "main": {
+                "main": "12 MP + 12 MP",
+                "video": "4K@30/60fps, 1080p@60/240fps, 720p@960fps"
+            }
+        },
+        "battery": 3700,
+        "price": 649.99,
+        "color": [
+            "Bora Purple",
+            "Graphite",
+            "Pink Gold",
+            "Blue",
+            "Yellow",
+            "White",
+            "Navy",
+            "Khaki",
+            "Red"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip4-5g.jpg",
+        "category": [
+            {
+                "name": "Foldable cell phone"
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "brand": "Samsung",
+        "name": "Galaxy Z Fold4",
+        "model": "SM-F936B",
+        "network": "5G",
+        "launch": "Released 2022, August 25",
+        "dimensions": "Unfolded: 155.1 x 130.1 x 6.3 mm - Folded: 155.1 x 67.1 x 14.2-15.8 mm",
+        "weight": 263,
+        "display": {
+            "type": "AMOLED, 120Hz",
+            "size": "7.6 inches",
+            "resolution": "1812 x 2176 pixels"
+        },
+        "os": "Android 12, upgradable to Android 13, One UI 5",
+        "memory": {
+            "ram": [
+                "12GB RAM"
+            ],
+            "intern": [
+                "256GB",
+                "512GB",
+                "1TB"
+            ]
+        },
+        "chipset": "Qualcomm SM8475 Snapdragon 8+ Gen 1 (4 nm)",
+        "cpu": "Octa-core (1x3.19 GHz Cortex-X2 & 3x2.75 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510)",
+        "cameras": {
+            "selfie": {
+                "resolution": "4 MP",
+                "video": "4K@30/60fps, 1080p@30/60fps"
+            },
+            "main": {
+                "main": "50 MP + 10 MP + 12 MP",
+                "video": "8K@24fps, 4K@60fps, 1080p@60/240fps"
+            }
+        },
+        "battery": 4400,
+        "price": 1799.99,
+        "color": [
+            "Bora Purple",
+            "Graphite",
+            "Pink Gold",
+            "Blue",
+            "Yellow",
+            "White",
+            "Navy",
+            "Khaki",
+            "Red"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold4-5g.jpg",
+        "category": [
+            {
+                "name": "Foldable cell phone"
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "brand": "Samsung",
+        "name": "Galaxy Z Flip3 5G",
+        "model": "SM-F711B",
+        "network": "5G",
+        "launch": "Released 2021, August 27",
+        "dimensions": "Unfolded: 166 x 72.2 x 6.9 mm - Folded: 86.4 x 72.2 x 15.9-17.1 mm",
+        "weight": 183,
+        "display": {
+            "type": "AMOLED, 120Hz",
+            "size": "6.7 inches",
+            "resolution": "1080 x 2640 pixels"
+        },
+        "os": "Android 11, upgradable to Android 13, One UI 5",
+        "memory": {
+            "ram": [
+                "8GB RAM"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8350 Snapdragon 888 5G (5 nm)",
+        "cpu": "Octa-core (1x2.84 GHz Cortex-X1 & 3x2.42 GHz Cortex-A78 & 4x1.80 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "10 MP",
+                "video": "4K@30fps"
+            },
+            "main": {
+                "main": "12 MP + 12 MP",
+                "video": "4K@30/60fps, 1080p@60/240fps, 720p@960fps"
+            }
+        },
+        "battery": 3300,
+        "price": 999.99,
+        "color": [
+            "Phantom Black",
+            "Green",
+            "Lavender",
+            "Cream",
+            "White",
+            "Pink",
+            "Gray",
+            "Thom Browne Edition",
+            "Bespoke Edition",
+            "Wooyoungmi Edition",
+            "Dream White"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip3-5g.jpg",
+        "category": [
+            {
+                "name": "Foldable cell phone"
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "brand": "Samsung",
+        "name": "Galaxy Z Fold3 5G",
+        "model": "SM-F926B",
+        "network": "5G",
+        "launch": "Released 2021, August 27",
+        "dimensions": "Unfolded: 158.2 x 128.1 x 6.4 mm - Folded: 158.2 x 67.1 x 14.4-16 mm",
+        "weight": 271,
+        "display": {
+            "type": "AMOLED, 120Hz",
+            "size": "7.6 inches",
+            "resolution": "1768 x 2208 pixels"
+        },
+        "os": "Android 11, upgradable to Android 13, One UI 5",
+        "memory": {
+            "ram": [
+                "12GB RAM"
+            ],
+            "intern": [
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8350 Snapdragon 888 5G (5 nm)",
+        "cpu": "Octa-core (1x2.84 GHz Cortex-X1 & 3x2.42 GHz Cortex-A78 & 4x1.80 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "10 MP",
+                "video": "4K@30fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP + 12 MP",
+                "video": "4K@60fps, 1080p@60/240fps (gyro-EIS), 720p@960fps"
+            }
+        },
+        "battery": 4400,
+        "price": 1799.99,
+        "color": [
+            "Phantom Black",
+            "Phantom Silver",
+            "Phantom Green",
+            "Thom Browne Edition",
+            "Wooyoungmi Edition"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold3-5g.jpg",
+        "category": [
+            {
+                "name": "Foldable cell phone"
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "brand": "Cat",
+        "name": "S53",
+        "model": "",
+        "network": "5G",
+        "launch": "Released 2022, July 19",
+        "dimensions": "171 x 81 x 16 mm",
+        "weight": 320,
+        "display": {
+            "type": "IPS LCD",
+            "size": "6.5 inches",
+            "resolution": "720 x 1600 pixels"
+        },
+        "os": "Android 11",
+        "memory": {
+            "ram": [
+                "6GB"
+            ],
+            "intern": [
+                "128GB"
+            ]
+        },
+        "chipset": "Qualcomm SM4350 Snapdragon 480 5G (8 nm)",
+        "cpu": "Octa-core (2x2.0 GHz Kryo 460 & 6x1.8 GHz Kryo 460)",
+        "cameras": {
+            "selfie": {
+                "resolution": "16 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "48 MP + 2 MP",
+                "video": "1080p@30fps"
+            }
+        },
+        "battery": 5500,
+        "price": 529.99,
+        "color": [
+            "Black"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/cat-s53.jpg",
+        "category": [
+            {
+                "name": "Rugged"
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "brand": "Cat",
+        "name": "S62",
+        "model": "",
+        "network": "LTE",
+        "launch": "Released 2021, June 18",
+        "dimensions": "157.5 x 76.2 x 12.7 mm",
+        "weight": 260,
+        "display": {
+            "type": "IPS LCD",
+            "size": "5.7 inches",
+            "resolution": "1080 x 2160 pixels"
+        },
+        "os": "Android 10, upgradable to Android 11",
+        "memory": {
+            "ram": [
+                "4GB"
+            ],
+            "intern": [
+                "128GB"
+            ]
+        },
+        "chipset": "Qualcomm SDM660 Snapdragon 660 (14 nm)",
+        "cpu": "Octa-core (4x2.2 GHz Kryo 260 Gold & 4x1.8 GHz Kryo 260 Silver)",
+        "cameras": {
+            "selfie": {
+                "resolution": "8 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "48 MP + 2 MP",
+                "video": "4K@30fps, 1080p@30fps"
+            }
+        },
+        "battery": 4000,
+        "price": 439.99,
+        "color": [
+            "Black"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/cat-s62.jpg",
+        "category": [
+            {
+                "name": "Rugged"
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "brand": "Nokia",
+        "name": "8210 4G",
+        "model": "TA-1507",
+        "network": "LTE",
+        "launch": "Released 2022, July 28",
+        "dimensions": "157.5 x 76.2 x 12.7 mm",
+        "weight": 107,
+        "display": {
+            "type": "TFT LCD",
+            "size": "2.8 inches",
+            "resolution": "240 x 320 pixels"
+        },
+        "os": "S30+",
+        "memory": {
+            "ram": [
+                "48MB"
+            ],
+            "intern": [
+                "128MB"
+            ]
+        },
+        "chipset": "Unisoc T107 (22 nm)",
+        "cpu": "1.0 GHz Cortex-A7",
+        "cameras": {
+            "selfie": {
+                "resolution": "No",
+                "video": "No"
+            },
+            "main": {
+                "resolution": "0.3 MP",
+                "video": "Unspecified"
+            }
+        },
+        "battery": 1450,
+        "price": 78.99,
+        "color": [
+            "Sand",
+            "Blue",
+            "Red"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/nokia-8210-4g.jpg",
+        "category": [
+            {
+                "name": "Qwerty keyboard"
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "brand": "Nokia",
+        "name": "5710 XpressAudio",
+        "model": "TA-1504",
+        "network": "LTE",
+        "launch": "Released 2022, July 28",
+        "dimensions": "138.9 x 57.7 x 16.2 mm",
+        "weight": 107,
+        "display": {
+            "type": "TFT LCD",
+            "size": "2.4 inches",
+            "resolution": "240 x 320 pixels"
+        },
+        "os": "S30+",
+        "memory": {
+            "ram": [
+                "48MB"
+            ],
+            "intern": [
+                "128MB"
+            ]
+        },
+        "chipset": "Unisoc T107 (22 nm)",
+        "cpu": "1.0 GHz Cortex-A7",
+        "cameras": {
+            "selfie": {
+                "resolution": "No",
+                "video": "No"
+            },
+            "main": {
+                "resolution": "0.3 MP",
+                "video": "Unspecified"
+            }
+        },
+        "battery": 1450,
+        "price": 113.99,
+        "color": [
+            "Black/White",
+            "Red/White"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/nokia-5710-xpressaudio.jpg",
+        "category": [
+            {
+                "name": "Qwerty keyboard"
+            }
+        ]
+    },
+    {
+        "id": 29,
+        "brand": "Google",
+        "name": "Pixel 7 Pro",
+        "model": "GP4BC",
+        "network": "5G",
+        "launch": "Released 2022, October 13",
+        "dimensions": "162.9 x 76.6 x 8.9 mm",
+        "weight": 212,
+        "display": {
+            "type": "AMOLED, 120Hz",
+            "size": "6.7 inches",
+            "resolution": "1440 x 3120 pixels"
+        },
+        "os": "Android 13",
+        "memory": {
+            "ram": [
+                "8GB",
+                "12GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Google Tensor G2 (5 nm)",
+        "cpu": "Octa-core (2x2.85 GHz Cortex-X1 & 2x2.35 GHz Cortex-A78 & 4x1.80 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "10.8 MP",
+                "video": "4K@30/60fps, 1080p@30/60fps"
+            },
+            "main": {
+                "resolution": "50 MP + 48 MP + 12 MP",
+                "video": "4K@30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 5000,
+        "price": 748.99,
+        "color": [
+            "Obsidian",
+            "Snow",
+            "Hazel"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel7-pro-new.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "brand": "Google",
+        "name": "Pixel 7",
+        "model": "GVU6C",
+        "network": "5G",
+        "launch": "Released 2022, October 13",
+        "dimensions": "155.6 x 73.2 x 8.7 mm",
+        "weight": 197,
+        "display": {
+            "type": "AMOLED, 90Hz",
+            "size": "6.3 inches",
+            "resolution": "1080 x 2400 pixels"
+        },
+        "os": "Android 13",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Google Tensor G2 (5 nm)",
+        "cpu": "Octa-core (2x2.85 GHz Cortex-X1 & 2x2.35 GHz Cortex-A78 & 4x1.80 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "10.8 MP",
+                "video": "4K@30/60fps, 1080p@30/60fps"
+            },
+            "main": {
+                "resolution": "50 MP + 12 MP",
+                "video": "4K@30/60fps, 1080p@30/60fps"
+            }
+        },
+        "battery": 4355,
+        "price": 553.99,
+        "color": [
+            "Obsidian",
+            "Snow",
+            "Lemongrass"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel7-new.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "brand": "Google",
+        "name": "Pixel 6a",
+        "model": "GX7AS",
+        "network": "5G",
+        "launch": "Released 2022, July 21",
+        "dimensions": "152.2 x 71.8 x 8.9 mm",
+        "weight": 178,
+        "display": {
+            "type": "OLED, HDR",
+            "size": "6.1 inches",
+            "resolution": "1080 x 2400 pixels"
+        },
+        "os": "Android 12, upgradable to Android 13",
+        "memory": {
+            "ram": [
+                "6GB"
+            ],
+            "intern": [
+                "128GB"
+            ]
+        },
+        "chipset": "Google Tensor (5 nm)",
+        "cpu": "Octa-core (2x2.80 GHz Cortex-X1 & 2x2.25 GHz Cortex-A76 & 4x1.80 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "8 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "12.2 MP + 12 MP",
+                "video": "4K@30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 4410,
+        "price": 314.99,
+        "color": [
+            "Chalk",
+            "Charcoal",
+            "Sage"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-6a.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 32,
+        "brand": "Google",
+        "name": "Pixel 6 Pro",
+        "model": "GLUOG",
+        "network": "5G",
+        "launch": "Released 2021, October 28",
+        "dimensions": "163.9 x 75.9 x 8.9 mm",
+        "weight": 210,
+        "display": {
+            "type": "LTPO AMOLED, 120Hz",
+            "size": "6.7 inches",
+            "resolution": "1440 x 3120 pixels"
+        },
+        "os": "Android 12, upgradable to Android 13",
+        "memory": {
+            "ram": [
+                "12GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Google Tensor (5 nm)",
+        "cpu": "Octa-core (2x2.80 GHz Cortex-X1 & 2x2.25 GHz Cortex-A76 & 4x1.80 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "11.1 MP",
+                "video": "4K@30fps, 1080p@30/60fps"
+            },
+            "main": {
+                "resolution": "50 MP + 48 MP + 12 MP",
+                "video": "4K@30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 5003,
+        "price": 309.99,
+        "color": [
+            "Cloudy White",
+            "Sorta Sunny",
+            "Stormy Black"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-6-pro.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 33,
+        "brand": "Google",
+        "name": "Pixel 6",
+        "model": "GB7N6",
+        "network": "5G",
+        "launch": "Released 2021, October 28",
+        "dimensions": "158.6 x 74.8 x 8.9 mm",
+        "weight": 207,
+        "display": {
+            "type": "AMOLED, 90Hz",
+            "size": "6.4 inches",
+            "resolution": "1080 x 2400 pixels"
+        },
+        "os": "Android 12, upgradable to Android 13",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Google Tensor (5 nm)",
+        "cpu": "Octa-core (2x2.80 GHz Cortex-X1 & 2x2.25 GHz Cortex-A76 & 4x1.80 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "8 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "50 MP + 12 MP",
+                "video": "4K@30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 4614,
+        "price": 298.99,
+        "color": [
+            "Sorta Seafoam",
+            "Kinda Coral",
+            "Stormy Black"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-6.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 34,
+        "brand": "Sony",
+        "name": "Xperia 5 IV",
+        "model": "XQCQ62B-GC",
+        "network": "5G",
+        "launch": "Released 2022, September 22",
+        "dimensions": "156 x 67 x 8.2 mm",
+        "weight": 172,
+        "display": {
+            "type": "OLED, 1B colors, 120Hz",
+            "size": "6.1 inches",
+            "resolution": "1080 x 2520 pixels"
+        },
+        "os": "Android 12, upgradable to Android 13",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8450 Snapdragon 8 Gen 1 (4 nm)",
+        "cpu": "Octa-core (1x3.00 GHz Cortex-X2 & 3x2.50 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@30fps, 1080p@30/60fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP + 12 MP",
+                "video": "4K@24/25/30/60/120fps HDR, 1080p@30/60/120fps"
+            }
+        },
+        "battery": 5000,
+        "price": 742.99,
+        "color": [
+            "Green",
+            "Black",
+            "Ecru White"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/sony-xperia-5-iv-ofic.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 35,
+        "brand": "Sony",
+        "name": "Xperia 1 IV",
+        "model": "XQCT62-B",
+        "network": "5G",
+        "launch": "Released 2022, June 11",
+        "dimensions": "165 x 71 x 8.2 mm",
+        "weight": 185,
+        "display": {
+            "type": "OLED, 1B colors, 120Hz",
+            "size": "6.5 inches",
+            "resolution": "1644 x 3840 pixels"
+        },
+        "os": "Android 12, upgradable to Android 13",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8450 Snapdragon 8 Gen 1 (4 nm)",
+        "cpu": "Octa-core (1x3.00 GHz Cortex-X2 & 3x2.50 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@30fps, 1080p@30/60fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP + 12 MP",
+                "video": "4K@24/25/30/60/120fps HDR, 1080p@30/60/120fps"
+            }
+        },
+        "battery": 5000,
+        "price": 798.99,
+        "color": [
+            "Black",
+            "Violet",
+            "White"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/sony-xperia-1-iv-.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 36,
+        "brand": "Sony",
+        "name": "Xperia 10 IV",
+        "model": "XQ-CC54",
+        "network": "5G",
+        "launch": "Released 2022, June 30",
+        "dimensions": "153 x 67 x 8.3 mm",
+        "weight": 161,
+        "display": {
+            "type": "OLED, 1B colors, HDR",
+            "size": "6.0 inches",
+            "resolution": "1080 x 2520 pixels"
+        },
+        "os": "Android 12, upgradable to Android 13",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Qualcomm SM6375 Snapdragon 695 5G (6 nm)",
+        "cpu": "Octa-core (2x2.2 GHz Kryo 660 Gold & 6x1.7 GHz Kryo 660 Silver)",
+        "cameras": {
+            "selfie": {
+                "resolution": "8 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "12 MP + 8 MP + 8 MP",
+                "video": "1080p@30fps"
+            }
+        },
+        "battery": 5000,
+        "price": 348.99,
+        "color": [
+            "Black",
+            "White",
+            "Mint",
+            "Lavender"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/sony-xperia-10-iv.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 37,
+        "brand": "Asus",
+        "name": "ROG Phone 6D Ultimate",
+        "model": "",
+        "network": "5G",
+        "launch": "Released 2022, October 07",
+        "dimensions": "173 x 77 x 10.4 mm",
+        "weight": 247,
+        "display": {
+            "type": "AMOLED, 1B colors, 165Hz",
+            "size": "6.78 inches",
+            "resolution": "1080 x 2448 pixels"
+        },
+        "os": "Android 12",
+        "memory": {
+            "ram": [
+                "16GB"
+            ],
+            "intern": [
+                "512GB"
+            ]
+        },
+        "chipset": "Mediatek Dimensity 9000+ (4 nm)",
+        "cpu": "Octa-core (1x3.35 GHz Cortex-X2 & 3x2.85 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "50 MP + 13 MP + 5 MP",
+                "video": "8K@24fps, 4K@30/60fps, 1080p@30/60/120/240fps, 720p@480fps"
+            }
+        },
+        "battery": 6000,
+        "price": 655.99,
+        "color": [
+            "Space Gray"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/asus-rog-phone-6d-ultimate.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 38,
+        "brand": "Asus",
+        "name": "ROG Phone 6D",
+        "model": "",
+        "network": "5G",
+        "launch": "Released 2022, October 07",
+        "dimensions": "173 x 77 x 10.4 mm",
+        "weight": 239,
+        "display": {
+            "type": "AMOLED, 1B colors, 165Hz",
+            "size": "6.78 inches",
+            "resolution": "1080 x 2448 pixels"
+        },
+        "os": "Android 12",
+        "memory": {
+            "ram": [
+                "12GB",
+                "16GB"
+            ],
+            "intern": [
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Mediatek Dimensity 9000+ (4 nm)",
+        "cpu": "Octa-core (1x3.35 GHz Cortex-X2 & 3x2.85 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "50 MP + 13 MP + 5 MP",
+                "video": "8K@24fps, 4K@30/60fps, 1080p@30/60/120/240fps, 720p@480fps"
+            }
+        },
+        "battery": 6000,
+        "price": 695.99,
+        "color": [
+            "Space Gray"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/asus-rog-phone-6d.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 38,
+        "brand": "Asus",
+        "name": "Zenfone 9",
+        "model": "AI2202",
+        "network": "5G",
+        "launch": "Released 2022, September 15",
+        "dimensions": "146.5 x 68.1 x 9.1 mm",
+        "weight": 169,
+        "display": {
+            "type": "Super AMOLED, 120Hz",
+            "size": "5.9 inches",
+            "resolution": "1080 x 2400 pixels"
+        },
+        "os": "Android 12, ZenUI",
+        "memory": {
+            "ram": [
+                "6GB",
+                "8GB",
+                "16GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8475 Snapdragon 8+ Gen 1 (4 nm)",
+        "cpu": "Octa-core (1x3.19 GHz Cortex-X2 & 3x2.75 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "4K@30fps, 1080p@30/60fps"
+            },
+            "main": {
+                "resolution": "50 MP + 12 MP",
+                "video": "8K@24fps, 4K@30/60/120fps, 1080p@30/60/240fps"
+            }
+        },
+        "battery": 4300,
+        "price": 599.99,
+        "color": [
+            "Starry Blue",
+            "Moonlight White",
+            "Sunset Red",
+            "Midnight Black"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/asus-zenfone-9-new.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 39,
+        "brand": "Microsoft",
+        "name": "Surface Duo 2",
+        "model": "",
+        "network": "5G",
+        "launch": "Released 2021, October 21",
+        "dimensions": "Unfolded: 184.5 x 145.2 x 5.5 mm - Folded: 145.2 x 92.1 x 11 mm",
+        "weight": 284,
+        "display": {
+            "type": "AMOLED, 90Hz",
+            "size": "8.3 inches",
+            "resolution": "1892 x 2688 pixels"
+        },
+        "os": "Android 11",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8350 Snapdragon 888 5G (5 nm)",
+        "cpu": "Octa-core (1x2.84 GHz Cortex-X1 & 3x2.42 GHz Cortex-A78 & 4x1.80 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "12 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "12 MP + 12 MP + 16 MP",
+                "video": "4K@30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 4449,
+        "price": 1479.99,
+        "color": [
+            "Glacier",
+            "Obsidian"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/microsoft-surface-duo2.jpg",
+        "category": [
+            {
+                "name": "Foldable cell phone"
+            }
+        ]
+    },
+    {
+        "id": 40,
+        "brand": "Microsoft",
+        "name": "Surface Duo",
+        "model": "",
+        "network": "LTE",
+        "launch": "Released 2020, September 10",
+        "dimensions": "Unfolded: 186.9 x 145.2 x 4.8 mm - Folded: 145.2 x 93.3 x 9.9 mm",
+        "weight": 250,
+        "display": {
+            "type": "AMOLED",
+            "size": "8.1 inches",
+            "resolution": "1800 x 2700 pixels"
+        },
+        "os": "Android 10",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8150 Snapdragon 855 (7 nm)",
+        "cpu": "Octa-core (1x2.84 GHz Kryo 485 & 3x2.42 GHz Kryo 485 & 4x1.78 GHz Kryo 485)",
+        "cameras": {
+            "selfie": {
+                "resolution": "Uses main camera",
+                "video": "Uses main camera"
+            },
+            "main": {
+                "resolution": "11 MP",
+                "video": "4K@30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 3577,
+        "price": 399.99,
+        "color": [
+            "White"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/microsoft-surface-duo.jpg",
+        "category": [
+            {
+                "name": "Foldable cell phone"
+            }
+        ]
+    },
+    {
+        "id": 40,
+        "brand": "Microsoft",
+        "name": "Surface Duo",
+        "model": "",
+        "network": "LTE",
+        "launch": "Released 2020, September 10",
+        "dimensions": "Unfolded: 186.9 x 145.2 x 4.8 mm - Folded: 145.2 x 93.3 x 9.9 mm",
+        "weight": 250,
+        "display": {
+            "type": "AMOLED",
+            "size": "8.1 inches",
+            "resolution": "1800 x 2700 pixels"
+        },
+        "os": "Android 10",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8150 Snapdragon 855 (7 nm)",
+        "cpu": "Octa-core (1x2.84 GHz Kryo 485 & 3x2.42 GHz Kryo 485 & 4x1.78 GHz Kryo 485)",
+        "cameras": {
+            "selfie": {
+                "resolution": "Uses main camera",
+                "video": "Uses main camera"
+            },
+            "main": {
+                "resolution": "11 MP",
+                "video": "4K@30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 3577,
+        "price": 399.99,
+        "color": [
+            "White"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/microsoft-surface-duo.jpg",
+        "category": [
+            {
+                "name": "Foldable cell phone"
+            }
+        ]
+    },
+    {
+        "id": 41,
+        "brand": "Huawei",
+        "name": "Enjoy 50z",
+        "model": "EVE-AL00",
+        "network": "LTE",
+        "launch": "Released 2022, December 26",
+        "dimensions": "164.3 x 75.8 x 8.9 mm",
+        "weight": 188,
+        "display": {
+            "type": "IPS LCD",
+            "size": "6.52 inches",
+            "resolution": "720 x 1600 pixels"
+        },
+        "os": "HarmonyOS 2.0",
+        "memory": {
+            "ram": [
+                "6GB",
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "",
+        "cpu": "Octa-core",
+        "cameras": {
+            "selfie": {
+                "resolution": "5 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "50 MP + 2 MP + 2 MP",
+                "video": "1080p@30fps"
+            }
+        },
+        "battery": 5000,
+        "price": 149.99,
+        "color": [
+            "Sapphire Blue",
+            "Mint Green",
+            "Midnight Black"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/huawei-nova-y61.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 41,
+        "brand": "Huawei",
+        "name": "Mate 50 Pro",
+        "model": "DCO-AL00",
+        "network": "LTE",
+        "launch": "Released 2022, September 28",
+        "dimensions": "162.1 x 75.5 x 8.5 mm",
+        "weight": 205,
+        "display": {
+            "type": "OLED, 1B colors, 120Hz",
+            "size": "6.74 inches",
+            "resolution": "1212 x 2616 pixels"
+        },
+        "os": "EMUI 13 (International); HarmonyOS 3.0 (China)",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8475 Snapdragon 8+ Gen 1 4G (4 nm)",
+        "cpu": "Octa-core (1x3.19 GHz Cortex-X2 & 3x2.75 GHz Cortex-A710 & 4x2.0 GHz Cortex-A510)",
+        "cameras": {
+            "selfie": {
+                "resolution": "13 MP",
+                "video": "4K@30/60fps, 1080p@30/60/240fps"
+            },
+            "main": {
+                "resolution": "50 MP + 64 MP + 13 MP",
+                "video": "4K@30/60fps, 1080p@30/60/120/240/480fps, 720p@960fps, 720p@3840fps"
+            }
+        },
+        "battery": 4700,
+        "price": 1045.99,
+        "color": [
+            "Black",
+            "Silver",
+            "Purple",
+            "Orange"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/huawei-mate-50-pro.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 42,
+        "brand": "Huawei",
+        "name": "Mate 50E",
+        "model": "",
+        "network": "LTE",
+        "launch": "Released 2022, October 23",
+        "dimensions": "161.5 x 76.1 x 8 mm",
+        "weight": 201,
+        "display": {
+            "type": "OLED, 1B colors, 90Hz",
+            "size": "6.7 inches",
+            "resolution": "1224 x 2700 pixels"
+        },
+        "os": "HarmonyOS 3.0",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Qualcomm SM7325 Snapdragon 778G 5G (6 nm)",
+        "cpu": "Octa-core (1x2.4 GHz Cortex-A78 & 3x2.2 GHz Cortex-A78 & 4x1.9 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "13 MP",
+                "video": "4K@30/60fps, 1080p@30/60fps"
+            },
+            "main": {
+                "resolution": "50 MP + 13 MP",
+                "video": "4K@30/60fps, 1080p@30/60/120fps"
+            }
+        },
+        "battery": 4460,
+        "price": 579.99,
+        "color": [
+            "Black",
+            "Silver",
+            "Purple"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/huawei-mate-50e.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 43,
+        "brand": "Huawei",
+        "name": "Mate 50",
+        "model": "CET-AL00",
+        "network": "LTE",
+        "launch": "Released 2022, September 28",
+        "dimensions": "161.5 x 76.1 x 8 mm",
+        "weight": 202,
+        "display": {
+            "type": "OLED, 1B colors, 90Hz",
+            "size": "6.7 inches",
+            "resolution": "1224 x 2700 pixels"
+        },
+        "os": "EMUI 13 (International); HarmonyOS 3.0 (China)",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8475 Snapdragon 8+ Gen 1 4G (4 nm)",
+        "cpu": "Octa-core (1x3.19 GHz Cortex-X2 & 3x2.75 GHz Cortex-A710 & 4x2.0 GHz Cortex-A510)",
+        "cameras": {
+            "selfie": {
+                "resolution": "13 MP",
+                "video": "4K@30/60fps, 1080p@30/60/240fps"
+            },
+            "main": {
+                "resolution": "50 MP + 12 MP + 13 MP",
+                "video": "4K@30/60fps, 1080p@30/60/120/240fps, 1080p@960fps"
+            }
+        },
+        "battery": 4460,
+        "price": 719.99,
+        "color": [
+            "Black",
+            "Silver",
+            "Purple",
+            "Orange"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/huawei-mate-50.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 44,
+        "brand": "LG",
+        "name": "W41 Pro",
+        "model": "LMK610IM",
+        "network": "LTE",
+        "launch": "Released 2021, March 03",
+        "dimensions": "166.5 x 77.3 x 9.3 mm",
+        "weight": 201,
+        "display": {
+            "type": "IPS LCD",
+            "size": "6.55 inches",
+            "resolution": "900 x 1600 pixels"
+        },
+        "os": "Android 10",
+        "memory": {
+            "ram": [
+                "6GB"
+            ],
+            "intern": [
+                "128GB"
+            ]
+        },
+        "chipset": "Mediatek MT6765G Helio G35 (12 nm)",
+        "cpu": "Octa-core (4x2.3 GHz Cortex-A53 & 4x1.8 GHz Cortex-A53)",
+        "cameras": {
+            "selfie": {
+                "resolution": "8 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "48 MP + 8 MP + 5 MP + 2 MP",
+                "video": "1080p@30fps"
+            }
+        },
+        "battery": 5000,
+        "price": 180.99,
+        "color": [
+            "Magic Blue",
+            "Laser Blue"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/lg-w41-pro.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 45,
+        "brand": "LG",
+        "name": "W31+",
+        "model": "LMK315IM",
+        "network": "LTE",
+        "launch": "Released 2021, March 03",
+        "dimensions": "166.2 x 76.3 x 8.4 mm",
+        "weight": 173.6,
+        "display": {
+            "type": "IPS LCD",
+            "size": "6.52 inches",
+            "resolution": "900 x 1600 pixels"
+        },
+        "os": "Android 10",
+        "memory": {
+            "ram": [
+                "6GB"
+            ],
+            "intern": [
+                "128GB"
+            ]
+        },
+        "chipset": "Mediatek MT6762 Helio P22 (12 nm)",
+        "cpu": "Octa-core 2.0 GHz Cortex-A53",
+        "cameras": {
+            "selfie": {
+                "resolution": "8 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "13 MP + 5 MP + 2 MP",
+                "video": "1080p@30fps"
+            }
+        },
+        "battery": 4000,
+        "price": 139.99,
+        "color": [
+            "Midnight Blue"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/lg-w31-plus.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 45,
+        "brand": "Oppo",
+        "name": "Reno8 T 5G",
+        "model": "CPH2505",
+        "network": "5G",
+        "launch": "Release 2023, February 10",
+        "dimensions": "162.3 x 74.3 x 7.7 mm",
+        "weight": 171,
+        "display": {
+            "type": "AMOLED, 1B colors, 120Hz",
+            "size": "6.7 inches",
+            "resolution": "1080 x 2412 pixels"
+        },
+        "os": "Android 13, ColorOS 13",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Qualcomm SM6375 Snapdragon 695 5G (6 nm)",
+        "cpu": "Octa-core (2x2.2 GHz Kryo 660 Gold & 6x1.7 GHz Kryo 660 Silver)",
+        "cameras": {
+            "selfie": {
+                "resolution": "32 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "108 MP + 2 MP + 2 MP",
+                "video": "1080p@30fps"
+            }
+        },
+        "battery": 4800,
+        "price": 339.99,
+        "color": [
+            "Black Starlight",
+            "Dawn Gold"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno8-t.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 45,
+        "brand": "Oppo",
+        "name": "A78",
+        "model": "CPH2483",
+        "network": "5G",
+        "launch": "Released 2023, January 07",
+        "dimensions": "163.8 x 75.1 x 8 mm",
+        "weight": 188,
+        "display": {
+            "type": "IPS LCD, 90Hz",
+            "size": "6.56 inches",
+            "resolution": "720 x 1612 pixels"
+        },
+        "os": "Android 12, ColorOS 13",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB"
+            ]
+        },
+        "chipset": "Mediatek MT6833 Dimensity 700 (7 nm)",
+        "cpu": "Octa-core (2x2.2 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "8 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "50 MP + 2 MP",
+                "video": "1080p@30fps"
+            }
+        },
+        "battery": 5000,
+        "price": 229.99,
+        "color": [
+            "Glowing Black",
+            "Glowing Purple"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/oppo-a58.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 45,
+        "brand": "Oppo",
+        "name": "Reno9 Pro+",
+        "model": "PGW110",
+        "network": "5G",
+        "launch": "Released 2022, December 02",
+        "dimensions": "161.5 x 73.6 x 8 mm",
+        "weight": 192,
+        "display": {
+            "type": "AMOLED, 1B colors, 120Hz",
+            "size": "6.7 inches",
+            "resolution": "1080 x 2412 pixels"
+        },
+        "os": "Android 13, ColorOS 13",
+        "memory": {
+            "ram": [
+                "16GB"
+            ],
+            "intern": [
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8475 Snapdragon 8+ Gen 1 (4 nm)",
+        "cpu": "Octa-core (1x3.0 GHz Cortex-X2 & 3x2.75 GHz Cortex-A710 & 4x2.0 GHz Cortex-A510)",
+        "cameras": {
+            "selfie": {
+                "resolution": "32 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "50 MP + 8 MP + 2 MP",
+                "video": "1080p@30fps"
+            }
+        },
+        "battery": 4700,
+        "price": 649.99,
+        "color": [
+            "Black",
+            "Gold",
+            "Mint"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno9-pro-plus.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 47,
+        "brand": "Motorola",
+        "name": "Edge 30 Ultra",
+        "model": "XT-2201",
+        "network": "5G",
+        "launch": "Released 2022, September 08",
+        "dimensions": "161.8 x 73.5 x 8.4 mm",
+        "weight": 198.5,
+        "display": {
+            "type": "P-OLED, 1B colors, 144Hz",
+            "size": "6.67 inches",
+            "resolution": "1080 x 2400 pixels"
+        },
+        "os": "Android 12, planned upgrade to Android 13",
+        "memory": {
+            "ram": [
+                "8GB",
+                "12GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8475 Snapdragon 8+ Gen 1 (4 nm)",
+        "cpu": "Octa-core (1x3.0 GHz Cortex-X2 & 3x2.75 GHz Cortex-A710 & 4x2.0 GHz Cortex-A510)",
+        "cameras": {
+            "selfie": {
+                "resolution": "60 MP",
+                "video": "4K@30fps, 1080p@30fps"
+            },
+            "main": {
+                "resolution": "200 MP + 12 MP + 50 MP",
+                "video": "8K@30fps, 4K@30/60fps, 1080p@30/60/120/320/960fps"
+            }
+        },
+        "battery": 4610,
+        "price": 714.99,
+        "color": [
+            "Interstellar Black",
+            "Starlight White"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge30-ultra.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 47,
+        "brand": "Motorola",
+        "name": "Edge 30",
+        "model": "",
+        "network": "5G",
+        "launch": "Released 2022, May 12",
+        "dimensions": "159.4 x 74.2 x 6.8 mm",
+        "weight": 155,
+        "display": {
+            "type": "AMOLED, 1B colors, 144Hz",
+            "size": "6.5 inches",
+            "resolution": "1080 x 2400 pixels"
+        },
+        "os": "Android 12, planned upgrade to Android 13",
+        "memory": {
+            "ram": [
+                "6GB",
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Qualcomm SM7325-AE Snapdragon 778G+ 5G (6 nm)",
+        "cpu": "Octa-core (1x2.5 GHz Cortex-A78 & 3x2.4 GHz Cortex-A78 & 4x1.9 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "32 MP",
+                "video": "4K@30fps, 1080p@30/120fps"
+            },
+            "main": {
+                "resolution": "50 MP + 50 MP + 2 MP",
+                "video": "4K@30fps, 1080p@30/60/120fps, 720p@960fps"
+            }
+        },
+        "battery": 4020,
+        "price": 393.99,
+        "color": [
+            "Meteor Grey",
+            "Supermoon Silver",
+            "Aurora Green"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-30-.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 48,
+        "brand": "Motorola",
+        "name": "Edge 20 Pro",
+        "model": "XT2153-1",
+        "network": "5G",
+        "launch": "Released 2021, August 16",
+        "dimensions": "163 x 76 x 8 mm",
+        "weight": 190,
+        "display": {
+            "type": "OLED, 1B colors, 144Hz",
+            "size": "6.7 inches",
+            "resolution": "1080 x 2400 pixels"
+        },
+        "os": "Android 11, planned upgrade to Android 13",
+        "memory": {
+            "ram": [
+                "6GB",
+                "8GB",
+                "12GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8250-AC Snapdragon 870 5G (7 nm)",
+        "cpu": "Octa-core (1x3.2 GHz Kryo 585 & 3x2.42 GHz Kryo 585 & 4x1.80 GHz Kryo 585)",
+        "cameras": {
+            "selfie": {
+                "resolution": "32 MP",
+                "video": "4K@30fps, 1080p@30/120fps"
+            },
+            "main": {
+                "resolution": "108 MP + 8 MP + 16 MP",
+                "video": "8K@24fps, 4K@30/60fps, 1080p@30/60/240/960fps"
+            }
+        },
+        "battery": 4500,
+        "price": 343.99,
+        "color": [
+            "Meteor Grey",
+            "Supermoon Silver",
+            "Aurora Green"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge20-pro-.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            },
+            {
+                "name": "Qwerty keyboard"
+            }
+        ]
+    },
+    {
+        "id": 49,
+        "brand": "Motorola",
+        "name": "Edge 20",
+        "model": "XT2153-1",
+        "network": "5G",
+        "launch": "Released 2021, August 16",
+        "dimensions": "163 x 76 x 7 mm",
+        "weight": 163,
+        "display": {
+            "type": "OLED, 1B colors, 144Hz",
+            "size": "6.7 inches",
+            "resolution": "1080 x 2400 pixels"
+        },
+        "os": "Android 11, planned upgrade to Android 13",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Qualcomm SM7325 Snapdragon 778G 5G (6 nm)",
+        "cpu": "Octa-core (1x2.4 GHz Cortex-A78 & 3x2.2 GHz Cortex-A78 & 4x1.9 GHz Cortex-A55)",
+        "cameras": {
+            "selfie": {
+                "resolution": "32 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "108 MP + 8 MP + 16 MP",
+                "video": "4K@30fps, 1080p@30/60/120/240fps, 720p@960fps"
+            }
+        },
+        "battery": 4000,
+        "price": 448.99,
+        "color": [
+            "Frosted Grey",
+            "Frosted White",
+            "Frosted Emerald"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge-20.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
+        ]
+    },
+    {
+        "id": 50,
+        "brand": "Motorola",
+        "name": "Edge 30 Neo",
+        "model": "",
+        "network": "5G",
+        "launch": "Released 2022, October 07",
+        "dimensions": "152.9 x 71.2 x 7.8 mm",
+        "weight": 155,
+        "display": {
+            "type": "P-OLED, 120Hz",
+            "size": "6.28 inches",
+            "resolution": "1080 x 2400 pixels"
+        },
+        "os": "Android 12, planned upgrade to Android 13",
+        "memory": {
+            "ram": [
+                "6GB",
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB"
+            ]
+        },
+        "chipset": "Qualcomm SM6375 Snapdragon 695 5G (6 nm)",
+        "cpu": "Octa-core (2x2.2 GHz Kryo 660 Gold & 6x1.7 GHz Kryo 660 Silver)",
+        "cameras": {
+            "selfie": {
+                "resolution": "32 MP",
+                "video": "1080p@30fps"
+            },
+            "main": {
+                "resolution": "64 MP + 13 MP",
+                "video": "1080p@30/60/120fps"
+            }
+        },
+        "battery": 4020,
+        "price": 538.99,
+        "color": [
+            "Very Peri",
+            "Black Onyx",
+            "Ice Palace",
+            "Aqua Foam"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge30-neo-.jpg",
+        "category": [
+            {
+                "name": "Touchscreen keyboard"
+            }
         ]
     }
 ]
