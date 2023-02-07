@@ -61,15 +61,15 @@ export const createProducts = createAsyncThunk(
     console.log(payload)
      try{
       console.log(payload, "line60")
-        //let res = await axios.post("http://localhost:3001/phones", payload)
-        const myphone = {
-          id:10,
-          name:"samsungtest",
-          brand:"galaxytest",
-          price:10
-        }
+        let res = await axios.post("http://localhost:3001/phones", payload)
+        // const myphone = {
+        //   id:10,
+        //   name:"samsungtest",
+        //   brand:"galaxytest",
+        //   price:10
+        // }
         //console.log("res",res)
-        return myphone
+        return res.data
      }catch(e){
       console.log("error trying to create", e)
         return {}

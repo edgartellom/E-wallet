@@ -12,6 +12,7 @@ function CreatePhones() {
     const selector = useSelector((state) => state.product.list)
 
     const [input, setInput] = useState({
+      category:'',
        name:'',
         brand: "",   
         price:'',
@@ -24,7 +25,8 @@ function CreatePhones() {
     let error = {}
     if((!input.name) || (input.name.match(/\W/))) error.name = 'please fill out with no special character'
     if((!input.brand) || (input.brand.length<4)) error.brand = 'enter at least 4 words'
-    
+    if((!input.category) || (input.category.match(/\W/))) error.category = 'please fill out with no special character'
+
     if(input.price){
       const parsed = parseInt(input.price)
       if(!((Number.isInteger(parsed)))){
@@ -49,7 +51,7 @@ function CreatePhones() {
         e.preventDefault()
         console.log(input, "input50")
         dispatch(createProducts(input))
-        //navigate('/')   
+        navigate('/')   
       }
     
       const changeHandle = (e) => {
@@ -69,59 +71,72 @@ function CreatePhones() {
         <form onSubmit={createSubmit} >
         <h1 style={{textAlign:"center"}}>Create a Product</h1>
 
-        {/* <input 
-          type="number"
+        <label htmlfor="category">Category: </label>
+         <input 
+          type="text"
           autoComplete="off"
-          value={input.id}
-          name="id"
-          placeholder="enter a id"
+          id="category"
+          value={input.category}
+          name="category"
+          placeholder="enter a category (required)"
           onChange={changeHandle}
-        /> */}
+        /> 
 
+        <label htmlfor="name">Name: </label>
         <input 
           type="text"
           autoComplete="off"
           value={input.name}
           name="name"
-          placeholder="enter a name"
+          id="name"
+          placeholder="enter a name (required)"
           onChange={changeHandle}
         />  
         {errors.name && (<h6>{errors.name}</h6>)} 
         <br />
+
+        <label htmlfor="brand">Brand: </label>
         <input 
           type="text"
           autoComplete="off"
           value={input.brand}
           name="brand"
-          placeholder="enter a brand"
+          id="brand"
+          placeholder="enter a brand (required)"
           onChange={changeHandle}
         />
        
         
         {errors.brand && (<h6>{errors.brand}</h6>)}
         <br />
+
+        <label htmlfor="price">Price: </label>
         <input 
           type="text"
           autoComplete="off"
           value={input.price}
+          id="price"
           name="price"
-          placeholder="enter the price for the phone"
+          placeholder="enter the price (optional)"
           onChange={changeHandle}
         />
         
         {errors.price && (<h6>{errors.price}</h6>)}
         <br />
+
+        <label htmlfor="image">URL: </label>
         <input 
           type="text"
           autoComplete="off"
           value={input.image}
           name="image"
-          placeholder="enter  a url  image for the phone"
+          id="image"
+          placeholder="enter a url (optional)"
           onChange={changeHandle}
         />
         
         <br /><br />
-        <button disabled={!input.brand || !input.name} type="submit">Create a Recipe</button>
+        <button disabled={!input.brand || !input.name || !input.category} type="submit">Create a Recipe</button>
        
       </form>
     </div>
