@@ -1,10 +1,10 @@
-import React from "react";
+import {React, useState,useEffect } from "react";
 import Product_Card from "../product_card/product_card";
 import NotFound from "../not_found/not_found";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../redux/slices/productList.slice";
 import { Paginated } from "../paginated/paginated";
-import { changeCurrentPage } from "../../redux/Slices/paginationSlice"
+
 
 function Products_List() {
   const dispatch = useDispatch();
@@ -17,28 +17,32 @@ function Products_List() {
   console.log(phones);
   console.log(currentPage)
 
-  const phonesPerPage = 2;
+  const [phonesPerPage, changeCurrentPage]  = useState(2);
   const indexLastPhone = currentPage * phonesPerPage;
   const indexFirstPhone = indexLastPhone - phonesPerPage;
   const currentPhones = phones.slice(indexFirstPhone, indexLastPhone);
   console.log(currentPhones)
 
   const paginated = (pageNumber) => {
-    changeCurrentPage(pageNumber);
+   changeCurrentPage (pageNumber);
   };
 
 
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!phones.length) dispatch(getProductList());
   }, []);
 
-  //console.log("products", products);
-
+  
   return (
     <div>
-      {<Paginated phones={phones.length} phonesPerPage={phonesPerPage} />}
+      
+      {<Paginated 
+      phones={phones.length}
+       phonesPerPage={phonesPerPage}
+       paginado={paginated} 
+       setCurrentPage={changeCurrentPage}/>}
       <div>
         <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
           {loading === "loading" ? (

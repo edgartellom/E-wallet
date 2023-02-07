@@ -4,12 +4,15 @@ import productByIdReducer from "./Slices/ProductById.slice";
 import productListReducer from "./slices/productList.slice";
 import paginationReducer from "./Slices/paginationSlice";
 
+import searchProductsReducer from "./Slices/SearchProducts.slice"
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
     productById: productByIdReducer,
     product: productListReducer,
     paginated: paginationReducer,
+    searchProducts: searchProductsReducer,
+    
   },
 });
 

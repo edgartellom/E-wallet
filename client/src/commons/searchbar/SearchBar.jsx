@@ -1,60 +1,46 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-//import { useDispatch } from 'react-redux';
-// import { getProductsBySearch } from '../../redux/slice'
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getProductList } from "../../redux/slices/productList.slice";
+import { getSearchProducts } from "../../redux/Slices/SearchProducts.slice";
+import { filtros } from "../../redux/slices/productList.slice";
 
-
-
-
-const SearchBar = () => {
-  const [search, setSearch] = useState('');
-  //const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
+function SearchBar() {
+  const [search,setSearch ] = useState("");
+  const { list, loading, error } = useSelector((state) => state.searchProducts);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(getProductsBySearch(search));
-    navigate('/products');
+    if (search.length > 1) {
+      dispatch(filtros(search));
+      setSearch("");
+    } else {
+      alert("La búsqueda debe tener más de un carácter");
+    }
+  };
+
+  const handleChange = (e) => {
+    e.preventDefault(e.target.value);
+    setSearch(e.target.value);
   };
 
   return (
-    <form className="d-flex" onSubmit={handleSubmit}>
+    <div>
+    <form onSubmit={handleSubmit}>
       <input
-        className="form-control me-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
+        type="text"
+        placeholder="Insert name"
         value={search}
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e)}
       />
-      <button className="btn" type="submit">
-        <i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-        </svg></i>
+      <button type="submit">
+        <span>
+          <strong>Buscar!</strong>
+        </span>
       </button>
+     
     </form>
-  );
-};
-
+ </div> )
+}
 
 export default SearchBar;
-
-
-
-
-
-
-
-
-
-
-/* 
-Quiero crear un componente para buscar productos, para poder encontrar rápido los que quiero comprar. 
-
-crear barras de búsqueda con bootstrap 5, para poder encontrar rápido los productos que quiero
-
-*/

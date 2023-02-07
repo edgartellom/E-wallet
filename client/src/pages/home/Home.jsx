@@ -1,5 +1,7 @@
+import SearchBar from "../../commons/searchbar/SearchBar";
 import Products_List from "../../components/products_list/products_list";
 import Banner from "./Banner";
+
 
 const HomePage = () => {
   return (
@@ -7,7 +9,8 @@ const HomePage = () => {
       <Banner></Banner>
       <section className="py-5">
         <div className="container px-4 px-lg-5 mt-5">
-          <Products_List />
+           <Products_List />
+         
         </div>
       </section>
     </>
