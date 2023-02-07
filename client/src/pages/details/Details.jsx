@@ -4,6 +4,7 @@ import { STATUSES } from "../../redux/Slices/ProductById.slice";
 import { useDispatch, useSelector } from "react-redux";
 import "./Details.css";
 import { useParams } from "react-router-dom";
+import Product_Deatils_Tab from "../product_details_tab/product_details_tab";
 
 const Details = () => {
   const dispatch = useDispatch();
@@ -65,6 +66,7 @@ const Details = () => {
                     </div>
                   </div>
                 </div>
+
                 <div className="col-md-6">
                   <div className="product-details">
                     <h1 className="product-title">{product.model}</h1>
@@ -74,11 +76,11 @@ const Details = () => {
                     <div className="ratings">
                       <div className="ratings-val">
                         <span>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star"></i>
+                          <i className="bi bi-star-fill"></i>
+                          <i className="bi bi-star-fill"></i>
+                          <i className="bi bi-star-fill"></i>
+                          <i className="bi bi-star-fill"></i>
+                          <i className="bi bi-star"></i>
                         </span>
                       </div>
                     </div>

@@ -6,6 +6,7 @@ import { getProductList } from "../../redux/slices/productList.slice";
 import { Paginated } from "../paginated/paginated";
 import { changeCurrentPage } from "../../redux/Slices/paginationSlice"
 
+
 function Products_List() {
   const dispatch = useDispatch();
   let loading = useSelector((store) => store.product.status);
