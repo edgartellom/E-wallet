@@ -72,11 +72,11 @@ const Details = () => {
                                     <div className="ratings">
                                         <div className="ratings-val" >
                                         <span>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i></span>
+                                        <i className="bi bi-star-fill"></i>
+                                        <i className="bi bi-star-fill"></i>
+                                        <i className="bi bi-star-fill"></i>
+                                        <i className="bi bi-star-fill"></i>
+                                        <i className="bi bi-star"></i></span>
                                         </div>
                                     </div>
                                     <a className="ratings-text" href="#product-reviews">{"(2 reviews)"}</a>

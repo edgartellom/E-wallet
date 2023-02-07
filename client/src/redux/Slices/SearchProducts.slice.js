@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import { STATUSES } from "./ProductById.slice";
 
 let initialState = {
@@ -11,7 +12,8 @@ let initialState = {
 export const SearchProductsSlice = createSlice({
   name: "searchProducts",
   initialState,
-  reducers: {},
+  reducers: {
+  },
   extraReducers: (builder) => {
     builder.addCase(getSearchProducts.pending, (state) => {
       state.status = STATUSES.LOADING;
