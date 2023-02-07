@@ -11,7 +11,7 @@ export const store = configureStore({
     counter: counterReducer,
     productById: productByIdReducer,
     product: productListReducer,
-    searchProducts: searchProductsReducer
+    searchProducts: searchProductsReducer,
     paginated: paginationReducer,
   },
 });
