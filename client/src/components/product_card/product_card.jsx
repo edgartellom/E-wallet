@@ -24,7 +24,7 @@ function Product_Card({ props }) {
             <div className="d-flex justify-content-center small text-warning mb-2">
               {/* Para mostrar rating con estrellas */}
               {rating && rating > 0
-                ? Array.from(new Array(rating)).map((_, i) => (
+                ? Array.from(new Array(rating))?.map((_, i) => (
                     <div key={i} className="bi-star-fill"></div>
                   ))
                 : ""}

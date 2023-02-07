@@ -26,6 +26,15 @@ export const ProductListSlice = createSlice({
       state.list = [];
       state.status = STATUSES.ERROR;
     });
+
+    builder.addCase(createProducts.fulfilled, (state, action) => {
+      console.log(action.payload)
+      if(action.payload){
+        state.list.push(action.payload)
+      }
+      
+      // state.list = action.payload
+    })
   },
 });
 
@@ -45,3 +54,25 @@ export const getProductList = createAsyncThunk(
     }
   }
 );
+
+export const createProducts = createAsyncThunk(
+  'products/createProducts',
+  async (payload) => {
+    console.log(payload)
+     try{
+      console.log(payload, "line60")
+        //let res = await axios.post("http://localhost:3001/phones", payload)
+        const myphone = {
+          id:10,
+          name:"samsungtest",
+          brand:"galaxytest",
+          price:10
+        }
+        //console.log("res",res)
+        return myphone
+     }catch(e){
+      console.log("error trying to create", e)
+        return {}
+     }
+  }
+)

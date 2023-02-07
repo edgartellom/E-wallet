@@ -24,7 +24,7 @@ router.get("/", async  (req, res, next) => {
 
 
 
-router.post('/', async  (req,res, next) => {
+router.post('/', async  (req,res, next) => {  //some errors trying to create
     try {
             let {
                     brand,
@@ -78,7 +78,7 @@ router.post('/', async  (req,res, next) => {
             let categoryDb = await Category.findAll({
                 where: {name: category}
             })
-            newPhone.addCategory(categoryDb);
+           // newPhone.addCategory(categoryDb);
             res.status(200).send(newPhone); 
         } catch(error){
             res.status(404).send('NOT FOUND')
