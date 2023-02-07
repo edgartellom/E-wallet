@@ -67,11 +67,11 @@ function CreatePhones() {
       }
     
   return (
-    <div>CreatePhones
+    <div>
         <form onSubmit={createSubmit} >
         <h1 style={{textAlign:"center"}}>Create a Product</h1>
 
-        <label htmlfor="category">Category: </label>
+        <label htmlFor="category">Category: </label>
          <input 
           type="text"
           autoComplete="off"
@@ -81,8 +81,9 @@ function CreatePhones() {
           placeholder="enter a category (required)"
           onChange={changeHandle}
         /> 
+        {errors.category && (<h6>{errors.category}</h6>)} 
 
-        <label htmlfor="name">Name: </label>
+        <label htmlFor="name">Name: </label>
         <input 
           type="text"
           autoComplete="off"
@@ -95,7 +96,7 @@ function CreatePhones() {
         {errors.name && (<h6>{errors.name}</h6>)} 
         <br />
 
-        <label htmlfor="brand">Brand: </label>
+        <label htmlFor="brand">Brand: </label>
         <input 
           type="text"
           autoComplete="off"
@@ -110,7 +111,7 @@ function CreatePhones() {
         {errors.brand && (<h6>{errors.brand}</h6>)}
         <br />
 
-        <label htmlfor="price">Price: </label>
+        <label htmlFor="price">Price: </label>
         <input 
           type="text"
           autoComplete="off"
@@ -124,7 +125,7 @@ function CreatePhones() {
         {errors.price && (<h6>{errors.price}</h6>)}
         <br />
 
-        <label htmlfor="image">URL: </label>
+        <label htmlFor="image">URL: </label>
         <input 
           type="text"
           autoComplete="off"
@@ -136,7 +137,7 @@ function CreatePhones() {
         />
         
         <br /><br />
-        <button disabled={!input.brand || !input.name || !input.category} type="submit">Create a Recipe</button>
+        <button className='btn btn-success' disabled={!input.brand || !input.name || !input.category} type="submit">Create a Recipe</button>
        
       </form>
     </div>

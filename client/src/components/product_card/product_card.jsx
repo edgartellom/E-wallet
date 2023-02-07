@@ -1,5 +1,13 @@
+import { useDispatch } from "react-redux";
+import { deleteProduct } from "../../redux/slices/productList.slice";
+
 function Product_Card({ props }) {
   const { id, name, brand, price, image, rating, completed } = props;
+  const dispatch = useDispatch()
+
+  const deletePhone = (i) => {
+    dispatch(deleteProduct(i))
+  }
 
   let defaultImage = "https://dummyimage.com/450x300/dee2e6/6c757d.jpg";
 
@@ -48,6 +56,10 @@ function Product_Card({ props }) {
               Add to cart
             </a>
           </div>
+        </div>
+
+        <div>
+          <button className="btn btn-danger" onClick={() =>deletePhone(id)}>Delete</button>
         </div>
       </div>
     </div>

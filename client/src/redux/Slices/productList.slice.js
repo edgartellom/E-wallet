@@ -11,7 +11,14 @@ let initialState = {
 export const ProductListSlice = createSlice({
   name: "ProductList",
   initialState,
-  reducers: {},
+  reducers: {
+    deleteProduct:(state,action) => {
+      const productFound = state.list.find(p => p.id === action.payload)
+      if(productFound){
+         state.list.splice(state.list.indexOf(productFound), 1)
+      }
+   },
+  },
   extraReducers: (builder) => {
     builder.addCase(getProductList.pending, (state) => {
       state.status = STATUSES.LOADING;
@@ -35,6 +42,7 @@ export const ProductListSlice = createSlice({
       
       // state.list = action.payload
     })
+    
   },
 });
 
@@ -76,3 +84,5 @@ export const createProducts = createAsyncThunk(
      }
   }
 )
+
+export const { deleteProduct } = ProductListSlice.actions 
