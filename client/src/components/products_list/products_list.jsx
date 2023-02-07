@@ -4,6 +4,7 @@ import NotFound from "../not_found/not_found";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../redux/slices/productList.slice";
 
+
 function Products_List() {
   const dispatch = useDispatch();
   let loading = useSelector((store) => store.product.status);
@@ -29,7 +30,7 @@ function Products_List() {
       ) : (
         <NotFound />
       )}
-    </div>
+      </div>
   );
 }
 
