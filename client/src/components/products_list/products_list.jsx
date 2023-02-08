@@ -18,7 +18,7 @@ function Products_List() {
   console.log(phones);
   console.log(currentPage)
 
-  const phonesPerPage = 2;
+  const phonesPerPage = 12;
   const indexLastPhone = currentPage * phonesPerPage;
   const indexFirstPhone = indexLastPhone - phonesPerPage;
   const currentPhones = phones.slice(indexFirstPhone, indexLastPhone);
