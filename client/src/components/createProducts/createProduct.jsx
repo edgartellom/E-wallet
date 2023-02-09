@@ -68,7 +68,7 @@
 //   const submitHandle = (e) => {
 //     e.preventDefault()
 //     if(params.id && recipeDb){
-//        axios.put(`http://localhost:3001/recipeDb:${params.id}`, input.name)
+//        axios.put(`/recipeDb:${params.id}`, input.name)
 //       console.log("editing")
 //     }else{
 //       dispatch(createRecipes(input))
