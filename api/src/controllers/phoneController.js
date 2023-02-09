@@ -1,12 +1,11 @@
-const e = require('express');
+const axios = require('axios');
 const { Phone, Category } = require('../db');
-const phoneJson = require('../phone.json');
+require('dotenv').config();
+const API_URL = process.env.API_URL;
 
 const getApiInfo = async () => {
-    const phones = await phoneJson
-        
-    const apiInfo = phones.map(el => (
-            
+    const phones = (await axios (`${API_URL}/phones`)).data
+    const apiInfo = await phones.map(el => (
             {
                 "id": el.id,
                 "brand": el.brand,
@@ -35,7 +34,7 @@ const getApiInfo = async () => {
                 "categories": el.category.map(c => ({"name": c.name}))
             }
         ))
-    return await apiInfo;
+    return apiInfo;
 }
 
 const getDbInfo = async () => {
