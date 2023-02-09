@@ -2115,55 +2115,6 @@
         ]
     },
     {
-        "id": 40,
-        "brand": "Microsoft",
-        "name": "Surface Duo",
-        "model": "",
-        "network": "LTE",
-        "launch": "Released 2020, September 10",
-        "dimensions": "Unfolded: 186.9 x 145.2 x 4.8 mm - Folded: 145.2 x 93.3 x 9.9 mm",
-        "weight": 250,
-        "display": {
-            "type": "AMOLED",
-            "size": "8.1 inches",
-            "resolution": "1800 x 2700 pixels"
-        },
-        "os": "Android 10",
-        "memory": {
-            "ram": [
-                "8GB"
-            ],
-            "intern": [
-                "128GB",
-                "256GB",
-                "512GB"
-            ]
-        },
-        "chipset": "Qualcomm SM8150 Snapdragon 855 (7 nm)",
-        "cpu": "Octa-core (1x2.84 GHz Kryo 485 & 3x2.42 GHz Kryo 485 & 4x1.78 GHz Kryo 485)",
-        "cameras": {
-            "selfie": {
-                "resolution": "Uses main camera",
-                "video": "Uses main camera"
-            },
-            "main": {
-                "resolution": "11 MP",
-                "video": "4K@30/60fps, 1080p@30/60/120/240fps"
-            }
-        },
-        "battery": 3577,
-        "price": 399.99,
-        "color": [
-            "White"
-        ],
-        "image": "https://fdn2.gsmarena.com/vv/bigpic/microsoft-surface-duo.jpg",
-        "category": [
-            {
-                "name": "Foldable cell phone"
-            }
-        ]
-    },
-    {
         "id": 41,
         "brand": "Huawei",
         "name": "Enjoy 50z",

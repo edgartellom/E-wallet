@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {useNavigate} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { searchList } from "../../redux/Slices/ProductList.slice";
 
@@ -8,7 +9,7 @@ const SearchBar = ({ props }) => {
 
 
   let [search, setSearch] = useState("")
-
+  const navigate= useNavigate();
   // useEffect(() => {
   //   if (!products.length) dispatch(getProductList());
   // }, []);
@@ -25,8 +26,9 @@ const SearchBar = ({ props }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault(e);
+    navigate("/")
     dispatch(searchList(search))
-    console.log(search)
+    
     search = ""
   }
 
