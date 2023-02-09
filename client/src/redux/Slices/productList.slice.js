@@ -16,9 +16,16 @@ export const ProductListSlice = createSlice({
     deleteProduct:(state,action) => {
       const productFound = state.list.find(p => p.id === action.payload)
       if(productFound){
-         state.list.splice(state.list.indexOf(productFound), 1)
+          state.list.splice(state.list.indexOf(productFound), 1)
       }
    },
+   searchList:(state, action)=>{
+    let words=action.payload;
+    state.list=state.allProducts.filter((i) => {
+      return i.brand.toLowerCase().includes(words.toLowerCase()) || i.name.toLowerCase().includes(words.toLowerCase());
+    });
+  
+  },
 
   },
   extraReducers: (builder) => {

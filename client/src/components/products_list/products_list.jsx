@@ -15,14 +15,13 @@ function Products_List() {
   const currentPage = useSelector(store => store.paginated.currentPage)
   let list = useSelector((store) => store.product.list);
   let phones = [...list];
-  console.log(phones);
-  console.log(currentPage)
 
-  const phonesPerPage = 2;
+
+  const phonesPerPage = 12;
   const indexLastPhone = currentPage * phonesPerPage;
   const indexFirstPhone = indexLastPhone - phonesPerPage;
   const currentPhones = phones.slice(indexFirstPhone, indexLastPhone);
-  console.log(currentPhones)
+
 
   const paginated = (pageNumber) => {
     changeCurrentPage(pageNumber);
