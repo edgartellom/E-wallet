@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./slice";
 import productByIdReducer from "./Slices/ProductById.slice";
-import productListReducer from "./slices/productList.slice";
+import productListReducer from "./Slices/productList.slice";
 import paginationReducer from "./Slices/paginationSlice";
 import searchProductsReducer from "./Slices/SearchProducts.slice"
 

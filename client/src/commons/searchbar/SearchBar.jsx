@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchList } from "../../redux/Slices/ProductList.slice";
+import { searchList } from "../../redux/Slices/productList.slice";
 
 
 
