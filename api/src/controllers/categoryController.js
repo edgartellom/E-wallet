@@ -1,10 +1,8 @@
-const axios = require('axios');
 const { Category } = require('../db');
-require('dotenv').config();
-const API_URL = process.env.API_URL;
+const  categoryJson  = require('../category.json');
 
 const getAllCategories = async () => {
-    let allCategories = (await axios(`${API_URL}/categories`)).data;
+    let allCategories = await categoryJson;
     allCategories = allCategories.map(el => el.name); 
     
     allCategories.forEach(category => {
