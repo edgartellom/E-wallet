@@ -5,6 +5,7 @@ import './index.css';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import axios from 'axios';
+import { Analytics } from '@vercel/analytics/react';
 
 // axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.baseURL = import.meta.env.VITE_APP_API || 'http://localhost:3001';
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
       <Provider store={store}>
         <App />
+        <Analytics />
       </Provider>
   </React.StrictMode>,
 )
