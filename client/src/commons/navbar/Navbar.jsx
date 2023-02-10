@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import Cart from "../cart/Cart"
 import SearchBar from "../../commons/searchbar/SearchBar"
-
+import Loading from "../loading/Loading";
 
 const Navbar = () => {
 
@@ -27,6 +27,7 @@ const Navbar = () => {
             </li>
           </ul>
           <SearchBar />
+          <Loading/>
           <Cart />
         </div>
       </div>
