@@ -7,7 +7,7 @@ const HomePage = () => {
       <Banner></Banner>
       <section className="py-5">
         <div className="container px-4 px-lg-5 mt-5">
-          <Products_List />
+         
         </div>
       </section>
     </>

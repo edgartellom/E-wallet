@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { deleteProduct } from "../../redux/slices/productList.slice";
 
 function Product_Card({ props }) {
@@ -18,13 +19,13 @@ function Product_Card({ props }) {
           Sale
         </div>
 
-        <a href={`/phone/${id}`}>
+        <Link to={`/phone/${id}`}>
           <img
             className="card-img-top"
             src={image || defaultImage}
             alt={`${brand} ${name}`}
           />
-        </a>
+        </Link>
 
         <div className="card-body p-4">
           <div className="text-center">
