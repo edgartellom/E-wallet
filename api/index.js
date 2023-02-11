@@ -6,8 +6,8 @@ const { getAllCategories } = require('./src/controllers/categoryController');
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-    server.listen(port, () => {
+    server.listen(port, async() => {
         console.log(`Server raised in port ${port}`); // eslint-disable-line no-console
-        getAllCategories();
+        await getAllCategories();
     });
 });
