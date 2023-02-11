@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Navbar/>
       <Routes>
-        <Route path='/' element={<HomePage />} /> 
+        <Route exact path='/' element={<HomePage />} /> 
         <Route path='/phone/:id' element={<Details />} />
         <Route path='/products' element={<ProductsPage />}/>
         <Route path='/phones' element={<CreatePhones />} />
