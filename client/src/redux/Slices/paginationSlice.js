@@ -12,5 +12,5 @@ const PaginationSlice = createSlice({
   },
 });
 
-export const { changeCurrentPage } = paginationSlice.actions;
+export const { changeCurrentPage } = PaginationSlice.actions;
 export default PaginationSlice.reducer;
