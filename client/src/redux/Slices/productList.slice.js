@@ -7,6 +7,7 @@ let initialState = {
   status: "",
   error: null,
   allProducts: [],
+  searchWords:'',
 };
 
 export const ProductListSlice = createSlice({
@@ -26,6 +27,9 @@ export const ProductListSlice = createSlice({
     });
   
   },
+  updateSearchWords:(state, action)=>{
+    state.searchWords=action.payload;
+  }
 
   },
   extraReducers: (builder) => {
@@ -58,7 +62,7 @@ export const ProductListSlice = createSlice({
 });
 
 export default ProductListSlice.reducer;
-export const { searchList} = ProductListSlice.actions;
+export const { searchList, updateSearchWords} = ProductListSlice.actions;
 
 export const getProductList = createAsyncThunk(
   "product/getProductList",

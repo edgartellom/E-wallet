@@ -5,6 +5,7 @@ import Details from './pages/details/Details';
 import Footer from './commons/footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CreatePhones from './components/create/createPhones';
+import ProductsPage from './pages/Products/products.page';
 
 
   
@@ -14,8 +15,9 @@ function App() {
     <BrowserRouter>
       <Navbar/>
       <Routes>
-        <Route exact path='/' element={<HomePage />} /> 
+        <Route path='/' element={<HomePage />} /> 
         <Route path='/phone/:id' element={<Details></Details>} />
+        <Route path='/products' element={<ProductsPage></ProductsPage>}/>
         <Route path='/phones' element={<CreatePhones />} />
       </Routes>
       <Footer/>

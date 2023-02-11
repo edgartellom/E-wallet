@@ -38,7 +38,7 @@ function Products_List() {
 
   return (
     <div>
-      {<Paginated phones={phones.length} phonesPerPage={phonesPerPage} />}
+      
       <div>
         <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
           {loading === "loading" ? (
@@ -51,10 +51,11 @@ function Products_List() {
               return <Product_Card key={phone.id} props={phone} />;
             })
           ) : (
-            <NotFound />
+            <p className="text-center">No se hallaron coincidencias</p>
           )}
         </div>
       </div>
+      {<Paginated phones={phones.length} phonesPerPage={phonesPerPage} />}
     </div>
   );
 }
