@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import Cart from "../cart/Cart"
-import SearchBar from "../../commons/searchbar/SearchBar"
+import SearchBar from "../searchbar/SearchBar"
 
 
 const Navbar = () => {

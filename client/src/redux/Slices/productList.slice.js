@@ -68,7 +68,7 @@ export const getProductList = createAsyncThunk(
   "product/getProductList",
   async (dispatch) => {
     try {
-      const response = await axios.get("http://localhost:3001/phones");
+      const response = await axios.get("/phones");
       //console.log("response", response);
 
       return response.data;
@@ -85,7 +85,7 @@ export const createProducts = createAsyncThunk(
     console.log(payload)
      try{
       console.log(payload, "line60")
-        let res = await axios.post("http://localhost:3001/phones", payload)
+        let res = await axios.post("/phones", payload)
         // const myphone = {
         //   id:10,
         //   name:"samsungtest",
