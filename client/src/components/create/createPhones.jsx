@@ -1,8 +1,8 @@
 import React from 'react'
-import { getProductList } from '../../redux/slices/productList.slice'
+import { getProductList } from '../../redux/Slices/productList.slice'
 import { useDispatch, useSelector} from 'react-redux'
 import {useEffect, useState} from 'react'
-import { createProducts } from '../../redux/slices/productList.slice'
+import { createProducts } from '../../redux/Slices/productList.slice'
 import { useNavigate } from 'react-router-dom'
 
 function CreatePhones() {

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteProduct } from "../../redux/slices/productList.slice";
+import { deleteProduct } from "../../redux/Slices/productList.slice";
 
 function Product_Card({ props }) {
   const { id, name, brand, price, image, rating, completed } = props;

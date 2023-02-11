@@ -23,7 +23,7 @@ export const getTodos = createAsyncThunk(
     "counter/getCounter",
     async () => {
         try {
-            const response = await axios.get("https://localhost:3001/phones");
+            const response = await axios.get("/phones");
             console.log(response)
             console.log(response.data)
             

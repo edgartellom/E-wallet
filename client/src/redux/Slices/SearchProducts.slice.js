@@ -38,7 +38,7 @@ export const getSearchProducts = createAsyncThunk(
   "product/getSearchProducts",
   async (search, dispatch) => {
     try {
-      const response = await axios.get("http://localhost:3001/phones");
+      const response = await axios.get("/phones");
       console.log("response", response);
       const filteredResponse = response.data.filter((product) => {
         return product.brand.toLowerCase().includes(search.toLowerCase()) || product.name.toLowerCase().includes(search.toLowerCase());
