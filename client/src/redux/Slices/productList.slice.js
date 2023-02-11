@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { STATUSES } from "./ProductById.slice";
+import { Sorts } from "../../tools";
 
 let initialState = {
   list: [],
@@ -25,11 +26,13 @@ export const ProductListSlice = createSlice({
     state.list=state.allProducts.filter((i) => {
       return i.brand.toLowerCase().includes(words.toLowerCase()) || i.name.toLowerCase().includes(words.toLowerCase());
     });
-  
+  },
+  sortList:(state,action)=>{
+    state.list= Sorts(action.payload,state.list);
   },
   updateSearchWords:(state, action)=>{
     state.searchWords=action.payload;
-  }
+  },
 
   },
   extraReducers: (builder) => {
@@ -54,15 +57,13 @@ export const ProductListSlice = createSlice({
       if(action.payload){
         state.list.push(action.payload)
       }
-      
-      // state.list = action.payload
     })
     
   },
 });
 
 export default ProductListSlice.reducer;
-export const { searchList, updateSearchWords} = ProductListSlice.actions;
+export const { searchList, sortList, updateSearchWords} = ProductListSlice.actions;
 
 export const getProductList = createAsyncThunk(
   "product/getProductList",
