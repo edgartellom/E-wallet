@@ -1,8 +1,8 @@
 import React from 'react'
-import { getProductList } from '../../redux/Slices/productList.slice'
+import { getProductList } from '../../redux/Slices/ProductList.slice'
 import { useDispatch, useSelector} from 'react-redux'
 import {useEffect, useState} from 'react'
-import { createProducts } from '../../redux/Slices/productList.slice'
+import { createProducts } from '../../redux/Slices/ProductList.slice'
 import { useNavigate } from 'react-router-dom'
 
 function CreatePhones() {
@@ -72,6 +72,12 @@ function CreatePhones() {
         <h1 style={{textAlign:"center"}}>Create a Product</h1>
 
         <label htmlFor="category">Category: </label>
+          <select value={selected} onChange={e => handleSelect(e)}>
+          <option value="" disabled>Select a type</option>
+          {types.map((t,i) => (
+            <option key={i} value={t.name}>{t.name}</option>
+          ))}
+          </select>
          <input 
           type="text"
           autoComplete="off"

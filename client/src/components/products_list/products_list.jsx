@@ -2,9 +2,9 @@ import React from "react";
 import Product_Card from "../product_card/product_card";
 import NotFound from "../not_found/not_found";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductList } from "../../redux/Slices/productList.slice";
+import { getProductList } from "../../redux/Slices/ProductList.slice";
 import { Paginated } from "../paginated/paginated";
-import { changeCurrentPage } from "../../redux/Slices/paginationSlice"
+import { changeCurrentPage } from "../../redux/Slices/PaginationSlice"
 
 
 function Products_List() {

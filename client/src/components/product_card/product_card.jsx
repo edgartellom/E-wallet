@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { deleteProduct } from "../../redux/slices/productList.slice";
+import { deleteProduct } from "../../redux/Slices/ProductList.slice";
 
 function Product_Card({ props }) {
   const { id, name, brand, price, image, rating, completed } = props;
