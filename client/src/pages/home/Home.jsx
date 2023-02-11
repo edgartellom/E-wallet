@@ -4,7 +4,7 @@ import Banner from "./Banner";
 const HomePage = () => {
   return (
     <>
-      <Banner></Banner>
+      <Banner />
       <section className="py-5">
         <div className="container px-4 px-lg-5 mt-5">
          
