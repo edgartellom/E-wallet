@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { getProductById } from "../../redux/Slices/ProductById.slice";
-import { STATUSES } from "../../redux/Slices/ProductById.slice";
+import { getProductById } from "../../redux/Slices/ProductByIdSlice";
+import { STATUSES } from "../../redux/Slices/ProductByIdSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./Details.css";
 import { useParams } from "react-router-dom";
-import Product_Deatils_Tab from "../product_details_tab/product_details_tab";
+import Product_Deatils_Tab from "../Product_Details_Tab/Product_Details_Tab";
 
 const Details = () => {
   const dispatch = useDispatch();
