@@ -1,0 +1,15 @@
+.review_form .star-rating button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on,
+.off {
+  color: #fcb941;
+}
+
+.review_form i {
+  font-size: 2rem;
+  margin: auto;
+}
