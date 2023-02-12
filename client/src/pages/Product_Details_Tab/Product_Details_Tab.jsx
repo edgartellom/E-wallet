@@ -1,4 +1,4 @@
-import Create_Review from "../../components/create_review/create_review";
+import Create_Review from "../../components/Create_Review/Create_review";
 
 function Product_Deatils_Tab() {
   return (

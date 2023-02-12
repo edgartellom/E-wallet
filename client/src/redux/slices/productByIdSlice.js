@@ -25,7 +25,7 @@ export const STATUSES = Object.freeze({
     LOADING: 'loading',
 });
 
- const ProductByIdSlice= createSlice({
+ const productByIdSlice= createSlice({
     name:'ProductById',
     initialState,
     reducers:{},
@@ -45,7 +45,7 @@ export const STATUSES = Object.freeze({
     }
 })
 
-export default ProductByIdSlice.reducer;
+export default productByIdSlice.reducer;
 
 export const getProductById=createAsyncThunk('product/getProductById',async (id)=>{
     const res = await axios.get('/phones/'+id);

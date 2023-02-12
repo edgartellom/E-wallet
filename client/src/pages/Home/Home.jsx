@@ -1,10 +1,10 @@
-import Products_List from "../../components/products_list/products_list";
+import Products_List from "../../components/Products_List/Products_List";
 import Banner from "./Banner";
 
 const HomePage = () => {
   return (
     <>
-      <Banner></Banner>
+      <Banner />
       <section className="py-5">
         <div className="container px-4 px-lg-5 mt-5">
          

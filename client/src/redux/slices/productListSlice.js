@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { STATUSES } from "./ProductById.slice";
+import { STATUSES } from "./productByIdSlice";
 
 let initialState = {
   list: [],
@@ -10,7 +10,7 @@ let initialState = {
   searchWords:'',
 };
 
-export const ProductListSlice = createSlice({
+export const productListSlice = createSlice({
   name: "ProductList",
   initialState,
   reducers: {
@@ -61,8 +61,8 @@ export const ProductListSlice = createSlice({
   },
 });
 
-export default ProductListSlice.reducer;
-export const { searchList, updateSearchWords} = ProductListSlice.actions;
+export default productListSlice.reducer;
+export const { searchList, updateSearchWords} = productListSlice.actions;
 
 export const getProductList = createAsyncThunk(
   "product/getProductList",
@@ -101,4 +101,4 @@ export const createProducts = createAsyncThunk(
   }
 )
 
-export const { deleteProduct } = ProductListSlice.actions 
+export const { deleteProduct } = productListSlice.actions 
