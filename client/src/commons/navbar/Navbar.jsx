@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import Cart from "../cart/Cart"
 import SearchBar from "../../commons/searchbar/SearchBar"
-import Loading from "../loading/Loading";
+import Login from "../login/Login";
 
 const Navbar = () => {
 
@@ -27,7 +27,7 @@ const Navbar = () => {
             </li>
           </ul>
           <SearchBar />
-          <Loading/>
+       <Login/>
           <Cart />
         </div>
       </div>

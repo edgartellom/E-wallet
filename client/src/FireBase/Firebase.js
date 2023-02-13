@@ -35,3 +35,38 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore();
 export const storage = getStorage();
+
+export async function registerNewUser(user){
+  try {
+    const userRef= collection(db, "users")
+    await setDoc(doc(userRef, user.uid), user)
+  } catch (error) {
+    console.log(error);
+  }
+
+}
+export async function getUserInfo(uid) {
+  const docRef = doc(db, "users", uid);
+  const docSnap = await getDoc(docRef);
+  return docSnap.data();
+}
+
+export async function userExists(uid) {
+  const docRef = doc(db, "users", uid);
+  const docSnap = await getDoc(docRef);
+
+  return docSnap.exists();
+}
+
+export async function updateUser(user) {
+  console.log(user);
+  try {
+    const usersRef = collection(db, "users");
+    await setDoc(doc(usersRef, user.uid), user);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
+
+
+
