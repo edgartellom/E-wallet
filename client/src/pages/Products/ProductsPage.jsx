@@ -1,8 +1,7 @@
 import Products_List from "../../components/Products_List/Products_List";
 import { useDispatch,useSelector } from "react-redux";
-import { getProductList } from "../../redux/Slices/ProductList.slice";
-import Sortable from "../../components/sortable/sortable";
 import { getProductList } from "../../redux/slices/productListSlice";
+import Sortable from "../../components/sortable/sortable";
 
 
 const ProductsPage =()=>{

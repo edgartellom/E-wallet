@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { sortList } from "../../redux/slices/productList.slice";
+import { sortList } from "../../redux/slices/productListSlice";
 import { useState } from "react";
 
 const Sortable = () => {
