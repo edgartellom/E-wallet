@@ -11,8 +11,8 @@ let initialState = {
   searchWords:'',
 };
 
-export const ProductListSlice = createSlice({
-  name: "ProductList",
+export const productListSlice = createSlice({
+  name: "productList",
   initialState,
   reducers: {
     deleteProduct:(state,action) => {
@@ -66,8 +66,8 @@ export const ProductListSlice = createSlice({
   },
 });
 
-export default ProductListSlice.reducer;
-export const { searchList, updateSearchWords,sortList} = ProductListSlice.actions;
+export default productListSlice.reducer;
+export const { searchList, updateSearchWords,sortList} = productListSlice.actions;
 
 export const getProductList = createAsyncThunk(
   "product/getProductList",
@@ -106,4 +106,4 @@ export const createProducts = createAsyncThunk(
   }
 )
 
-export const { deleteProduct } = ProductListSlice.actions 
+export const { deleteProduct } = productListSlice.actions 
