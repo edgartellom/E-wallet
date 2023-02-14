@@ -4,15 +4,6 @@ import { useDispatch } from "react-redux";
 import { getProductList } from "../../redux/slices/productListSlice";
 
 const Carrusel = () => {
-  const dispatch = useDispatch();
-  let list = useSelector((store) => store.product.allProducts);
-
-  let primero = list[8];
-  console.log(primero);
-
-  useEffect(() => {
-    if (!list.length) dispatch(getProductList());
-  }, []);
 
   return (
     <>
@@ -59,10 +50,7 @@ const Carrusel = () => {
         </button>
       </div>
       <div className="cointeiner">
-        <div>
-          {/* <img src={primero.image} alt="" />
-          <h2>{primero.brand}</h2> */}
-        </div>
+     
       </div>
     </>
   );
