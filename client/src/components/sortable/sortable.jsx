@@ -28,7 +28,7 @@ const Sortable = () => {
                             Order by:
                         </span>
                         <select className="form-control" onChange={(e)=>sortHandle(e)} >
-                            <option value=""></option>
+                            <option value="">--</option>
                             <option value="lp">Lower price</option>
                             <option value="hp">Higher price</option>
                         </select>
