@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import 'firebase/app';
 import 'firebase/auth';
-import { GoogleAuthProvider, signInWithPopup, sendEmailVerification } from 'firebase/auth';
+
 import { app, auth, db, storage } from "../../Firebase/Firebase";
 //import { useFirebaseApp } from 'reactfire'
 import {
     getAuth,
+    signInWithPopup,    
+    GoogleAuthProvider,
     createUserWithEmailAndPassword,
+    sendEmailVerification,    
     signInWithEmailAndPassword,
     onAuthStateChanged,
-    signOut
+    signOut,
+    fetchSignInMethodsForEmail
 } from 'firebase/auth';
 
 
@@ -33,76 +37,81 @@ const Login = () => {
     const [user, setUser] = useState(null);
 
 
-    // useEffect(() => {
-    //     const unsubscribe = auth.onAuthStateChanged((user) => {
-    //         setUser(user);
-    //     });
 
-    //     return () => unsubscribe();
-    // }, []);
+
+
+
+
     useEffect(() => {
-        onAuthStateChanged(auth, handleUserStateChange) 
-    
-        }, []);
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            setUser(user);
+        });
 
-    /*const handleFormSubmit = async (event) => {
+        return () => unsubscribe();
+    }, []);
+    // useEffect(() => {
+    //     onAuthStateChanged(auth, handleUserStateChange)
+
+    // }, []);
+
+    // const handleFormSubmit = async (event) => {
+    //     event.preventDefault();
+    //     try {
+    //         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    //         await userCredential.user.sendEmailVerification();
+    //         setMessage("Usuario creado. Por favor verifica tu correo electrónico.");
+    
+    //         const currentUser = await auth.currentUser;
+    //         if (currentUser.emailVerified) {
+    //             setUser(currentUser);
+    //             window.location.href = "/";
+    //         }
+    //     } catch (error) {
+    //         setError(error.message);
+    //     }
+    // };
+
+
+
+
+
+    const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password)
             setUser(userCredential.user);
+            console.log('usuario creado')
             setMessage("Usuario creado");
             window.location.href = "/";
             // `$('#signupModal').modal('hide')`;
         } catch (error) {
             setError(error.message);
         }
-    };*/
-    
+    };
 
-    /*const handleFormSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            await userCredential.user.sendEmailVerification();
-            setMessage("Usuario creado. Por favor verifica tu correo electrónico.");
-    
-            const currentUser = await auth.currentUser;
-            if (currentUser.emailVerified) {
-                setUser(currentUser);
-                window.location.href = "/";
-            }
-        } catch (error) {
-            setError(error.message);
-        }
-    };*/
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            await userCredential.user.sendEmailVerification();
-            setMessage("Usuario creado. Por favor verifica tu correo electrónico.");
-
-            const currentUser = await auth.currentUser;
-            const intervalId = setInterval(async () => {
-                currentUser.reload();
-                if (currentUser.emailVerified) {
-                    setUser(currentUser);
-                    clearInterval(intervalId);
-                    window.location.href = "/";
-                }
-            }, 5000);
-        } catch (error) {
-            setError(error.message);
-        }
-    }
-
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+    //     try {
+    //         const userCredential = await signInWithEmailAndPassword(auth, emailLogin, passwordLogin);
+    //         setUser(userCredential.user);
+    //         window.location.href = "/";
+    //         // `$('#signinModal').modal('hide')`;                    
+    //     } catch (error) {
+    //         console.error("Sign in failed!", error);
+    //         setError(error.message);
+    //     }
+    // };
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            const providers = await fetchSignInMethodsForEmail(auth, emailLogin);
+            if (providers.length === 0) {
+                setError("Email address not registered. Please sign up.");
+                return;
+            }
             const userCredential = await signInWithEmailAndPassword(auth, emailLogin, passwordLogin);
             setUser(userCredential.user);
             window.location.href = "/";
-            // `$('#signinModal').modal('hide')`;                    
         } catch (error) {
             console.error("Sign in failed!", error);
             setError(error.message);
@@ -121,30 +130,30 @@ const Login = () => {
         }
     };
 
-    const handleUserStateChange = (user) => {
-        if (user){
-            setUser(user);
-            if (!user.emailVerified) {
-                sendEmailVerification(auth.currentUser);
-            }
+    // const handleUserStateChange = (user) => {
+    //     if (user) {
+    //         setUser(user);
+    //         if (!user.emailVerified) {
+    //             sendEmailVerification(auth.currentUser);
+    //         }
+    //     }
+    // }
+
+    const handleOnClick = async () => {
+        const googleProvider = new GoogleAuthProvider()
+        await singInWithGoogle(googleProvider)
+
+    }
+    async function singInWithGoogle(googleProvider) {
+        try {
+            const res = await signInWithPopup(auth, googleProvider)
+
+        }
+        catch (error) {
+            console.log(error)
         }
     }
 
-    const handleOnClick= async ()=>{
-        const googleProvider= new GoogleAuthProvider()
-        await singInWithGoogle(googleProvider)
-        
-        }
-        async function singInWithGoogle(googleProvider){
-            try{
-                const res= await signInWithPopup (auth , googleProvider)
-                window.location.href = "/";
-            }
-            catch(error){
-                console.log(error)
-            }
-        }
-        
 
 
 
@@ -260,5 +269,4 @@ const Login = () => {
         </div>
     );
 };
-
-export default Login;
+ export default Login
