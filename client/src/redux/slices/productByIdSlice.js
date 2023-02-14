@@ -26,7 +26,7 @@ export const STATUSES = Object.freeze({
 });
 
  const productByIdSlice= createSlice({
-    name:'ProductById',
+    name:'productById',
     initialState,
     reducers:{},
     // add cases from status query axios (getProductById)
