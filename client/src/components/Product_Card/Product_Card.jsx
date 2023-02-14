@@ -66,10 +66,6 @@ function Product_Card({ props }) {
             
           </div>
         </div>
-
-        <div>
-          <button className="btn btn-danger" onClick={() =>deletePhone(id)}>Hide</button>
-        </div>
       </div>
     </div>
   );
