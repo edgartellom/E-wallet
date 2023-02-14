@@ -59,9 +59,6 @@ function Product_Card({ props }) {
           </div>
         </div>
 
-        <div>
-
-        </div>
       </div>
     </div>
   );

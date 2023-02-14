@@ -108,7 +108,7 @@ const Login = () => {
         </button>
       ) : (
         <div>
-          <ul>
+          <div className="d-inline-block mx-2">
             <button
               type="button"
               className="btn btn-outline-dark"
@@ -117,8 +117,8 @@ const Login = () => {
             >
               Signin
             </button>
-          </ul>
-          <ul>
+          </div>
+          <div className="d-inline-block mx-2">
             <button
               type="button"
               className="btn btn-outline-dark"
@@ -127,7 +127,7 @@ const Login = () => {
             >
               Signup
             </button>
-          </ul>
+          </div>
 
           <div
             className="modal fade"
