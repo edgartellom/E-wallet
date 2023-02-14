@@ -11,8 +11,6 @@ const HomePage = () => {
         <div>
          <Carrusel/>
          <div>
-         </div>
-         <div>
           <Phones_home/>
          </div>
         </div>
