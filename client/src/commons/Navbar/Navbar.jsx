@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import Cart from "../Cart/Cart"
 import SearchBar from "../Searchbar/SearchBar"
-
+import Login from "../Login/Login";
 
 const Navbar = () => {
 
@@ -27,6 +27,7 @@ const Navbar = () => {
             </li>
           </ul>
           <SearchBar />
+       <Login/>
           <Cart />
         </div>
       </div>
