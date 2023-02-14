@@ -33,11 +33,6 @@ const Login = () => {
     const [user, setUser] = useState(null);
 
 
-
-
-
-
-
     // useEffect(() => {
     //     const unsubscribe = auth.onAuthStateChanged((user) => {
     //         setUser(user);
@@ -49,8 +44,6 @@ const Login = () => {
         onAuthStateChanged(auth, handleUserStateChange) 
     
         }, []);
-
-
 
     /*const handleFormSubmit = async (event) => {
         event.preventDefault();
