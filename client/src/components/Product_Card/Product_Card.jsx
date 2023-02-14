@@ -15,10 +15,6 @@ function Product_Card({ props }) {
     dispatch(deleteProduct(i))
   }
 
-  useEffect(()=> {
-    dispatch(getProductList())
-  })
-
   
 
   let defaultImage = "https://dummyimage.com/450x300/dee2e6/6c757d.jpg";
@@ -67,12 +63,12 @@ function Product_Card({ props }) {
             <a className="btn btn-outline-dark mt-auto" href="cart">
               Add to cart
             </a>
-            <button >Add to Cart</button>
+            
           </div>
         </div>
 
         <div>
-          <button className="btn btn-danger" onClick={() =>deletePhone(id)}>Delete</button>
+          <button className="btn btn-danger" onClick={() =>deletePhone(id)}>Hide</button>
         </div>
       </div>
     </div>
