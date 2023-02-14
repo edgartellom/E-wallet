@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { searchList, updateSearchWords } from "../../redux/slices/productListSlice";
+import {changeCurrentPage} from "../../redux/slices/paginationSlice";
 
 
 
@@ -22,7 +23,9 @@ const SearchBar = ({ props }) => {
     
     dispatch(searchList(search))
     navigate("/products")
-    search = ""
+    setSearch("");
+    dispatch(changeCurrentPage(1))
+    
   }
 
 
