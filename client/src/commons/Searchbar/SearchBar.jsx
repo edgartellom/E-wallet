@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { searchList, updateSearchWords } from "../../redux/slices/productListSlice";
+import { searchList, updateSearchWords } from "../../redux/Slices/productListSlice";
 
 
 

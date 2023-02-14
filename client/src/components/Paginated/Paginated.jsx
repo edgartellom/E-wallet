@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeCurrentPage } from "../../redux/slices/paginationSlice";
+import { changeCurrentPage } from "../../redux/Slices/paginationSlice";
 import "./paginated.css";
 import styled from 'styled-components';
 

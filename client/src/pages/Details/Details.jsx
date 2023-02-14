@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { getProductById } from "../../redux/slices/productByIdSlice";
-import { STATUSES } from "../../redux/slices/productByIdSlice";
+import { getProductById } from "../../redux/Slices/productByIdSlice";
+import { STATUSES } from "../../redux/Slices/productByIdSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./Details.css";
 import { useParams } from "react-router-dom";

@@ -12,8 +12,7 @@ let initialState = {
 export const searchProductsSlice = createSlice({
   name: "searchProducts",
   initialState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getSearchProducts.pending, (state) => {
       state.status = STATUSES.LOADING;
@@ -31,7 +30,6 @@ export const searchProductsSlice = createSlice({
   },
 });
 
-
 export default searchProductsSlice.reducer;
 
 export const getSearchProducts = createAsyncThunk(
@@ -41,7 +39,10 @@ export const getSearchProducts = createAsyncThunk(
       const response = await axios.get("/phones");
       console.log("response", response);
       const filteredResponse = response.data.filter((product) => {
-        return product.brand.toLowerCase().includes(search.toLowerCase()) || product.name.toLowerCase().includes(search.toLowerCase());
+        return (
+          product.brand.toLowerCase().includes(search.toLowerCase()) ||
+          product.name.toLowerCase().includes(search.toLowerCase())
+        );
       });
       return filteredResponse;
     } catch (error) {

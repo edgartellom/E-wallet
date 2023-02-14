@@ -8,34 +8,35 @@ let initialState = {
   status: "",
   error: null,
   allProducts: [],
-  searchWords:'',
+  searchWords: "",
 };
 
 export const productListSlice = createSlice({
   name: "productList",
   initialState,
   reducers: {
-    deleteProduct:(state,action) => {
-      const productFound = state.list.find(p => p.id === action.payload)
-      if(productFound){
-          state.list.splice(state.list.indexOf(productFound), 1)
+    deleteProduct: (state, action) => {
+      const productFound = state.list.find((p) => p.id === action.payload);
+      if (productFound) {
+        state.list.splice(state.list.indexOf(productFound), 1);
       }
-   },
-   searchList:(state, action)=>{
-    let words=action.payload;
-    state.list=state.allProducts.filter((i) => {
-      return i.brand.toLowerCase().includes(words.toLowerCase()) || i.name.toLowerCase().includes(words.toLowerCase());
-    });
-  
-  },
-  sortList:(state,action)=>{
-    state.list= Sorts(action.payload,state.list);
-  },
+    },
+    searchList: (state, action) => {
+      let words = action.payload;
+      state.list = state.allProducts.filter((i) => {
+        return (
+          i.brand.toLowerCase().includes(words.toLowerCase()) ||
+          i.name.toLowerCase().includes(words.toLowerCase())
+        );
+      });
+    },
+    sortList: (state, action) => {
+      state.list = Sorts(action.payload, state.list);
+    },
 
-  updateSearchWords:(state, action)=>{
-    state.searchWords=action.payload;
-  }
-
+    updateSearchWords: (state, action) => {
+      state.searchWords = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getProductList.pending, (state) => {
@@ -43,9 +44,8 @@ export const productListSlice = createSlice({
     });
 
     builder.addCase(getProductList.fulfilled, (state, action) => {
-      
       state.status = STATUSES.IDLE;
-      state.allProducts=action.payload;
+      state.allProducts = action.payload;
       state.list = state.allProducts;
     });
 
@@ -55,19 +55,19 @@ export const productListSlice = createSlice({
     });
 
     builder.addCase(createProducts.fulfilled, (state, action) => {
-      console.log(action.payload)
-      if(action.payload){
-        state.list.push(action.payload)
+      console.log(action.payload);
+      if (action.payload) {
+        state.list.push(action.payload);
       }
-      
+
       // state.list = action.payload
-    })
-    
+    });
   },
 });
 
 export default productListSlice.reducer;
-export const { searchList, updateSearchWords,sortList} = productListSlice.actions;
+export const { searchList, updateSearchWords, sortList } =
+  productListSlice.actions;
 
 export const getProductList = createAsyncThunk(
   "product/getProductList",
@@ -85,25 +85,25 @@ export const getProductList = createAsyncThunk(
 );
 
 export const createProducts = createAsyncThunk(
-  'products/createProducts',
+  "products/createProducts",
   async (payload) => {
-    console.log(payload)
-     try{
-      console.log(payload, "line60")
-        let res = await axios.post("/phones", payload)
-        // const myphone = {
-        //   id:10,
-        //   name:"samsungtest",
-        //   brand:"galaxytest",
-        //   price:10
-        // }
-        //console.log("res",res)
-        return res.data
-     }catch(e){
-      console.log("error trying to create", e)
-        return {}
-     }
+    console.log(payload);
+    try {
+      console.log(payload, "line60");
+      let res = await axios.post("/phones", payload);
+      // const myphone = {
+      //   id:10,
+      //   name:"samsungtest",
+      //   brand:"galaxytest",
+      //   price:10
+      // }
+      //console.log("res",res)
+      return res.data;
+    } catch (e) {
+      console.log("error trying to create", e);
+      return {};
+    }
   }
-)
+);
 
-export const { deleteProduct } = productListSlice.actions 
+export const { deleteProduct } = productListSlice.actions;
