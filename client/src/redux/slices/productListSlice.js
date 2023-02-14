@@ -22,9 +22,13 @@ export const productListSlice = createSlice({
       }
    },
    searchList:(state, action)=>{
-    let words=action.payload;
+    let words=action.payload.toLowerCase();
     state.list=state.allProducts.filter((i) => {
-      return i.brand.toLowerCase().includes(words.toLowerCase()) || i.name.toLowerCase().includes(words.toLowerCase());
+      let brand=i.brand.toLowerCase();
+      let name=i.name.toLowerCase();
+      
+      return brand.includes(words) || name.includes(words)
+      || (brand+' '+name).includes(words);
     });
   
   },

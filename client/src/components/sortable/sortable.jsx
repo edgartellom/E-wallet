@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { sortList } from "../../redux/slices/productListSlice";
+import { sortList, getProductList } from "../../redux/slices/productListSlice";
 import { useState } from "react";
 
 const Sortable = () => {
@@ -7,10 +7,18 @@ const Sortable = () => {
     const dispatch = useDispatch();
     const search = useSelector(store => store.product.searchWords);
     const result = useSelector(store => store.product.list);
+    const [select, setSelect]=useState('');
 
 
-    const sortHandle=(e)=>{
+    const sortHandle = (e) => {
         dispatch(sortList(e.target.value));
+        setSelect(e.target.value);
+
+    }
+
+    const sortRefresh = () => {
+        dispatch(getProductList());
+        setSelect('');
     }
 
     return (<>
@@ -24,11 +32,18 @@ const Sortable = () => {
                 <div className="col">
 
                     <div className="input-group input-group-sm mb-1">
+                        <button onClick={sortRefresh} className="btn btn-secondary"
+                        alt="Refresh"
+                        data-bs-toggle="tooltip" 
+                        title="Refresh"
+                        >
+                            <i className="bi bi-arrow-repeat"></i>
+                        </button>
                         <span className="input-group-text">
                             Order by:
                         </span>
-                        <select className="form-control" onChange={(e)=>sortHandle(e)} >
-                            <option value=""></option>
+                        <select className="form-control text-center" onChange={(sortHandle)} value={select} >
+                            <option value="">--</option>
                             <option value="lp">Lower price</option>
                             <option value="hp">Higher price</option>
                         </select>
