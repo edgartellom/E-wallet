@@ -1,14 +1,25 @@
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { deleteProduct } from "../../redux/slices/productListSlice";
+import { deleteProduct, getProductList } from "../../redux/slices/productListSlice";
 
 function Product_Card({ props }) {
   const { id, name, brand, price, image, rating, completed } = props;
+
+
+
   const dispatch = useDispatch()
+  //const list = useSelector((state) => state.products.list)
 
   const deletePhone = (i) => {
     dispatch(deleteProduct(i))
   }
+
+  useEffect(()=> {
+    dispatch(getProductList())
+  })
+
+  
 
   let defaultImage = "https://dummyimage.com/450x300/dee2e6/6c757d.jpg";
 
@@ -56,6 +67,7 @@ function Product_Card({ props }) {
             <a className="btn btn-outline-dark mt-auto" href="cart">
               Add to cart
             </a>
+            <button >Add to Cart</button>
           </div>
         </div>
 
