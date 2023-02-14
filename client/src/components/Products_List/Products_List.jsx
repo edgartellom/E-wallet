@@ -1,10 +1,10 @@
 import React from "react";
-import Product_Card from "../product_card/product_card";
-import NotFound from "../not_found/not_found";
+import Product_Card from "../Product_Card/Product_Card";
+import NotFound from "../Not_Found/Not_Found";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductList } from "../../redux/slices/productList.slice";
-import { Paginated } from "../paginated/paginated";
-import { changeCurrentPage } from "../../redux/Slices/paginationSlice"
+import { getProductList } from "../../redux/slices/productListSlice";
+import { Paginated } from "../Paginated/Paginated";
+import { changeCurrentPage } from "../../redux/slices/paginationSlice"
 
 
 function Products_List() {
@@ -38,7 +38,7 @@ function Products_List() {
 
   return (
     <div>
-      {<Paginated phones={phones.length} phonesPerPage={phonesPerPage} />}
+      
       <div>
         <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
           {loading === "loading" ? (
@@ -51,10 +51,11 @@ function Products_List() {
               return <Product_Card key={phone.id} props={phone} />;
             })
           ) : (
-            <NotFound />
+            <p className="text-center">No se hallaron coincidencias</p>
           )}
         </div>
       </div>
+      {<Paginated phones={phones.length} phonesPerPage={phonesPerPage} />}
     </div>
   );
 }

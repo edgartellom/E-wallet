@@ -1,16 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { STATUSES } from "./ProductById.slice";
+import { STATUSES } from "./productByIdSlice";
+import { Sorts } from "../../tools";
 
 let initialState = {
   list: [],
   status: "",
   error: null,
   allProducts: [],
+  searchWords:'',
 };
 
-export const ProductListSlice = createSlice({
-  name: "ProductList",
+export const productListSlice = createSlice({
+  name: "productList",
   initialState,
   reducers: {
     deleteProduct:(state,action) => {
@@ -26,6 +28,13 @@ export const ProductListSlice = createSlice({
     });
   
   },
+  sortList:(state,action)=>{
+    state.list= Sorts(action.payload,state.list);
+  },
+
+  updateSearchWords:(state, action)=>{
+    state.searchWords=action.payload;
+  }
 
   },
   extraReducers: (builder) => {
@@ -57,14 +66,14 @@ export const ProductListSlice = createSlice({
   },
 });
 
-export default ProductListSlice.reducer;
-export const { searchList} = ProductListSlice.actions;
+export default productListSlice.reducer;
+export const { searchList, updateSearchWords,sortList} = productListSlice.actions;
 
 export const getProductList = createAsyncThunk(
   "product/getProductList",
   async (dispatch) => {
     try {
-      const response = await axios.get("http://localhost:3001/phones");
+      const response = await axios.get("/phones");
       //console.log("response", response);
 
       return response.data;
@@ -81,7 +90,7 @@ export const createProducts = createAsyncThunk(
     console.log(payload)
      try{
       console.log(payload, "line60")
-        let res = await axios.post("http://localhost:3001/phones", payload)
+        let res = await axios.post("/phones", payload)
         // const myphone = {
         //   id:10,
         //   name:"samsungtest",
@@ -97,4 +106,4 @@ export const createProducts = createAsyncThunk(
   }
 )
 
-export const { deleteProduct } = ProductListSlice.actions 
+export const { deleteProduct } = productListSlice.actions 

@@ -25,8 +25,8 @@ export const STATUSES = Object.freeze({
     LOADING: 'loading',
 });
 
- const ProductByIdSlice= createSlice({
-    name:'ProductById',
+ const productByIdSlice= createSlice({
+    name:'productById',
     initialState,
     reducers:{},
     // add cases from status query axios (getProductById)
@@ -45,10 +45,10 @@ export const STATUSES = Object.freeze({
     }
 })
 
-export default ProductByIdSlice.reducer;
+export default productByIdSlice.reducer;
 
 export const getProductById=createAsyncThunk('product/getProductById',async (id)=>{
-    const res = await axios.get('http://localhost:3001/phones/'+id);
+    const res = await axios.get('/phones/'+id);
     console.log('estoy llamando al api');
     return res.data[0];
 });

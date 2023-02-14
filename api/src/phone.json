@@ -1963,7 +1963,7 @@
         ]
     },
     {
-        "id": 38,
+        "id": 39,
         "brand": "Asus",
         "name": "Zenfone 9",
         "model": "AI2202",
@@ -2016,7 +2016,7 @@
         ]
     },
     {
-        "id": 39,
+        "id": 40,
         "brand": "Microsoft",
         "name": "Surface Duo 2",
         "model": "",
@@ -2066,105 +2066,56 @@
         ]
     },
     {
-        "id": 40,
-        "brand": "Microsoft",
-        "name": "Surface Duo",
-        "model": "",
-        "network": "LTE",
-        "launch": "Released 2020, September 10",
-        "dimensions": "Unfolded: 186.9 x 145.2 x 4.8 mm - Folded: 145.2 x 93.3 x 9.9 mm",
-        "weight": 250,
-        "display": {
-            "type": "AMOLED",
-            "size": "8.1 inches",
-            "resolution": "1800 x 2700 pixels"
-        },
-        "os": "Android 10",
-        "memory": {
-            "ram": [
-                "8GB"
-            ],
-            "intern": [
-                "128GB",
-                "256GB",
-                "512GB"
-            ]
-        },
-        "chipset": "Qualcomm SM8150 Snapdragon 855 (7 nm)",
-        "cpu": "Octa-core (1x2.84 GHz Kryo 485 & 3x2.42 GHz Kryo 485 & 4x1.78 GHz Kryo 485)",
-        "cameras": {
-            "selfie": {
-                "resolution": "Uses main camera",
-                "video": "Uses main camera"
-            },
-            "main": {
-                "resolution": "11 MP",
-                "video": "4K@30/60fps, 1080p@30/60/120/240fps"
-            }
-        },
-        "battery": 3577,
-        "price": 399.99,
-        "color": [
-            "White"
-        ],
-        "image": "https://fdn2.gsmarena.com/vv/bigpic/microsoft-surface-duo.jpg",
-        "category": [
-            {
-                "name": "Foldable cell phone"
-            }
-        ]
-    },
-    {
-        "id": 40,
-        "brand": "Microsoft",
-        "name": "Surface Duo",
-        "model": "",
-        "network": "LTE",
-        "launch": "Released 2020, September 10",
-        "dimensions": "Unfolded: 186.9 x 145.2 x 4.8 mm - Folded: 145.2 x 93.3 x 9.9 mm",
-        "weight": 250,
-        "display": {
-            "type": "AMOLED",
-            "size": "8.1 inches",
-            "resolution": "1800 x 2700 pixels"
-        },
-        "os": "Android 10",
-        "memory": {
-            "ram": [
-                "8GB"
-            ],
-            "intern": [
-                "128GB",
-                "256GB",
-                "512GB"
-            ]
-        },
-        "chipset": "Qualcomm SM8150 Snapdragon 855 (7 nm)",
-        "cpu": "Octa-core (1x2.84 GHz Kryo 485 & 3x2.42 GHz Kryo 485 & 4x1.78 GHz Kryo 485)",
-        "cameras": {
-            "selfie": {
-                "resolution": "Uses main camera",
-                "video": "Uses main camera"
-            },
-            "main": {
-                "resolution": "11 MP",
-                "video": "4K@30/60fps, 1080p@30/60/120/240fps"
-            }
-        },
-        "battery": 3577,
-        "price": 399.99,
-        "color": [
-            "White"
-        ],
-        "image": "https://fdn2.gsmarena.com/vv/bigpic/microsoft-surface-duo.jpg",
-        "category": [
-            {
-                "name": "Foldable cell phone"
-            }
-        ]
-    },
-    {
         "id": 41,
+        "brand": "Microsoft",
+        "name": "Surface Duo",
+        "model": "",
+        "network": "LTE",
+        "launch": "Released 2020, September 10",
+        "dimensions": "Unfolded: 186.9 x 145.2 x 4.8 mm - Folded: 145.2 x 93.3 x 9.9 mm",
+        "weight": 250,
+        "display": {
+            "type": "AMOLED",
+            "size": "8.1 inches",
+            "resolution": "1800 x 2700 pixels"
+        },
+        "os": "Android 10",
+        "memory": {
+            "ram": [
+                "8GB"
+            ],
+            "intern": [
+                "128GB",
+                "256GB",
+                "512GB"
+            ]
+        },
+        "chipset": "Qualcomm SM8150 Snapdragon 855 (7 nm)",
+        "cpu": "Octa-core (1x2.84 GHz Kryo 485 & 3x2.42 GHz Kryo 485 & 4x1.78 GHz Kryo 485)",
+        "cameras": {
+            "selfie": {
+                "resolution": "Uses main camera",
+                "video": "Uses main camera"
+            },
+            "main": {
+                "resolution": "11 MP",
+                "video": "4K@30/60fps, 1080p@30/60/120/240fps"
+            }
+        },
+        "battery": 3577,
+        "price": 399.99,
+        "color": [
+            "White"
+        ],
+        "image": "https://fdn2.gsmarena.com/vv/bigpic/microsoft-surface-duo.jpg",
+        "category": [
+            {
+                "name": "Foldable cell phone"
+            }
+        ]
+    },
+    {
+        "id": 43,
         "brand": "Huawei",
         "name": "Enjoy 50z",
         "model": "EVE-AL00",
@@ -2215,7 +2166,7 @@
         ]
     },
     {
-        "id": 41,
+        "id": 44,
         "brand": "Huawei",
         "name": "Mate 50 Pro",
         "model": "DCO-AL00",
@@ -2266,7 +2217,7 @@
         ]
     },
     {
-        "id": 42,
+        "id": 45,
         "brand": "Huawei",
         "name": "Mate 50E",
         "model": "",
@@ -2316,7 +2267,7 @@
         ]
     },
     {
-        "id": 43,
+        "id": 46,
         "brand": "Huawei",
         "name": "Mate 50",
         "model": "CET-AL00",
@@ -2368,7 +2319,7 @@
         ]
     },
     {
-        "id": 44,
+        "id": 47,
         "brand": "LG",
         "name": "W41 Pro",
         "model": "LMK610IM",
@@ -2416,7 +2367,7 @@
         ]
     },
     {
-        "id": 45,
+        "id": 48,
         "brand": "LG",
         "name": "W31+",
         "model": "LMK315IM",
@@ -2463,7 +2414,7 @@
         ]
     },
     {
-        "id": 45,
+        "id": 49,
         "brand": "Oppo",
         "name": "Reno8 T 5G",
         "model": "CPH2505",
@@ -2512,7 +2463,7 @@
         ]
     },
     {
-        "id": 45,
+        "id": 50,
         "brand": "Oppo",
         "name": "A78",
         "model": "CPH2483",
@@ -2560,7 +2511,7 @@
         ]
     },
     {
-        "id": 45,
+        "id": 51,
         "brand": "Oppo",
         "name": "Reno9 Pro+",
         "model": "PGW110",
@@ -2610,7 +2561,7 @@
         ]
     },
     {
-        "id": 46,
+        "id": 52,
         "brand": "Motorola",
         "name": "Edge 30 Ultra",
         "model": "XT-2201",
@@ -2661,7 +2612,7 @@
         ]
     },
     {
-        "id": 47,
+        "id": 53,
         "brand": "Motorola",
         "name": "Edge 30",
         "model": "",
@@ -2712,7 +2663,7 @@
         ]
     },
     {
-        "id": 48,
+        "id": 54,
         "brand": "Motorola",
         "name": "Edge 20 Pro",
         "model": "XT2153-1",
@@ -2767,7 +2718,7 @@
         ]
     },
     {
-        "id": 49,
+        "id": 55,
         "brand": "Motorola",
         "name": "Edge 20",
         "model": "XT2153-1",
@@ -2817,7 +2768,7 @@
         ]
     },
     {
-        "id": 50,
+        "id": 56,
         "brand": "Motorola",
         "name": "Edge 30 Neo",
         "model": "",

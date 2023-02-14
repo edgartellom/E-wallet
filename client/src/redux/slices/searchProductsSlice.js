@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { STATUSES } from "./ProductById.slice";
+import { STATUSES } from "./productByIdSlice";
 
 let initialState = {
   list: [],
@@ -9,7 +9,7 @@ let initialState = {
   error: null,
 };
 
-export const SearchProductsSlice = createSlice({
+export const searchProductsSlice = createSlice({
   name: "searchProducts",
   initialState,
   reducers: {
@@ -32,13 +32,13 @@ export const SearchProductsSlice = createSlice({
 });
 
 
-export default SearchProductsSlice.reducer;
+export default searchProductsSlice.reducer;
 
 export const getSearchProducts = createAsyncThunk(
   "product/getSearchProducts",
   async (search, dispatch) => {
     try {
-      const response = await axios.get("http://localhost:3001/phones");
+      const response = await axios.get("/phones");
       console.log("response", response);
       const filteredResponse = response.data.filter((product) => {
         return product.brand.toLowerCase().includes(search.toLowerCase()) || product.name.toLowerCase().includes(search.toLowerCase());

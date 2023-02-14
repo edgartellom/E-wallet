@@ -1,0 +1,19 @@
+[33m8b9bdae[m[33m ([m[1;36mHEAD -> [m[1;32mauth[m[33m)[m HEAD@{0}: commit: autentificacion
+[33mf5ca0fb[m[33m ([m[1;31morigin/auth[m[33m, [m[1;32morderPrecio[m[33m)[m HEAD@{1}: checkout: moving from orderPrecio to auth
+[33mf5ca0fb[m[33m ([m[1;31morigin/auth[m[33m, [m[1;32morderPrecio[m[33m)[m HEAD@{2}: commit: auth funciona a medias
+[33m1f2e17e[m HEAD@{3}: commit: auth funciona a medias
+[33m5978ed6[m HEAD@{4}: checkout: moving from develop to orderPrecio
+[33m9da1611[m[33m ([m[1;32mdevelop[m[33m)[m HEAD@{5}: reset: moving to HEAD
+[33m9da1611[m[33m ([m[1;32mdevelop[m[33m)[m HEAD@{6}: checkout: moving from search-ok to develop
+[33md76985b[m[33m ([m[1;31morigin/search-ok[m[33m, [m[1;32msearch-ok[m[33m)[m HEAD@{7}: reset: moving to HEAD
+[33md76985b[m[33m ([m[1;31morigin/search-ok[m[33m, [m[1;32msearch-ok[m[33m)[m HEAD@{8}: checkout: moving from develop to search-ok
+[33m9da1611[m[33m ([m[1;32mdevelop[m[33m)[m HEAD@{9}: commit: solo esto
+[33md76985b[m[33m ([m[1;31morigin/search-ok[m[33m, [m[1;32msearch-ok[m[33m)[m HEAD@{10}: checkout: moving from search-ok to develop
+[33md76985b[m[33m ([m[1;31morigin/search-ok[m[33m, [m[1;32msearch-ok[m[33m)[m HEAD@{11}: checkout: moving from develop to search-ok
+[33md76985b[m[33m ([m[1;31morigin/search-ok[m[33m, [m[1;32msearch-ok[m[33m)[m HEAD@{12}: checkout: moving from search-ok to develop
+[33md76985b[m[33m ([m[1;31morigin/search-ok[m[33m, [m[1;32msearch-ok[m[33m)[m HEAD@{13}: checkout: moving from develop to search-ok
+[33md76985b[m[33m ([m[1;31morigin/search-ok[m[33m, [m[1;32msearch-ok[m[33m)[m HEAD@{14}: checkout: moving from search-ok to develop
+[33md76985b[m[33m ([m[1;31morigin/search-ok[m[33m, [m[1;32msearch-ok[m[33m)[m HEAD@{15}: checkout: moving from develop to search-ok
+[33md76985b[m[33m ([m[1;31morigin/search-ok[m[33m, [m[1;32msearch-ok[m[33m)[m HEAD@{16}: commit: searchbar
+[33m9468126[m HEAD@{17}: checkout: moving from main to develop
+[33mc403bbb[m[33m ([m[1;32mmain[m[33m)[m HEAD@{18}: clone: from https://github.com/edgartellom/SPhoenix.git

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { add, getTodos } from '../../redux/slice'
+
 function SeeAllProducts() {
 
     const dispatch = useDispatch()
