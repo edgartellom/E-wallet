@@ -4,26 +4,20 @@ import { getProductList } from "../../redux/slices/productListSlice";
 import Product_Card from "../../components/Product_Card/Product_Card";
 
 const Phones_home= ()=>{
-const dispatch=useDispatch()
+const dispatch = useDispatch()
 let loading = useSelector((store) => store.product.status);
-let list= useSelector((store)=>store.prodruct.list)
+const currentPage = useSelector(store => store.paginated.currentPage)
+let list= useSelector((store)=>store.product.list)
 let phones= [...list]
 
 useEffect(()=> {
    if(!list.length) dispatch(getProductList())}
 , [])
 
-const phonesPerPage = 4;
+const phonesPerPage = 3;
   const indexLastPhone = currentPage * phonesPerPage;
   const indexFirstPhone = indexLastPhone - phonesPerPage;
   const currentPhones = phones.slice(indexFirstPhone, indexLastPhone);
-
-
-
-
-
-
-
 
 
 return(

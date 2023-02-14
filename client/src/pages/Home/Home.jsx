@@ -10,7 +10,10 @@ const HomePage = () => {
       <section className="py-5">
         <div className="container px-4 px-lg-5 mt-5">
          <Carrusel/>
-         <Phones_home/>
+         <div>
+          <Phones_home/>
+         </div>
+         
         </div>
       </section>
     </>
