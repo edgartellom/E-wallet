@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import 'firebase/app';
 import 'firebase/auth';
 
-import { app, auth, db, storage } from "../../Firebase/Firebase";
+import { app, auth, db, storage } from "../../FireBase/Firebase";
 //import { useFirebaseApp } from 'reactfire'
 import {
     getAuth,
