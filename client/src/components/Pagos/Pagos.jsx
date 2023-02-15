@@ -27,9 +27,9 @@ const CheckoutForm = () => {
 
   return (
     <form className="card card-body" onSubmit={handleSubmit}>
-      {/* Product Information */}
+      {/*aqui deveria ir el producto*/}
 
-      {/* User Card Input */}
+     
       <div className="form-group">
         <CardElement />
       </div>
