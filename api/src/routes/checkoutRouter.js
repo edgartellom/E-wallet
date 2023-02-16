@@ -21,7 +21,7 @@ router.post("/", async (req, res, next) => {
     console.log(payment);
     res.send({ message: "Succesfull payment" });
   } catch (error) {
-    next(error);
+    console.log(error);
     res.json({ message: error.raw.message });
   }
 });

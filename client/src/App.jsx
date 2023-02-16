@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CreatePhones from "./components/Create/CreatePhones";
 import ProductsPage from "./pages/Products/ProductsPage";
 import About from "./pages/About/About";
-import Pagos from "./components/Pagos/Pagos";
+import Payment_Gateway from "./components/Payment_Gateway/Payment_Gateway";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/phones" element={<CreatePhones />} />
         <Route path="/about" element={<About />} />
-        <Route path="/pagos" element={<Pagos />} />
+        <Route path="/checkout" element={<Payment_Gateway />} />
       </Routes>
       <Footer />
     </BrowserRouter>

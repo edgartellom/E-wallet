@@ -1,30 +1,36 @@
-// base de datos de prueba 
+// base de datos de prueba
 
-const {DataTypes}= require ('sequelize')
+const { DataTypes } = require("sequelize");
 
-module.exports= (sequelize)=>{
-
-    sequelize.define ( 'user', {
-        id:{
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
-            allowNull: false,
-            primaryKey:true
-        },
-        username:{
-            type: DataTypes.STRING,
-        },
-        password:{
-            type: DataTypes.CHAR
-        },
-        email:{
-            type: DataTypes.CHAR,
-            allowNull: false,
-        },
-
-    } , {
-        timestamps:false,
-        freezeTableName:true
-    });
-
-}
+module.exports = (sequelize) => {
+  sequelize.define(
+    "user",
+    {
+      id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        primaryKey: true,
+      },
+      email: {
+        type: DataTypes.CHAR,
+        allowNull: false,
+      },
+      password: {
+        type: DataTypes.CHAR,
+      },
+      name: {
+        type: DataTypes.STRING,
+      },
+      phone: {
+        type: DataTypes.STRING,
+      },
+      address: {
+        type: DataTypes.STRING,
+      },
+    },
+    {
+      timestamps: false,
+      freezeTableName: true,
+    }
+  );
+};
