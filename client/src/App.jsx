@@ -8,6 +8,7 @@ import CreatePhones from "./components/Create/CreatePhones";
 import ProductsPage from "./pages/Products/ProductsPage";
 import About from "./pages/About/About";
 import Pagos from "./components/Pagos/Pagos";
+import SignUp from "./commons/Signup/Singup";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/phones" element={<CreatePhones />} />
         <Route path="/about" element={<About />} />
         <Route path="/pagos" element={<Pagos />} />
+        <Route path="/login" element={<SignUp/>} />
       </Routes>
       <Footer />
     </BrowserRouter>

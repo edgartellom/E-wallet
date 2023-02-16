@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "firebase/app";
 import "firebase/auth";
-
 import { app, auth, db, storage } from "../../FireBase/Firebase";
 //import { useFirebaseApp } from 'reactfire'
 import {
@@ -15,16 +14,27 @@ import {
   onAuthStateChanged,
   signOut,
   fetchSignInMethodsForEmail,
+  updateProfile,
 } from "firebase/auth";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [message, setMessage] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailLogin, setEmailLogin] = useState("");
   const [passwordLogin, setPasswordLogin] = useState("");
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
+  const [file, setFile] = useState(null);
+
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -34,22 +44,44 @@ const Login = () => {
     return () => unsubscribe();
   }, []);
 
+  ///////////REGISTER//////
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-      setUser(userCredential.user);
-      console.log("usuario creado");
+      const user = userCredential.user;
+
+      //store user data in firestore database
+      try {
+        const userDoc = doc(db, "users", user.uid);
+        console.log(user.uid);
+        await setDoc(userDoc, {
+          uid: user.uid,
+          displayName: username,
+          email: email,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+
       setMessage("Usuario creado");
+
+      toast.success("Account created");
+      //navigate("/products");
       window.location.href = "/";
     } catch (error) {
+      toast.error("something wrong");
       setError(error.message);
     }
   };
+
+  //////LOGIN/////
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -65,12 +97,15 @@ const Login = () => {
         passwordLogin
       );
       setUser(userCredential.user);
+      //navigate("/products");
       window.location.href = "/";
     } catch (error) {
       console.error("Sign in failed!", error);
       setError(error.message);
     }
   };
+
+  ////SINGOUT/////
 
   const handleSignOut = async () => {
     try {
@@ -82,17 +117,42 @@ const Login = () => {
     }
   };
 
-  const handleOnClick = async () => {
-    const googleProvider = new GoogleAuthProvider();
-    await singInWithGoogle(googleProvider);
+  //////LOGIN GOOGLE/////
+
+  // const handleOnClick = async () => {
+  //   const googleProvider = new GoogleAuthProvider();
+  //   await singInWithGoogle(googleProvider);
+  // };
+  // async function singInWithGoogle(googleProvider) {
+  //   try {
+  //     const res = await signInWithPopup(auth, googleProvider);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  const handleOnClick = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
   };
-  async function singInWithGoogle(googleProvider) {
-    try {
-      const res = await signInWithPopup(auth, googleProvider);
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
     <div>
@@ -181,7 +241,6 @@ const Login = () => {
                         type="button"
                         onClick={handleOnClick}
                       >
-                        {" "}
                         Login with Google
                       </button>
                     </div>
@@ -221,6 +280,15 @@ const Login = () => {
                 </div>
                 <div className="modal-body">
                   <form onSubmit={handleFormSubmit} id="signup-form">
+                    <label htmlFor="username">Username:</label>
+                    <input
+                      className="form-control mb-3"
+                      placeholder="Username"
+                      type="text"
+                      id="username"
+                      value={username}
+                      onChange={(event) => setUsername(event.target.value)}
+                    />
                     <label htmlFor="email">Email:</label>
                     <input
                       className="form-control mb-3"
@@ -240,7 +308,6 @@ const Login = () => {
                       value={password}
                       onChange={(event) => setPassword(event.target.value)}
                     />
-
                     <button type="submit" className="btn btn-primary">
                       Register
                     </button>
