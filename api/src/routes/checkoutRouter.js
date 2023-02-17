@@ -1,14 +1,14 @@
 const { Router } = require("express");
 const { Phone, Order, Category, User } = require("../db");
 require("dotenv").config();
-const STRIPE_API_KEY = process.env.STRIPE_API_KEY;
+const STRIPE_API_KEY = 'sk_test_51Mbqo8Di8RzuUuAW302xacQjhy9bHPHoPCaXYiueZZTAkWYOJd0NGMGRzfRFVat5UVtzn9XHlSj14AMdTXZ88ats00YL9gFQP3';
 const Stripe = require("stripe");
 
 const stripe = new Stripe(STRIPE_API_KEY);
 
 const router = Router();
 
-router.post("/", async (req, res, next) => {
+router.post("/checkout", async (req, res, next) => {
   try {
     const { id, amount } = req.body;
     const payment = await stripe.paymentIntents.create({
@@ -21,7 +21,7 @@ router.post("/", async (req, res, next) => {
     console.log(payment);
     res.send({ message: "Succesfull payment" });
   } catch (error) {
-    console.log(error);
+    next(error);
     res.json({ message: error.raw.message });
   }
 });

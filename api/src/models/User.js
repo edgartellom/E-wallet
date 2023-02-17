@@ -6,26 +6,18 @@ module.exports = (sequelize) => {
   sequelize.define(
     "user",
     {
-      id: {
-        type: DataTypes.UUID,
+      uid: {
+        type: DataTypes.STRING,
         allowNull: false,
         primaryKey: true,
       },
-      email: {
-        type: DataTypes.CHAR,
-        allowNull: false,
-      },
-      password: {
-        type: DataTypes.CHAR,
-      },
       name: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
-      phone: {
+      email: {
         type: DataTypes.STRING,
-      },
-      address: {
-        type: DataTypes.STRING,
+        allowNull: false,
       },
     },
     {
