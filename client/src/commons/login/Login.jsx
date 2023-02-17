@@ -32,6 +32,8 @@ const Login = () => {
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
   const [file, setFile] = useState(null);
+  const [adress, setAdress] = useState("");
+  const [phone, setPhone] = useState();
 
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
@@ -280,6 +282,24 @@ const Login = () => {
                 </div>
                 <div className="modal-body">
                   <form onSubmit={handleFormSubmit} id="signup-form">
+                    <label htmlFor="username">Phone:</label>
+                    <input
+                      className="form-control mb-3"
+                      placeholder="Username"
+                      type="number"
+                      id="phone"
+                      value={phone}
+                      onChange={(event) => setPhone(event.target.value)}
+                    />
+                    <label htmlFor="username">Adress:</label>
+                    <input
+                      className="form-control mb-3"
+                      placeholder="Adress"
+                      type="text"
+                      id="adress"
+                      value={adress}
+                      onChange={(event) => setAdress(event.target.value)}
+                    />
                     <label htmlFor="username">Username:</label>
                     <input
                       className="form-control mb-3"
