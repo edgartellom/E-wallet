@@ -1,45 +1,57 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { STATUSES } from "./productByIdSlice";
-import { Sorts } from "../../tools";
+import { sorts,categoryFilter } from "../../tools";
+
+
 
 let initialState = {
   list: [],
   status: "",
   error: null,
   allProducts: [],
-  searchWords:'',
+  searchWords: '',
+  tempList: [],
 };
 
 export const productListSlice = createSlice({
   name: "productList",
   initialState,
   reducers: {
-    deleteProduct:(state,action) => {
+    deleteProduct: (state, action) => {
       const productFound = state.list.find(p => p.id === action.payload)
-      if(productFound){
-          state.list.splice(state.list.indexOf(productFound), 1)
+      if (productFound) {
+        state.list.splice(state.list.indexOf(productFound), 1)
       }
-   },
-   searchList:(state, action)=>{
-    let words=action.payload.toLowerCase();
-    state.list=state.allProducts.filter((i) => {
-      let brand=i.brand.toLowerCase();
-      let name=i.name.toLowerCase();
-      
-      return brand.includes(words) || name.includes(words)
-      || (brand+' '+name).includes(words);
-    });
-  
-  },
-  sortList:(state,action)=>{
-    state.list= Sorts(action.payload,state.list);
-  },
+    },
+    searchList: (state, action) => {
+      let words = action.payload.toLowerCase();
+      state.list = state.allProducts.filter((i) => {
+        let brand = i.brand.toLowerCase();
+        let name = i.name.toLowerCase();
 
-  updateSearchWords:(state, action)=>{
-    state.searchWords=action.payload;
-  }
+        return brand.includes(words) || name.includes(words)
+          || (brand + ' ' + name).includes(words);
+      });
+      state.tempList = state.list;
+    },
+    sortList: (state, action) => {
+      state.list = sorts(action.payload, state.list);
+    },
 
+    updateSearchWords: (state, action) => {
+      state.searchWords = action.payload;
+    },
+
+    filterByCategory: (state, action) => {
+       if(state.tempList.length>0) 
+        state.list = categoryFilter(action.payload, state.tempList);
+      else
+      state.list = categoryFilter(action.payload, state.allProducts);
+    },
+    resetCategories:(state, action) => {
+      state.list =state.tempList;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getProductList.pending, (state) => {
@@ -47,10 +59,11 @@ export const productListSlice = createSlice({
     });
 
     builder.addCase(getProductList.fulfilled, (state, action) => {
-      
+
       state.status = STATUSES.IDLE;
-      state.allProducts=action.payload;
+      state.allProducts = action.payload;
       state.list = state.allProducts;
+      state.tempList = state.allProduct;
     });
 
     builder.addCase(getProductList.rejected, (state, action) => {
@@ -59,19 +72,24 @@ export const productListSlice = createSlice({
     });
 
     builder.addCase(createProducts.fulfilled, (state, action) => {
-      console.log(action.payload)
-      if(action.payload){
+      //console.log(action.payload)
+      if (action.payload) {
         state.list.push(action.payload)
       }
-      
+
       // state.list = action.payload
     })
-    
+
   },
 });
 
 export default productListSlice.reducer;
-export const { searchList, updateSearchWords,sortList} = productListSlice.actions;
+export const { searchList, 
+  updateSearchWords, 
+  sortList, 
+  filterByCategory, 
+  resetCategories } 
+= productListSlice.actions;
 
 export const getProductList = createAsyncThunk(
   "product/getProductList",
@@ -82,7 +100,7 @@ export const getProductList = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      console.log("error from redux");
+      console.log(error);
       return [];
     }
   }
@@ -92,21 +110,21 @@ export const createProducts = createAsyncThunk(
   'products/createProducts',
   async (payload) => {
     console.log(payload)
-     try{
+    try {
       console.log(payload, "line60")
-        let res = await axios.post("/phones", payload)
-        // const myphone = {
-        //   id:10,
-        //   name:"samsungtest",
-        //   brand:"galaxytest",
-        //   price:10
-        // }
-        //console.log("res",res)
-        return res.data
-     }catch(e){
+      let res = await axios.post("/phones", payload)
+      // const myphone = {
+      //   id:10,
+      //   name:"samsungtest",
+      //   brand:"galaxytest",
+      //   price:10
+      // }
+      //console.log("res",res)
+      return res.data
+    } catch (e) {
       console.log("error trying to create", e)
-        return {}
-     }
+      return {}
+    }
   }
 )
 

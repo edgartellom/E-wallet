@@ -12,7 +12,6 @@ const Details = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log("estoy ejecutandome, effect");
     dispatch(getProductById(id));
   }, [dispatch, id]);
 

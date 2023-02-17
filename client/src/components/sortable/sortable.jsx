@@ -1,14 +1,21 @@
+
 import { useDispatch, useSelector } from "react-redux";
-import { sortList, getProductList } from "../../redux/slices/productListSlice";
-import { useState } from "react";
+import { sortList, getProductList, filterByCategory, resetCategories, updateSearchWords } from "../../redux/slices/productListSlice";
+import { fetchCategories } from "../../redux/slices/CategoryListSlice";
+import { useEffect, useState } from "react";
 
 const Sortable = () => {
 
     const dispatch = useDispatch();
     const search = useSelector(store => store.product.searchWords);
     const result = useSelector(store => store.product.list);
+    const categories= useSelector(store => store.categories.list);
     const [select, setSelect]=useState('');
+    const [catSelect,setCatSelect]=useState('');
 
+    useEffect(() => {
+        dispatch(fetchCategories());
+    },[])
 
     const sortHandle = (e) => {
         dispatch(sortList(e.target.value));
@@ -16,9 +23,24 @@ const Sortable = () => {
 
     }
 
+    const catHandle = (e) => {
+        let idcat=e.target.value;
+        let category = categories.find(i=>i.id==idcat);
+        setCatSelect(idcat);
+        if(category) {
+            dispatch(filterByCategory(category.name));
+        }else{
+            dispatch(resetCategories())
+        }
+
+        setSelect('');
+    }
+
     const sortRefresh = () => {
         dispatch(getProductList());
+        dispatch(updateSearchWords(''));
         setSelect('');
+        setCatSelect('')
     }
 
     return (<>
@@ -46,6 +68,22 @@ const Sortable = () => {
                             <option value="">--</option>
                             <option value="lp">Lower price</option>
                             <option value="hp">Higher price</option>
+                        </select>
+                        <span className="input-group-text">
+                            Categories:
+                        </span>
+                        <select className="form-control text-center" onChange={catHandle} value={catSelect}>
+                            <option value="">--</option>
+                            {
+                               categories && categories.length>0 ?( categories.map((i)=>{
+                                    return (
+                                        <option  key={i.id} value={i.id} >
+                                            {i.name}
+                                        </option>
+                                    )
+                                })
+                               ):(<></>)
+                            }
                         </select>
                     </div>
 

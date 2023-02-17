@@ -30,9 +30,9 @@ function Products_List() {
 
 
 
-  React.useEffect(() => {
-    if (!phones.length) dispatch(getProductList());
-  }, []);
+  // React.useEffect(() => {
+  //   if (!phones.length) dispatch(getProductList());
+  // }, []);
 
   //console.log("products", products);
 
