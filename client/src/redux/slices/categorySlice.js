@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-    categories:[1]
+    categories:[]
 }
 
 const categorySlice = createSlice({
