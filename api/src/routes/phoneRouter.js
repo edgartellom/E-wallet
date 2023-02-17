@@ -74,6 +74,7 @@ router.post('/', async  (req,res, next) => {  //some errors trying to create
                 price,
                 color,
                 image,
+                category
             }); 
             let categoryDb = await Category.findAll({
                 where: {name: category}

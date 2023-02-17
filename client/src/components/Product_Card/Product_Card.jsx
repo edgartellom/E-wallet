@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../redux/slices/cartSlice";
 import { deleteProduct, getProductList } from "../../redux/slices/productListSlice";
+import { useNavigate } from "react-router-dom";
 
 function Product_Card({ props }) {
   const { id, name, brand, price, image, rating, completed } = props;
@@ -9,10 +11,19 @@ function Product_Card({ props }) {
 
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   //const list = useSelector((state) => state.products.list)
 
   const deletePhone = (i) => {
     dispatch(deleteProduct(i))
+  }
+
+  const handleAddToCart = (product) => {
+    console.log(product)
+    console.log("adding to cart")
+    console.log(props)
+    dispatch(addToCart(product))
+    navigate('/cart')
   }
 
   
@@ -60,10 +71,8 @@ function Product_Card({ props }) {
 
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div className="text-center">
-            <a className="btn btn-outline-dark mt-auto" href="cart">
-              Add to cart
-            </a>
             
+            <button className="btn btn-primary" onClick={()=> handleAddToCart(props)}>Add to card</button>
           </div>
         </div>
 

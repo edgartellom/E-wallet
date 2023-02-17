@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { createProducts } from "../../redux/slices/productListSlice";
 import { useNavigate } from "react-router-dom";
-import categories from "../../../../api/src/category.json";
+import { getCategory } from "../../redux/slices/categorySlice";
 
 function CreatePhones() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const selector = useSelector((state) => state.product.list);
+  const c = useSelector((state) => state.category.categories)
 
-  const category = [
+  const categories = [
     "touchscreen keyboard",
     "qwerty keyboard",
     "foldable cell phone",
@@ -23,7 +24,7 @@ function CreatePhones() {
     brand: "",
     price: "",
     image: "",
-    categories: [],
+    category: [],
   });
 
   const [errors, setErrors] = useState([]);
@@ -51,15 +52,18 @@ function CreatePhones() {
 
   useEffect(() => {
     dispatch(getProductList());
+    dispatch(getCategory())
   }, []);
 
   console.log(selector);
+  console.log(c)
+  console.log(c.name)
 
   const createSubmit = (e) => {
     e.preventDefault();
     console.log(input, "input50");
     dispatch(createProducts(input));
-    navigate("/");
+    //navigate("/");
   };
 
   const changeHandle = (e) => {
@@ -77,13 +81,14 @@ function CreatePhones() {
   };
 
   const selectHandle = (e) => {
-    if (!input.categories.includes(e.target.value)) {
+    if (!input.category.includes(e.target.value)) {
       alert(e.target.value);
       setInput({
         ...input,
-        categories: [...input.categories, e.target.value],
+        category: [...input.category, e.target.value],
       });
     }
+    console.log(e.target.value)
   };
 
   return (
@@ -134,8 +139,8 @@ function CreatePhones() {
         <br />
 
         <label htmlFor="image">URL: </label>
-        <input
-          type="text"
+        <textarea
+          //type="textArea"
           autoComplete="off"
           value={input.image}
           name="image"
@@ -146,9 +151,9 @@ function CreatePhones() {
 
         <select defaultValue="Categories" onChange={(e) => selectHandle(e)}>
           <option disabled>Categories</option>
-          {category.map((t, index) => (
-            <option key={index} value={t}>
-              {t}
+          {c.map((t, index) => (
+            <option key={index} value={t.name}>
+              {t.name}
             </option>
           ))}
         </select>
