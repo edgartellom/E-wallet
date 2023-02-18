@@ -1,17 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { STATUSES } from "./productByIdSlice";
-import { sorts,categoryFilter } from "../../tools";
+import { sorts, categoryFilter } from "../../tools";
 
 
 
 let initialState = {
   list: [],
+  tempList: [],
   status: "",
   error: null,
   allProducts: [],
   searchWords: '',
-  tempList: [],
 };
 
 export const productListSlice = createSlice({
@@ -44,18 +44,30 @@ export const productListSlice = createSlice({
     },
 
     filterByCategory: (state, action) => {
-       if(state.tempList.length>0) 
+      if (state.tempList.length > 0) {
+        //   console.log("paso por priemra");
         state.list = categoryFilter(action.payload, state.tempList);
-      else
-      state.list = categoryFilter(action.payload, state.allProducts);
+      }
+
+      else {
+        // console.log("paso por segunda")
+        state.list = categoryFilter(action.payload, state.allProducts);
+      }
+
     },
-    resetCategories:(state, action) => {
-      state.list =state.tempList;
+    resetCategories: (state, action) => {
+      if (state.tempList.length > 0) {
+        state.list = state.tempList;
+      }
+      else {
+        state.list = state.allProducts;
+      }
     },
   },
   extraReducers: (builder) => {
     builder.addCase(getProductList.pending, (state) => {
       state.status = STATUSES.LOADING;
+      state.tempList = []
     });
 
     builder.addCase(getProductList.fulfilled, (state, action) => {
@@ -63,11 +75,11 @@ export const productListSlice = createSlice({
       state.status = STATUSES.IDLE;
       state.allProducts = action.payload;
       state.list = state.allProducts;
-      state.tempList = state.allProduct;
     });
 
     builder.addCase(getProductList.rejected, (state, action) => {
       state.list = [];
+      state.tempList = [];
       state.status = STATUSES.ERROR;
     });
 
@@ -84,12 +96,12 @@ export const productListSlice = createSlice({
 });
 
 export default productListSlice.reducer;
-export const { searchList, 
-  updateSearchWords, 
-  sortList, 
-  filterByCategory, 
-  resetCategories } 
-= productListSlice.actions;
+export const { searchList,
+  updateSearchWords,
+  sortList,
+  filterByCategory,
+  resetCategories }
+  = productListSlice.actions;
 
 export const getProductList = createAsyncThunk(
   "product/getProductList",
