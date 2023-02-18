@@ -7,7 +7,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CreatePhones from "./components/Create/CreatePhones";
 import ProductsPage from "./pages/Products/ProductsPage";
 import About from "./pages/About/About";
-import Payment_Gateway from "./components/Payment_Gateway/Payment_Gateway";
 
 function App() {
   return (
@@ -17,9 +16,8 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route path="/phone/:id" element={<Details />} />
         <Route path="/products" element={<ProductsPage />} />
-        <Route path="/phones" element={<CreatePhones />} />
+        {/* <Route path="/phones" element={<CreatePhones />} /> */}
         <Route path="/about" element={<About />} />
-        <Route path="/checkout" element={<Payment_Gateway />} />
       </Routes>
       <Footer />
     </BrowserRouter>
