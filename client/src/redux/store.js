@@ -3,7 +3,7 @@ import counterReducer from "./slice";
 import productByIdReducer from "./slices/productByIdSlice";
 import productListReducer from "./slices/productListSlice";
 import paginationReducer from "./slices/paginationSlice";
-import categoryListSlice from "./slices/CategoryListSlice";
+import categoryListSlice from "./slices/categoryListSlice";
 // import searchProductsReducer from "./slices/searchProductsSlice"
 
 
