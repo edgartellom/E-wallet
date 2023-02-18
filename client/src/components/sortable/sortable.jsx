@@ -1,7 +1,7 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { sortList, getProductList, filterByCategory, resetCategories, updateSearchWords } from "../../redux/slices/productListSlice";
-import { fetchCategories } from "../../redux/slices/CategoryListSlice";
+import { fetchCategories } from "../../redux/slices/categoryListSlice";
 import { useEffect, useState } from "react";
 
 const Sortable = () => {
