@@ -10,6 +10,7 @@ import About from "./pages/About/About";
 import AdminNav from "./Admin/AdminNav";
 //import ProtectedRoute from "../src/ProtectedRoute";
 import AllProducts from "./Admin/AllProducts";
+import Checkout from "./pages/Checkout/Checkout";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/dashboard" element={<AdminNav />} />
         <Route path="dashboard/all-products" element={<AllProducts />} />
         <Route path="dashboard/create-phones" element={<CreatePhones />} />
+        <Route path="/checkout" element={<Checkout />} />
 
         {/* <Route path="/*" element={<ProtectedRoute />}>
           <Route path="checkout" element={<Checkout />} />
