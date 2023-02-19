@@ -1,4 +1,4 @@
-const Sorts=(sortBy,list)=>{
+const sorts=(sortBy,list)=>{
     switch (sortBy) {
         case 'hp':
             return list.sort((a,b)=>b.price - a.price);
@@ -9,4 +9,4 @@ const Sorts=(sortBy,list)=>{
     }   
 }
 
-export default Sorts;
+export default sorts;
