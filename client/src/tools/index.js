@@ -1,2 +1,1 @@
-export {default as Sorts} from './sortable/Sorts';
-
+export { default as sorts } from "./sortable/sorts";

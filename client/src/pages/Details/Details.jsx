@@ -3,8 +3,8 @@ import { getProductById } from "../../redux/slices/productByIdSlice";
 import { STATUSES } from "../../redux/slices/productByIdSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./Details.css";
-import { useParams } from "react-router-dom";
-import Product_Deatils_Tab from "../Product_Details_Tab/Product_Details_Tab";
+import { Link, useParams } from "react-router-dom";
+import ProductDetailsTab from "../productDetailsTab/ProductDetailsTab";
 
 const Details = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,6 @@ const Details = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log("estoy ejecutandome, effect");
     dispatch(getProductById(id));
   }, [dispatch, id]);
 
@@ -40,19 +39,22 @@ const Details = () => {
           <div className="container d-flex aling-items-center">
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
-                <a href="/">Home</a>
+                <Link to="/">Home</Link>
+              </li>
+
+              <li className="breadcrumb-item">
+                <Link to="/products">Products</Link>
               </li>
               <li className="breadcrumb-item">
-                <a href="/">Products</a>
-              </li>
-              <li className="breadcrumb-item active">
-                <a href="/">{product.model}</a>
+                <Link to={`/products/${id}`}>
+                  {product.brand + " " + product.name}
+                </Link>
               </li>
             </ol>
           </div>
         </nav>
 
-        {/* contenido principal */}
+        {/* Main content */}
         <div className="page-content">
           <div className="container">
             <div className="product-details-top">
@@ -69,9 +71,12 @@ const Details = () => {
 
                 <div className="col-md-6">
                   <div className="product-details">
-                    <h1 className="product-title">{product.model}</h1>
-                    <h3 className="product-subtitle">{product.brand}</h3>
+                    <h1 className="product-title">
+                      {product.brand + " " + product.name}
+                    </h1>
+                    <h3 className="product-subtitle">{product.model}</h3>
                   </div>
+                  {/* Begin ratings content */}
                   <div className="rating-container">
                     <div className="ratings">
                       <div className="ratings-val">
@@ -88,10 +93,11 @@ const Details = () => {
                       {"(2 reviews)"}
                     </a>
                   </div>
+                  {/* End ratings content */}
                   <div className="product-price">{"$ " + product.price}</div>
                   <div className="product-content">
                     <div className="details-filter-row details-row-size">
-                      <label className="">colors: </label>
+                      <label className="">Colors: </label>
                       <div className="select-custom">
                         <select className="form-control" name="size" id="size">
                           {product.color?.map((i, index) => (
@@ -104,15 +110,15 @@ const Details = () => {
                     </div>
                   </div>
                   <div className="product-details-action">
-                    <a href="#" className="btn-product btn-cart">
+                    <Link to="/cart" className="btn-product btn-cart">
                       <span>
-                        <i className="bi bi-cart-plus"></i> add to cart
+                        <i className="bi bi-cart-plus"></i> Add to cart
                       </span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
-              <Product_Deatils_Tab />
+              <ProductDetailsTab />
             </div>
           </div>
         </div>
