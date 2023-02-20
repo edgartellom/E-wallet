@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { STATUSES } from "./productByIdSlice";
-import { sorts } from "../../tools";
+import { sorts, categoryFilter } from "../../tools";
 
 let initialState = {
   list: [],
+  tempList: [],
   status: "",
   error: null,
   allProducts: [],
@@ -33,6 +34,7 @@ export const productListSlice = createSlice({
           (brand + " " + name).includes(words)
         );
       });
+      state.tempList = state.list;
     },
     sortList: (state, action) => {
       state.list = sorts(action.payload, state.list);
@@ -41,10 +43,28 @@ export const productListSlice = createSlice({
     updateSearchWords: (state, action) => {
       state.searchWords = action.payload;
     },
+
+    filterByCategory: (state, action) => {
+      if (state.tempList.length > 0) {
+        //   console.log("paso por priemra");
+        state.list = categoryFilter(action.payload, state.tempList);
+      } else {
+        // console.log("paso por segunda")
+        state.list = categoryFilter(action.payload, state.allProducts);
+      }
+    },
+    resetCategories: (state, action) => {
+      if (state.tempList.length > 0) {
+        state.list = state.tempList;
+      } else {
+        state.list = state.allProducts;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getProductList.pending, (state) => {
       state.status = STATUSES.LOADING;
+      state.tempList = [];
     });
 
     builder.addCase(getProductList.fulfilled, (state, action) => {
@@ -55,11 +75,12 @@ export const productListSlice = createSlice({
 
     builder.addCase(getProductList.rejected, (state, action) => {
       state.list = [];
+      state.tempList = [];
       state.status = STATUSES.ERROR;
     });
 
     builder.addCase(createProducts.fulfilled, (state, action) => {
-      console.log(action.payload);
+      //console.log(action.payload)
       if (action.payload) {
         state.list.push(action.payload);
       }
@@ -70,8 +91,13 @@ export const productListSlice = createSlice({
 });
 
 export default productListSlice.reducer;
-export const { searchList, updateSearchWords, sortList } =
-  productListSlice.actions;
+export const {
+  searchList,
+  updateSearchWords,
+  sortList,
+  filterByCategory,
+  resetCategories,
+} = productListSlice.actions;
 
 export const getProductList = createAsyncThunk(
   "product/getProductList",
@@ -82,7 +108,7 @@ export const getProductList = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      console.log("error from redux");
+      console.log(error);
       return [];
     }
   }

@@ -1,23 +1,31 @@
 import "./App.css";
-import Navbar from "./commons/Navbar/Navbar";
-import HomePage from "./pages/Home/Home";
-import Details from "./pages/Details/Details";
-import Footer from "./commons/Footer/Footer";
+import Navbar from "./commons/navbar/Navbar";
+import {
+  Home,
+  Products,
+  Details,
+  About,
+  Cart,
+  Contact,
+  OrderHistory,
+} from "./pages";
+import Footer from "./commons/footer/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CreatePhones from "./components/Create/CreatePhones";
-import ProductsPage from "./pages/Products/ProductsPage";
-import About from "./pages/About/About";
+import CreatePhones from "./components/create/CreatePhones";
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route path="/phone/:id" element={<Details />} />
-        <Route path="/products" element={<ProductsPage />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<Details />} />
         {/* <Route path="/phones" element={<CreatePhones />} /> */}
         <Route path="/about" element={<About />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/orderHistory" element={<OrderHistory />} />
       </Routes>
       <Footer />
     </BrowserRouter>

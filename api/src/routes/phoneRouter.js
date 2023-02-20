@@ -51,7 +51,7 @@ router.post("/", async (req, res, next) => {
       image,
       category,
     } = req.body;
-    let newPhone = await Phone.create({
+    let createdPhone = await Phone.create({
       brand,
       name,
       model,
@@ -78,10 +78,10 @@ router.post("/", async (req, res, next) => {
     let categoryDb = await Category.findAll({
       where: { name: category },
     });
-    newPhone.addCategory(categoryDb);
-    res.status(200).send(newPhone);
+    let newPhone = await createdPhone.addCategory(categoryDb);
+    res.status(200).send(createdPhone);
   } catch (error) {
-    res.status(404).send("NOT FOUND");
+    res.status(404).send({ message: error.message });
   }
 });
 

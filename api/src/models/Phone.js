@@ -1,5 +1,3 @@
-// base de datos de prueba
-
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
@@ -33,7 +31,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
       },
       weight: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL(4, 1),
       },
       displayType: {
         type: DataTypes.STRING,
@@ -72,7 +70,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
       },
       battery: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL(4, 0),
       },
       price: {
         type: DataTypes.DECIMAL(8, 2),
@@ -82,6 +80,11 @@ module.exports = (sequelize) => {
       },
       image: {
         type: DataTypes.STRING,
+      },
+      state: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
       },
       createdInDb: {
         type: DataTypes.BOOLEAN,

@@ -4,7 +4,7 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "Cart",
+    "cart",
     {
       quantity: {
         type: DataTypes.INTEGER,
@@ -17,6 +17,7 @@ module.exports = (sequelize) => {
     },
     {
       timestamps: false,
+      freezeTableName: true,
     }
   );
 };

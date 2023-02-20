@@ -1,5 +1,3 @@
-// base de datos de prueba
-
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
