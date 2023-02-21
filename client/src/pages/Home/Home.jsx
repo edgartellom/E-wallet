@@ -1,11 +1,8 @@
 import Phones_home from "../../commons/Phone_home/Phone_home";
-import Products_List from "../../components/Products_List/Products_List";
-import Banner from "./Banner";
+// import Products_List from "../../components/Products_List/Products_List";
+// import Banner from "./Banner";
 import Carrusel from "../../commons/Carrusel/Carrusel";
-import notificationEmail from "../../tools/notifications/email";
-//sample import for notifications
-import toast, { Toaster } from "react-hot-toast";
-
+import Notification from "../../components/samples/notifications.sample";
 const HomePage = () => {
 
   //temporal sample code for email notification and internal notification

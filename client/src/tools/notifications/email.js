@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 export const env={
     serviceId: import.meta.env.VITE_EMAIL_SERVICE_ID,
     publicKey: import.meta.env.VITE_EMAIL_PUBLIC_KEY,
-    templateId: import.meta.env.VITE_EMAIL_TEMPLATE_ID
+    templateId:import.meta.env.VITE_EMAIL_TEMPLATE_ID
 }
 
 const notificationEmail = async (email, name, message )=>{
@@ -20,9 +20,9 @@ const notificationEmail = async (email, name, message )=>{
         env.serviceId, env.templateId,form, env.publicKey
     )
     .then((result)=>{
-        return result
+        return result;
     }, (err)=>{
-        return err
+        return err;
     });
 
 
