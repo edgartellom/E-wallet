@@ -6,7 +6,7 @@ export const env={
     templateId: import.meta.env.VITE_EMAIL_TEMPLATE_ID
 }
 
-const notificationEmail = (email, name, message )=>{
+const notificationEmail = async (email, name, message )=>{
     
     
     const form ={
@@ -15,18 +15,14 @@ const notificationEmail = (email, name, message )=>{
         reply_to:'',
         message: message
     }
-    console.log(env)
 // send notification email with parameters from form
     emailjs.send(
-        env.serviceId,
-        env.templateId,
-        form,
-        env.publicKey
+        env.serviceId, env.templateId,form, env.publicKey
     )
     .then((result)=>{
-        console.log(result);
+        return result
     }, (err)=>{
-        console.log(err);
+        return err
     });
 
 

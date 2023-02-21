@@ -3,26 +3,37 @@ import Products_List from "../../components/Products_List/Products_List";
 import Banner from "./Banner";
 import Carrusel from "../../commons/Carrusel/Carrusel";
 import notificationEmail from "../../tools/notifications/email";
+//sample import for notifications
+import toast, { Toaster } from "react-hot-toast";
 
 const HomePage = () => {
 
-
-  const sendMessage= () => {
-    notificationEmail('rolandosamuel.rq@gmail.com','Rolando', 'Este es un mail de prueba');
+  //temporal sample code for email notification and internal notification
+  const sendMessage = () => {
+      
+    // notification in UI
+      toast.promise(notificationEmail('xxx@gmail.com', 'Nombre', 'Este es un mail de prueba'),
+      {
+        loading:'Loading ...',
+        success: 'Message sent',
+        error: (err)=> `Error: ${err}`
+      })
   };
 
   return (
     <>
-  
+
       <section className="py-5">
         <div>
-         <Carrusel/>
-         <div>
-          <Phones_home/>
-         </div>
-         <div>
-          <button onClick={sendMessage} className="btn btn-dark"> send message</button>
-         </div>
+          <Carrusel />
+          <div>
+            <Phones_home />
+          </div>
+          <div>
+            {/*temporal sample button and Tag(Toaster) for notifications  */}
+            <button onClick={sendMessage} className="btn btn-dark"> send message</button>
+            <Toaster  toastOptions={{ duration: 5000, style:{minWidth: '400px',}}} />
+          </div>
         </div>
       </section>
     </>
