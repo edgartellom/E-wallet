@@ -3,15 +3,13 @@ import axios from "axios";
 import { STATUSES } from "./productByIdSlice";
 import { sorts, categoryFilter } from "../../tools";
 
-
-
 let initialState = {
   list: [],
   tempList: [],
   status: "",
   error: null,
   allProducts: [],
-  searchWords: '',
+  searchWords: "",
 };
 
 export const productListSlice = createSlice({
@@ -19,9 +17,9 @@ export const productListSlice = createSlice({
   initialState,
   reducers: {
     deleteProduct: (state, action) => {
-      const productFound = state.list.find(p => p.id === action.payload)
+      const productFound = state.list.find((p) => p.id === action.payload);
       if (productFound) {
-        state.list.splice(state.list.indexOf(productFound), 1)
+        state.list.splice(state.list.indexOf(productFound), 1);
       }
     },
     searchList: (state, action) => {
@@ -30,8 +28,11 @@ export const productListSlice = createSlice({
         let brand = i.brand.toLowerCase();
         let name = i.name.toLowerCase();
 
-        return brand.includes(words) || name.includes(words)
-          || (brand + ' ' + name).includes(words);
+        return (
+          brand.includes(words) ||
+          name.includes(words) ||
+          (brand + " " + name).includes(words)
+        );
       });
       state.tempList = state.list;
     },
@@ -47,19 +48,15 @@ export const productListSlice = createSlice({
       if (state.tempList.length > 0) {
         //   console.log("paso por priemra");
         state.list = categoryFilter(action.payload, state.tempList);
-      }
-
-      else {
+      } else {
         // console.log("paso por segunda")
         state.list = categoryFilter(action.payload, state.allProducts);
       }
-
     },
     resetCategories: (state, action) => {
       if (state.tempList.length > 0) {
         state.list = state.tempList;
-      }
-      else {
+      } else {
         state.list = state.allProducts;
       }
     },
@@ -67,11 +64,10 @@ export const productListSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getProductList.pending, (state) => {
       state.status = STATUSES.LOADING;
-      state.tempList = []
+      state.tempList = [];
     });
 
     builder.addCase(getProductList.fulfilled, (state, action) => {
-
       state.status = STATUSES.IDLE;
       state.allProducts = action.payload;
       state.list = state.allProducts;
@@ -86,22 +82,22 @@ export const productListSlice = createSlice({
     builder.addCase(createProducts.fulfilled, (state, action) => {
       //console.log(action.payload)
       if (action.payload) {
-        state.list.push(action.payload)
+        state.list.push(action.payload);
       }
 
       // state.list = action.payload
-    })
-
+    });
   },
 });
 
 export default productListSlice.reducer;
-export const { searchList,
+export const {
+  searchList,
   updateSearchWords,
   sortList,
   filterByCategory,
-  resetCategories }
-  = productListSlice.actions;
+  resetCategories,
+} = productListSlice.actions;
 
 export const getProductList = createAsyncThunk(
   "product/getProductList",
@@ -119,12 +115,11 @@ export const getProductList = createAsyncThunk(
 );
 
 export const createProducts = createAsyncThunk(
-  'products/createProducts',
+  "products/createProducts",
   async (payload) => {
-    console.log(payload)
     try {
-      console.log(payload, "line60")
-      let res = await axios.post("/phones", payload)
+      console.log(payload, "line60");
+      let res = await axios.post("/phones", payload);
       // const myphone = {
       //   id:10,
       //   name:"samsungtest",
@@ -132,12 +127,12 @@ export const createProducts = createAsyncThunk(
       //   price:10
       // }
       //console.log("res",res)
-      return res.data
+      return res.data;
     } catch (e) {
-      console.log("error trying to create", e)
-      return {}
+      console.log("error trying to create", e);
+      return {};
     }
   }
-)
+);
 
-export const { deleteProduct } = productListSlice.actions 
+export const { deleteProduct } = productListSlice.actions;

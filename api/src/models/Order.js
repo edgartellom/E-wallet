@@ -1,26 +1,33 @@
-// base de datos de prueba 
+const { DataTypes } = require("sequelize");
 
-const {DataTypes}= require ('sequelize')
-
-module.exports= (sequelize)=>{
-
-    sequelize.define ( 'order', {
-        id:{
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
-            allowNull: false,
-            primaryKey:true
-        },
-        state:{
-            type: DataTypes.STRING,
-        },
-        detail:{
-            type: DataTypes.JSON
-        },
-
-    } , {
-        timestamps:false,
-        freezeTableName:true
-    });
-
-}
+module.exports = (sequelize) => {
+  sequelize.define(
+    "order",
+    {
+      id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        primaryKey: true,
+      },
+      amount: {
+        type: DataTypes.DECIMAL(8, 2),
+      },
+      currency: {
+        type: DataTypes.STRING,
+      },
+      description: {
+        type: DataTypes.STRING,
+      },
+      payment_method: {
+        type: DataTypes.STRING,
+      },
+      confirm: {
+        type: DataTypes.BOOLEAN,
+      },
+    },
+    {
+      timestamps: false,
+      freezeTableName: true,
+    }
+  );
+};

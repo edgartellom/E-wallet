@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "firebase/app";
 import "firebase/auth";
-import { app, auth, db, storage } from "../../FireBase/Firebase";
+import { app, auth, db, storage } from "../../fireBase/firebase";
 //import { useFirebaseApp } from 'reactfire'
 import {
   getAuth,
@@ -164,8 +164,7 @@ const Login = () => {
           className="btn btn-outline-dark"
           data-bs-toggle="modal"
           data-bs-target="#logout"
-          onClick={handleSignOut}
-        >
+          onClick={handleSignOut}>
           Logout
         </button>
       ) : (
@@ -175,8 +174,7 @@ const Login = () => {
               type="button"
               className="btn btn-outline-dark"
               data-bs-toggle="modal"
-              data-bs-target="#signinModal"
-            >
+              data-bs-target="#signinModal">
               Signin
             </button>
           </div>
@@ -185,8 +183,7 @@ const Login = () => {
               type="button"
               className="btn btn-outline-dark"
               data-bs-toggle="modal"
-              data-bs-target="#signupModal"
-            >
+              data-bs-target="#signupModal">
               Signup
             </button>
           </div>
@@ -196,8 +193,7 @@ const Login = () => {
             id="signinModal"
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
+            aria-hidden="true">
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
@@ -208,8 +204,7 @@ const Login = () => {
                     type="button"
                     className="btn-close"
                     data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
+                    aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
                   <form onSubmit={handleSubmit} id="login-form">
@@ -241,8 +236,7 @@ const Login = () => {
                       <button
                         className="btn btn-primary"
                         type="button"
-                        onClick={handleOnClick}
-                      >
+                        onClick={handleOnClick}>
                         Login with Google
                       </button>
                     </div>
@@ -265,8 +259,7 @@ const Login = () => {
             id="signupModal"
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
+            aria-hidden="true">
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
@@ -277,8 +270,7 @@ const Login = () => {
                     type="button"
                     className="btn-close"
                     data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
+                    aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
                   <form onSubmit={handleFormSubmit} id="signup-form">
