@@ -29,11 +29,11 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <Link className="nav-link" to="/phones">
                   Create phones
                 </Link>
-              </li> */}
+              </li>
               <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"

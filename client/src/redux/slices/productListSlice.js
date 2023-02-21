@@ -117,7 +117,6 @@ export const getProductList = createAsyncThunk(
 export const createProducts = createAsyncThunk(
   "products/createProducts",
   async (payload) => {
-    console.log(payload);
     try {
       console.log(payload, "line60");
       let res = await axios.post("/phones", payload);

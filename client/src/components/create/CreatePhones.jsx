@@ -3,10 +3,11 @@ import { getProductList } from "../../redux/slices/productListSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { createProducts } from "../../redux/slices/productListSlice";
+import { fetchCategories } from "../../redux/slices/categoryListSlice";
 import { useNavigate } from "react-router-dom";
 import categories from "../../../../api/src/category.json";
-import styled from 'styled-components';
-import './form_style.css';
+import styled from "styled-components";
+import "./form_style.css";
 
 const FormContainer = styled.form`
   display: flex;
@@ -15,11 +16,11 @@ const FormContainer = styled.form`
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-   width: 500px;
+  width: 500px;
 `;
 
 const Input = styled.input`
- padding: 10px;
+  padding: 10px;
   margin: 10px 0;
   width: 100%;
   border: 1px solid #ccc;
@@ -29,7 +30,7 @@ const Input = styled.input`
 `;
 
 const Select = styled.select`
- padding: 10px;
+  padding: 10px;
   margin: 10px 0;
   width: 100%;
   border: 1px solid #ccc;
@@ -40,40 +41,32 @@ const Select = styled.select`
 const Button = styled.button`
   padding: 10px 20px;
   background-color: #343a40;
-  color: white; 
+  color: white;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
 `;
 
-
-function CreatePhones () {
+function CreatePhones() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const selector = useSelector((state) => state.product.allProducts);
+  const categories = useSelector((store) => store.categories.list);
 
-  const colored = (function color () {
-    let color = selector?.map(c => c.color).flat()
-    const uniqueColor = [...new Set(color)]
+  const colored = (function color() {
+    let color = selector?.map((c) => c.color).flat();
+    const uniqueColor = [...new Set(color)];
     // console.log("colors", uniqueColor)
-    return uniqueColor.sort()
-  })()
+    return uniqueColor.sort();
+  })();
 
-
-  const category = [
-    "touchscreen keyboard",
-    "qwerty keyboard",
-    "foldable cell phone",
-    "rugged",
-    "dual-screen",
-  ];
   const [input, setInput] = useState({
     name: "",
     brand: "",
     price: "",
     image: "",
     categories: [],
-    color: []
+    color: [],
   });
 
   const [errors, setErrors] = useState([]);
@@ -94,12 +87,12 @@ function CreatePhones () {
       error.categories = "Please select at least one category.";
     } else {
       return error;
-    };
+    }
     if (input.color.length === 0) {
       error.color = "Please select at least one color.";
     } else {
       return error;
-    };
+    }
     if (input.price) {
       const parsed = parseInt(input.price);
       if (!Number.isInteger(parsed)) {
@@ -115,24 +108,26 @@ function CreatePhones () {
 
   useEffect(() => {
     dispatch(getProductList());
+    dispatch(fetchCategories());
   }, [dispatch]);
-
-
 
   const createSubmit = (e) => {
     e.preventDefault();
     console.log(input, "input50");
     dispatch(createProducts(input));
-    console.log("product", createProducts(input)())
-    dispatch(setInput({
-      name: "",
-      brand: "",
-      price: "",
-      image: "",
-      categories: [],
-      color: []
-    }))
-    navigate("/");
+    console.log("product", createProducts(input)());
+    dispatch(
+      setInput({
+        name: "",
+        brand: "",
+        price: "",
+        image: "",
+        categories: [],
+        color: [],
+      })
+    );
+    window.location.href = "/";
+    //navigate("/");
   };
 
   const changeHandle = (e) => {
@@ -150,32 +145,43 @@ function CreatePhones () {
   };
 
   const selectHandle = (e) => {
-    if (!input.categories.includes(e.target.value)) {
-      alert(e.target.value);
-      setInput({
-        ...input,
-        categories: [...input.categories, e.target.value],
-
-      });
-    }
+    setInput({
+      ...input,
+      categories: [...input.categories, e.target.value],
+    });
   };
+  function handleDelete(e) {
+    setInput({
+      ...input,
+      categories: input.categories.filter((cat) => cat !== e.target.value),
+    });
+  }
+  function handleDeleteColor(e) {
+    setInput({
+      ...input,
+      color: input.color.filter((col) => col !== e.target.value),
+    });
+  }
 
   const selectHandleColor = (e) => {
     if (!input.color.includes(e.target.value)) {
       setInput({
         ...input,
-        color: [...input.color, e.target.value]
-      })
+        color: [...input.color, e.target.value],
+      });
     }
-  }
+  };
 
   return (
     <div>
-      <h1 className="form__style" >Create a Product </h1>
+      <h1 className="form__style">Create a Product </h1>
       <div className="form__style">
         <FormContainer onSubmit={createSubmit}>
-          <br /><br />
-          <label className="fw-bold" htmlFor="name">Name: </label>
+          <br />
+          <br />
+          <label className="fw-bold" htmlFor="name">
+            Name:{" "}
+          </label>
           <Input
             type="text"
             autoComplete="off"
@@ -188,7 +194,9 @@ function CreatePhones () {
           {errors.name && <h6>{errors.name}</h6>}
           <br />
 
-          <label className="fw-bold" htmlFor="brand">Brand: </label>
+          <label className="fw-bold" htmlFor="brand">
+            Brand:{" "}
+          </label>
           <Input
             type="text"
             autoComplete="off"
@@ -202,7 +210,9 @@ function CreatePhones () {
           {errors.brand && <h6>{errors.brand}</h6>}
           <br />
 
-          <label className="fw-bold" htmlFor="price">Price: </label>
+          <label className="fw-bold" htmlFor="price">
+            Price:{" "}
+          </label>
           <Input
             type="text"
             autoComplete="off"
@@ -216,7 +226,9 @@ function CreatePhones () {
           {errors.price && <h6>{errors.price}</h6>}
           <br />
 
-          <label className="fw-bold" htmlFor="image">URL: </label>
+          <label className="fw-bold" htmlFor="image">
+            URL:{" "}
+          </label>
           <Input
             type="text"
             autoComplete="off"
@@ -228,41 +240,76 @@ function CreatePhones () {
           />
           {errors.image && <h6>{errors.image}</h6>}
           <br />
-          <Select className="fw-bold" defaultValue="Categories" onChange={(e) => selectHandle(e)}>
-            <option className="fw-bold" disabled>Categories</option>
-            {category.map((t, index) => (
-              <option key={index} value={t}>
-                {t}
-              </option>
-            ))}
+          <Select
+            className="fw-bold"
+            defaultValue="Categories"
+            onChange={(e) => selectHandle(e)}>
+            <option className="fw-bold" disabled>
+              Categories
+            </option>
+            {categories &&
+              categories.map((cat, index) => (
+                <option key={index} value={cat.name}>
+                  {cat.name}
+                </option>
+              ))}
           </Select>
           {errors.categories && <h6>{errors.categories}</h6>}
           <br />
-          <Select className="fw-bold" defaultValue="Colors" onChange={(e) => selectHandleColor(e)}>
-            <option className="fw-bold" disabled>Colors</option>
-            {colored && colored.map((c, index) => (
-              <option key={index} value={c}>
-                {c}
-              </option>
-            ))}
+          <span className="alert-info m-lg-4">
+            Selected categories: {[...input.categories].map((c) => c + ", ")}{" "}
+          </span>
+          <br />
+          {input.categories.map((el, index) => (
+            <div className="categories" key={index}>
+              <p>{el}</p>
+              <button className="botnX" onClick={() => handleDelete(el)}>
+                x
+              </button>
+            </div>
+          ))}
+          <Select
+            className="fw-bold"
+            defaultValue="Colors"
+            onChange={(e) => selectHandleColor(e)}>
+            <option className="fw-bold" disabled>
+              Colors
+            </option>
+            {colored &&
+              colored.map((c, index) => (
+                <option key={index} value={c}>
+                  {c}
+                </option>
+              ))}
           </Select>
           {errors.color && <h6>{errors.color}</h6>}
           <br />
-          <span className="alert-info m-lg-4">Selected colors: {[...input.color].map(c => (c + ', '))} </span>
+          <span className="alert-info m-lg-4">
+            Selected colors: {[...input.color].map((c) => c + ", ")}{" "}
+          </span>
           <br />
+          {input.color.map((el, index) => (
+            <div className="color" key={index}>
+              <p>{el}</p>
+              <button className="botnX" onClick={() => handleDeleteColor(el)}>
+                x
+              </button>
+            </div>
+          ))}
           <Button
             disabled={
-              !input.brand ||
-              errors.brand ||
-              !input.name ||
-              errors.name
+              !input.brand || errors.brand || !input.name || errors.name
             }
-            type="submit"
-          >
+            type="submit">
             Create a New Phone
           </Button>
         </FormContainer>
-        <br /><br /><br /><br /><br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </div>
   );

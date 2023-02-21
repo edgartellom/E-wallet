@@ -2,22 +2,21 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "user",
+    "cart_detail",
     {
       id: {
         type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         allowNull: false,
         primaryKey: true,
       },
-      username: {
-        type: DataTypes.STRING,
-      },
-      email: {
-        type: DataTypes.CHAR,
+      price: {
+        type: DataTypes.DECIMAL(8, 2),
         allowNull: false,
       },
-      role: {
-        type: DataTypes.ENUM("user", "admin"),
+      quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
       state: {
         type: DataTypes.BOOLEAN,
