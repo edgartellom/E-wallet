@@ -1,5 +1,4 @@
-import PhoneHome from "../../commons/phoneHome/PhoneHome";
-import Carrusel from "../../commons/carrusel/Carrusel";
+import { PhoneHome, Carrusel } from "../../components";
 
 const Home = () => {
   return (

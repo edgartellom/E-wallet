@@ -16,8 +16,9 @@ module.exports = (sequelize) => {
         type: DataTypes.CHAR,
         allowNull: false,
       },
-      role: {
-        type: DataTypes.ENUM("user", "admin"),
+      admin: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
       },
       state: {
         type: DataTypes.BOOLEAN,

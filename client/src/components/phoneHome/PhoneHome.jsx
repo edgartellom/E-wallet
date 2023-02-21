@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../redux/slices/productListSlice";
-import Product_Card from "../../components/productCard/ProductCard";
+import { ProductCard } from "../../components";
 
 const PhonesHome = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const PhonesHome = () => {
               />
             ) : currentPhones && currentPhones.length > 0 ? (
               currentPhones.map((phone) => {
-                return <Product_Card key={phone.id} props={phone} />;
+                return <ProductCard key={phone.id} props={phone} />;
               })
             ) : (
               <p className="text-center">No se hallaron coincidencias</p>

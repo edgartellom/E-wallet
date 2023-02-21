@@ -10,9 +10,9 @@ const router = Router();
 
 router.post("/", async (req, res, next) => {
   try {
-    const { id, amount } = req.body;
+    const { id, totalPrice } = req.body;
     const payment = await stripe.paymentIntents.create({
-      amount,
+      totalPrice,
       currency: "USD",
       description: "product.brand product.name",
       payment_method: id,
