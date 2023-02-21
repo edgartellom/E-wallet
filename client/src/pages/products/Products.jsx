@@ -1,7 +1,7 @@
 import ProductsList from "../../components/productsList/ProductsList";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../redux/slices/productListSlice";
-import Sortable from "../../components/sortable/Sortable";
+import Sortable from "../../components/sortable/sortable";
 
 const Products = () => {
   const dispatch = useDispatch();
