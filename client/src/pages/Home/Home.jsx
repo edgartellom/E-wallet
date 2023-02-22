@@ -11,7 +11,7 @@ const Home = () => {
           <div>
             <PhoneHome />
           </div>
-          <Notification/>
+          <Notification />
         </div>
       </section>
     </>

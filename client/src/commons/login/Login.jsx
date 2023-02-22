@@ -164,7 +164,8 @@ const Login = () => {
           className="btn btn-outline-dark"
           data-bs-toggle="modal"
           data-bs-target="#logout"
-          onClick={handleSignOut}>
+          onClick={handleSignOut}
+        >
           Logout
         </button>
       ) : (
@@ -174,8 +175,9 @@ const Login = () => {
               type="button"
               className="btn btn-outline-dark"
               data-bs-toggle="modal"
-              data-bs-target="#signinModal">
-              Signin
+              data-bs-target="#signinModal"
+            >
+              Login
             </button>
           </div>
           <div className="d-inline-block mx-2">
@@ -183,8 +185,9 @@ const Login = () => {
               type="button"
               className="btn btn-outline-dark"
               data-bs-toggle="modal"
-              data-bs-target="#signupModal">
-              Signup
+              data-bs-target="#signupModal"
+            >
+              Sign up
             </button>
           </div>
 
@@ -193,7 +196,8 @@ const Login = () => {
             id="signinModal"
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+            aria-hidden="true"
+          >
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
@@ -204,7 +208,8 @@ const Login = () => {
                     type="button"
                     className="btn-close"
                     data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div className="modal-body">
                   <form onSubmit={handleSubmit} id="login-form">
@@ -236,7 +241,8 @@ const Login = () => {
                       <button
                         className="btn btn-primary"
                         type="button"
-                        onClick={handleOnClick}>
+                        onClick={handleOnClick}
+                      >
                         Login with Google
                       </button>
                     </div>
@@ -259,7 +265,8 @@ const Login = () => {
             id="signupModal"
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+            aria-hidden="true"
+          >
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
@@ -270,7 +277,8 @@ const Login = () => {
                     type="button"
                     className="btn-close"
                     data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div className="modal-body">
                   <form onSubmit={handleFormSubmit} id="signup-form">

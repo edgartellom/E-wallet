@@ -18,6 +18,10 @@ const admin__nav = [
     display: "Users",
     path: "/dashboard/users",
   },
+  {
+    display: "create-phones",
+    path: "/dashboard/create-phones",
+  },
 ];
 
 const AdminNav = () => {
