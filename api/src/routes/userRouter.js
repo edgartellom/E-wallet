@@ -1,10 +1,16 @@
 const { Router } = require("express");
-const { Phone, Order, Category, User } = require("../db");
+const { User } = require("../db");
 
 const router = Router();
 
 router.get("/", async (req, res, next) => {
   try {
+    try {
+      const allUsers = await User.findAll();
+      res.status(200).send(allUsers);
+    } catch (error) {
+      next(error);
+    }
   } catch (error) {
     next(error);
   }

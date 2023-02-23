@@ -1,8 +1,17 @@
 const axios = require("axios");
-const { Order } = require("../db");
+const { Order, User, Cart } = require("../db");
+
+const getDbInfo = async () => {
+  return await Order.findAll({
+    include: [
+      { model: User, attributes: ["id"] },
+      { model: Cart, attributes: ["id"] },
+    ],
+  });
+};
 
 const getAllOrders = async () => {
-  let allOrders = await Order.findAll();
+  let allOrders = await getDbInfo();
   return allOrders;
 };
 

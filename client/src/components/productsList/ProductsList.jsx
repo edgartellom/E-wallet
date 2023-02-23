@@ -1,10 +1,8 @@
 import React from "react";
-import ProductCard from "../productCard/ProductCard";
-import NotFound from "../notFound/NotFound";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../redux/slices/productListSlice";
-import { Paginated } from "../paginated/Paginated";
 import { changeCurrentPage } from "../../redux/slices/paginationSlice";
+import { ProductCard, Paginated, NotFound } from "../../components";
 
 function ProductsList() {
   const dispatch = useDispatch();
@@ -43,7 +41,8 @@ function ProductsList() {
               return <ProductCard key={phone.id} props={phone} />;
             })
           ) : (
-            <p className="text-center">No se hallaron coincidencias</p>
+            // <p className="text-center">No se hallaron coincidencias</p>
+            <NotFound />
           )}
         </div>
       </div>

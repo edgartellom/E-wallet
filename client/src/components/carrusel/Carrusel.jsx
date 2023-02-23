@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { getProductList } from "../../redux/slices/productListSlice";
+// import { useSelector, useDispatch } from "react-redux";
+// import { getProductList } from "../../redux/slices/productListSlice";
 
 const Carrusel = () => {
   return (

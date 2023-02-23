@@ -46,6 +46,7 @@ const Login = () => {
     return () => unsubscribe();
   }, []);
 
+  console.log(storage);
   ///////////REGISTER//////
 
   const handleFormSubmit = async (event) => {
@@ -63,8 +64,9 @@ const Login = () => {
       try {
         const userDoc = doc(db, "users", user.uid);
         await setDoc(userDoc, {
-          uid: user.uid,
-          displayName: username,
+          id: user.uid,
+          username,
+          admin: false,
           email: email,
         });
         console.log(user);
@@ -75,8 +77,8 @@ const Login = () => {
       setMessage("Usuario creado");
 
       toast.success("Account created");
-      navigate("/products");
-      //window.location.href = "/";
+      //navigate("/products");
+      window.location.href = "/";
     } catch (error) {
       toast.error("something wrong");
       setError(error.message);
@@ -114,7 +116,7 @@ const Login = () => {
       await signOut(auth);
       setUser(null);
     } catch (error) {
-      console.error("Error al cerrar sesión", error);
+      console.error("Error al cerrar sesiÃ³n", error);
       setError(error.message);
     }
   };
@@ -274,28 +276,10 @@ const Login = () => {
                 </div>
                 <div className="modal-body">
                   <form onSubmit={handleFormSubmit} id="signup-form">
-                    <label htmlFor="username">Phone:</label>
+                    <label htmlFor="email">UserName:</label>
                     <input
                       className="form-control mb-3"
-                      placeholder="Username"
-                      type="number"
-                      id="phone"
-                      value={phone}
-                      onChange={(event) => setPhone(event.target.value)}
-                    />
-                    <label htmlFor="username">Adress:</label>
-                    <input
-                      className="form-control mb-3"
-                      placeholder="Adress"
-                      type="text"
-                      id="adress"
-                      value={adress}
-                      onChange={(event) => setAdress(event.target.value)}
-                    />
-                    <label htmlFor="username">Username:</label>
-                    <input
-                      className="form-control mb-3"
-                      placeholder="Username"
+                      placeholder="UserName"
                       type="text"
                       id="username"
                       value={username}

@@ -9,20 +9,13 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
       },
-      amount: {
-        type: DataTypes.DECIMAL(8, 2),
+      totalPrice: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: false,
       },
-      currency: {
-        type: DataTypes.STRING,
-      },
-      description: {
-        type: DataTypes.STRING,
-      },
-      payment_method: {
-        type: DataTypes.STRING,
-      },
-      confirm: {
-        type: DataTypes.BOOLEAN,
+      state: {
+        type: DataTypes.ENUM("succeeded, processing, failed"),
+        allowNull: false,
       },
     },
     {

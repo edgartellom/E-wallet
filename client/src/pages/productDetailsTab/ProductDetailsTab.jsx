@@ -1,4 +1,4 @@
-import Create_Review from "../../components/createReview/CreateReview";
+import { CreateReview } from "../../components";
 
 function ProductDetailsTab() {
   return (
@@ -155,7 +155,7 @@ function ProductDetailsTab() {
             id="product-review-tab"
             role="tabpanel"
             aria-labelledby="product-review-link">
-            <Create_Review />
+            <CreateReview />
             <div className="reviews d-none">
               <h3>Reviews (2)</h3>
               <div className="review">

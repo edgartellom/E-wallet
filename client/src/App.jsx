@@ -1,5 +1,5 @@
 import "./App.css";
-import Navbar from "./commons/navbar/Navbar";
+import { Header, Footer } from "./commons";
 import {
   Home,
   Products,
@@ -8,15 +8,15 @@ import {
   Cart,
   Contact,
   OrderHistory,
+  Checkout,
 } from "./pages";
-import Footer from "./commons/footer/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CreatePhones from "./components/create/CreatePhones";
+import { CreatePhones } from "./components";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/products" element={<Products />} />
@@ -26,6 +26,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/orderHistory" element={<OrderHistory />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       <Footer />
     </BrowserRouter>

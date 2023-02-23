@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CartButton from "../cartButton/CartButton";
-import SearchBar from "../searchbar/SearchBar";
-import Login from "../login/Login";
+import { CartButton, SearchBar, Login } from "../../components";
 
 const Navbar = () => {
   return (
