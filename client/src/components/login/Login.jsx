@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "firebase/app";
 import "firebase/auth";
-import { app, auth, db, storage } from "../../FireBase/Firebase";
+import { app, auth, db, storage } from "../../fireBase/firebase";
 //import { useFirebaseApp } from 'reactfire'
 import {
   getAuth,
