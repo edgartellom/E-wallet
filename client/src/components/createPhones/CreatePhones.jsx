@@ -65,7 +65,7 @@ function CreatePhones() {
     brand: "",
     price: "",
     image: "",
-    categories: [],
+    category: [],
     color: [],
   });
 
@@ -83,8 +83,8 @@ function CreatePhones() {
     } else {
       return error;
     }
-    if (input.categories.length === 0) {
-      error.categories = "Please select at least one category.";
+    if (input.category.length === 0) {
+      error.category = "Please select at least one category.";
     } else {
       return error;
     }
@@ -115,17 +115,15 @@ function CreatePhones() {
     e.preventDefault();
     console.log(input, "input50");
     dispatch(createProducts(input));
-    console.log("product", createProducts(input)());
-    dispatch(
-      setInput({
-        name: "",
-        brand: "",
-        price: "",
-        image: "",
-        categories: [],
-        color: [],
-      })
-    );
+    // console.log("product", createProducts(input)());
+    setInput({
+      name: "",
+      brand: "",
+      price: "",
+      image: "",
+      categories: [],
+      color: [],
+    })
     window.location.href = "/";
     //navigate("/");
   };
@@ -147,13 +145,13 @@ function CreatePhones() {
   const selectHandle = (e) => {
     setInput({
       ...input,
-      categories: [...input.categories, e.target.value],
+      category: [...input.category, e.target.value],
     });
   };
   function handleDelete(e) {
     setInput({
       ...input,
-      categories: input.categories.filter((cat) => cat !== e.target.value),
+      category: input.category.filter((cat) => cat !== e.target.value),
     });
   }
   function handleDeleteColor(e) {
@@ -257,10 +255,10 @@ function CreatePhones() {
           {errors.categories && <h6>{errors.categories}</h6>}
           <br />
           <span className="alert-info m-lg-4">
-            Selected categories: {[...input.categories].map((c) => c + ", ")}{" "}
+            Selected categories: {[...input.category].map((c) => c + ", ")}{" "}
           </span>
           <br />
-          {input.categories.map((el, index) => (
+          {input.category.map((el, index) => (
             <div className="categories" key={index}>
               <p>{el}</p>
               <button className="botnX" onClick={() => handleDelete(el)}>

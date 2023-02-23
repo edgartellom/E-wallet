@@ -115,7 +115,7 @@ export const getProductList = createAsyncThunk(
 );
 
 export const createProducts = createAsyncThunk(
-  "products/createProducts",
+  "type/postData",
   async (payload) => {
     try {
       console.log(payload, "line60");
