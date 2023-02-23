@@ -5,13 +5,14 @@ import {
   Products,
   Details,
   About,
-  Cart,
+  
   Contact,
   OrderHistory,
   Checkout,
 } from "./pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CreatePhones } from "./components";
+import  Cart  from './components/shoppingCart/Cart'
 
 function App() {
   return (

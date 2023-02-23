@@ -3,8 +3,10 @@ import counterReducer from "./slice";
 import productByIdReducer from "./slices/productByIdSlice";
 import productListReducer from "./slices/productListSlice";
 import paginationReducer from "./slices/paginationSlice";
+//import searchProductsReducer from "./slices/searchProductsSlice"
+import cartSlice from "./slices/cartSlice";
 import categoryListSlice from "./slices/categoryListSlice";
-// import searchProductsReducer from "./slices/searchProductsSlice"
+//import searchProductsReducer from "./slices/searchProductsSlice"
 
 
 export const store = configureStore({
@@ -14,6 +16,7 @@ export const store = configureStore({
     product: productListReducer,
     categories: categoryListSlice,
     paginated: paginationReducer,
+    cart: cartSlice
   },
 });
 
