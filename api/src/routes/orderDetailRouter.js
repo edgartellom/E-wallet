@@ -1,11 +1,11 @@
 const { Router } = require("express");
-const { Category } = require("../db");
+const { Order_detail } = require("../db");
 
 const router = Router();
 router.get("/", async (req, res, next) => {
   try {
-    const allCategories = await Category.findAll();
-    res.status(200).send(allCategories);
+    const allOrderDetails = await Order_detail.findAll();
+    res.status(200).send(allOrderDetails);
   } catch (error) {
     next(error);
   }
