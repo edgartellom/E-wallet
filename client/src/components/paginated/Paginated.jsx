@@ -24,7 +24,7 @@ const StyledBoton = styled.button`
   }
 `;
 
-export const Paginated = ({ phones, phonesPerPage }) => {
+const Paginated = ({ phones, phonesPerPage }) => {
   const dispatch = useDispatch();
   const currentPage = useSelector((store) => store.paginated.currentPage);
 
@@ -61,8 +61,7 @@ export const Paginated = ({ phones, phonesPerPage }) => {
             <StyledBoton
               className={currentPage === num ? "num current" : "num"}
               key={num}
-              onClick={() => handlePage(num)}
-            >
+              onClick={() => handlePage(num)}>
               <span>{num}</span>
             </StyledBoton>
           ))}
@@ -74,3 +73,5 @@ export const Paginated = ({ phones, phonesPerPage }) => {
     </div>
   );
 };
+
+export default Paginated;
