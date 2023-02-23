@@ -1,13 +1,23 @@
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { deleteProduct } from "../../redux/slices/productListSlice";
+import { addToCart } from "../../redux/slices/cartSlice";
 
 function Product_Card({ props }) {
   const { id, name, brand, price, image, rating, completed } = props;
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const deletePhone = (i) => {
     dispatch(deleteProduct(i))
+  }
+
+  const handleAddToCart = (product) => {
+    console.log(product)
+    console.log("adding to cart")
+    console.log(props)
+    dispatch(addToCart(product))
+    navigate('/cart')
   }
 
   let defaultImage = "https://dummyimage.com/450x300/dee2e6/6c757d.jpg";
@@ -52,16 +62,20 @@ function Product_Card({ props }) {
         </div>
 
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-          <div className="text-center">
+          {/* <div className="text-center">
             <a className="btn btn-outline-dark mt-auto" href="cart">
               Add to cart
             </a>
+          </div> */}
+          <div className="text-center">
+            
+            <button className="btn btn-primary" onClick={()=> handleAddToCart(props)}>Add to card</button>
           </div>
         </div>
 
-        <div>
+        {/* <div>
           <button className="btn btn-danger" onClick={() =>deletePhone(id)}>Delete</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

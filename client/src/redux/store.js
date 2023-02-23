@@ -4,6 +4,7 @@ import productByIdReducer from "./slices/productByIdSlice";
 import productListReducer from "./slices/productListSlice";
 import paginationReducer from "./slices/paginationSlice";
 import searchProductsReducer from "./slices/searchProductsSlice"
+import cartSlice from "./slices/cartSlice";
 
 
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
     product: productListReducer,
     searchProducts: searchProductsReducer,
     paginated: paginationReducer,
+    cart: cartSlice
   },
 });
 
