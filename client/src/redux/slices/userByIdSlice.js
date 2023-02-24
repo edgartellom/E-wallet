@@ -1,15 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchUsuarios = createAsyncThunk('usuarios/fetchUsuarios', async () => {
-  const response = await axios.get('');
+export const fetchUsuarios = createAsyncThunk('user/fetchUsuarios', async () => {
+  const response = await axios.get('/users/:id');
   return response.data;
 });
 
-const usuariosSlice = createSlice({
-  name: 'usuarios',
+const userByIdSlice = createSlice({
+  name: 'user',
   initialState: {
-    usuarios: [],
+    userId: [],
     status: 'idle',
     error: null,
   },
@@ -29,4 +29,4 @@ const usuariosSlice = createSlice({
   },
 });
 
-export default usuariosSlice.reducer;
+export default userByIdSlice.reducer;

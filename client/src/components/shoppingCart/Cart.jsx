@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, clearCart, decreaseCart, getTotals,removeFromCart} from "../../redux/slices/cartSlice";  
+import {
+  addToCart,
+  clearCart,
+  decreaseCart,
+  getTotals,
+  removeFromCart,
+} from "../../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
@@ -94,7 +100,17 @@ const Cart = () => {
                 <span className="amount">${cart.cartTotalAmount}</span>
               </div>
               <p>Taxes and shipping calculated at checkout</p>
-              <button>Check out</button>
+              <div className="d-inline-block mx-2">
+                {/* <button>Check out</button> */}
+                <button
+                  type="button"
+                  className="btn btn-outline-dark"
+                  data-bs-toggle="modal"
+                  data-bs-target="#signinModal"
+                >
+                  Check out
+                </button>
+              </div>
               <div className="continue-shopping">
                 <Link to="/products">
                   <svg

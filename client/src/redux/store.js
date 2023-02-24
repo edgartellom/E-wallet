@@ -18,7 +18,7 @@ export const store = configureStore({
     categories: categoryListSlice,
     paginated: paginationReducer,
     cart: cartSlice,
-    users: userByIdSlice,
+    user: userByIdSlice,
   },
 });
 
