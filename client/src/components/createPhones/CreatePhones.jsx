@@ -123,7 +123,7 @@ function CreatePhones() {
       image: "",
       categories: [],
       color: [],
-    })
+    });
     window.location.href = "/";
     //navigate("/");
   };

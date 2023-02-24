@@ -16,29 +16,32 @@ const getApiInfo = async () => {
     console.log(apiInfo);
     return apiInfo;
   } catch (error) {
-    console.log(error.message);
+    console.log({ message: error.message });
   }
 };
 
-const loadApiInDb = async () => {
+const getAllUsers = async () => {
   try {
-    const data = await getApiInfo();
-    data.map(async (userData) => {
+    const apiInfo = await getApiInfo();
+    apiInfo.forEach(async (userData) => {
       const userCreated = await User.findOrCreate({
         where: {
           id: userData.id,
+          email: userData.email,
         },
         defaults: {
           username: userData.username,
-          email: userData.email,
           admin: userData.admin,
         },
       });
     });
-    console.log("Users loaded in data base!");
+    console.log("Users loaded into database succesfully!");
+    return await User.findAll();
   } catch (error) {
     console.log({ message: error.message });
   }
 };
 
-loadApiInDb();
+module.exports = {
+  getAllUsers,
+};

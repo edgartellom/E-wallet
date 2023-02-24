@@ -14,6 +14,7 @@ module.exports = (sequelize) => {
       },
       email: {
         type: DataTypes.CHAR,
+        unique: true,
         allowNull: false,
       },
       admin: {
