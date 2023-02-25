@@ -1,19 +1,30 @@
-const { Router } = require("express");
+const { Router, response } = require("express");
 const {
   getDbInfo,
   createCart,
   updateCart,
 } = require("../controllers/cartController");
-const { Cart } = require("../db");
+// const { Cart } = require("../db");
 
 const router = Router();
-router.get("/", (req, res) => {
-  res.send(getDbInfo(req));
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try{
+    let response=await getDbInfo(id)
+    res.send(response);
+  }catch(err){
+    send.status(400).send(err);
+  }
+  
 });
 
-router.post("/", (req, res) => {
-  console.log(req);
-  res.send(createCart(req));
+router.post("/", async (req, res) => {
+  try{
+    let response= await createCart(req)
+    res.send(response);
+  }catch(err){
+    res.status(400).send(err.message);
+  }
 });
 
 router.put("/", (req, res) => {

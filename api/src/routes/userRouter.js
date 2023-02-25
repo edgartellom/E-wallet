@@ -7,8 +7,16 @@ const {
 const { User } = require("../db");
 
 const router = Router();
-router.get("/", (req, res) => {
-  res.send(getAllUsers());
+router.get("/",async  (req, res) => {
+  try{
+  let response= await getAllUsers();
+  if(response.status){
+    res.send(response);
+  };
+}catch(err){
+  res.status(400).send(err);
+}
+    
 });
 
 router.post("/", (req, res) => {
