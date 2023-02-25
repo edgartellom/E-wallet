@@ -1,19 +1,22 @@
 const { Router } = require("express");
+const {
+  getDbInfo,
+  createReview,
+  updateReview,
+} = require("../controllers/reviewController");
 const { Review } = require("../db");
 
 const router = Router();
+router.get("/", (req, res) => {
+  res.send(getDbInfo(req));
+});
 
-router.get("/", async (req, res, next) => {
-  try {
-    try {
-      const allReviews = await Review.findAll();
-      res.status(200).send(allReviews);
-    } catch (error) {
-      next(error);
-    }
-  } catch (error) {
-    next(error);
-  }
+router.post("/", (req, res) => {
+  res.send(createReview(req));
+});
+
+router.put("/", (req, res) => {
+  res.send(updateReview(req));
 });
 
 module.exports = router;

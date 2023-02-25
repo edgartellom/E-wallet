@@ -42,6 +42,44 @@ const getAllUsers = async () => {
   }
 };
 
+const createUser = async (user) => {
+  const { email } = user;
+  try {
+    let userFound = User.findOne({
+      where: {
+        email: email,
+      },
+    });
+    if (!userFound) {
+      User.create(user);
+      return { message: "User created succesfully", status: "success" };
+    } else {
+      return { message: "User already exists", status: "error" };
+    }
+  } catch (error) {
+    return { message: error.message, status: "error" };
+  }
+};
+
+const updateUser = async (user) => {
+  const { id, username, email, admin, state } = user;
+  try {
+    const userFromDb = User.findByPk(id);
+    if (userFromDb) {
+      userFromDb.update({
+        username,
+        admin,
+        state,
+      });
+    }
+    return { message: "User updated succesfully", status: "success" };
+  } catch (error) {
+    return { message: error.message, status: "error" };
+  }
+};
+
 module.exports = {
   getAllUsers,
+  createUser,
+  updateUser,
 };
