@@ -10,26 +10,29 @@ const getDbInfo = async (userId) => {
       },
       include: { model: User, attributes: ["id"] },
     });
-    if(carts.length > 0) {
+    if (carts.length > 0) {
       return { carts: carts, status: "success" };
     }
-    return { message: "no se encontraron registros", status: "error" };
-    
+    return { message: "Not Found", status: "error" };
   } catch (error) {
     return { message: error, status: "error" };
   }
 };
 
 const createCart = async (cart) => {
-  
   try {
-    const { userId } = cart;
-    let user = User.findByPk(userId);
+    const { userId } = await cart;
+    console.log(userId);
+    let user = await User.findByPk(userId);
     if (user) {
-      Cart.create(cart);
-      return { message: "Cart created succesfully", status: "success" };
+      let cartCreated = await Cart.create({ ...cart, userId: user.id });
+      return {
+        cartCreated,
+        message: "Cart created succesfully",
+        status: "success",
+      };
     } else {
-      return { message: "Invalid User", status: "error" };
+      return { message: "User Not Found", status: "error" };
     }
   } catch (error) {
     return { message: error.message, status: "error" };

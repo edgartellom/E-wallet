@@ -23,8 +23,8 @@ const getApiInfo = async () => {
 const getAllUsers = async () => {
   try {
     const apiInfo = await getApiInfo();
-    apiInfo.forEach(async (userData) => {
-      const userCreated = await User.findOrCreate({
+    const promises = apiInfo.map(async (userData) => {
+      const [created, userCreated] = await User.findOrCreate({
         where: {
           id: userData.id,
           email: userData.email,
@@ -34,11 +34,20 @@ const getAllUsers = async () => {
           admin: userData.admin,
         },
       });
+      return { created, userCreated };
     });
-    console.log("Users loaded into database succesfully!");
-    return await User.findAll();
+    await Promise.all(promises);
+    const allUsers = await User.findAll();
+    const numNewUsers = promises.filter((promise) => promise.created).length;
+    if (numNewUsers) {
+      console.log("Users loaded into database successfully!");
+    } else {
+      console.log("Users database already up to date");
+    }
+    console.log(`${numNewUsers} new users created`);
+    return { users: allUsers, status: "success" };
   } catch (error) {
-    console.log({ message: error.message });
+    return { message: error.message, status: "error" };
   }
 };
 

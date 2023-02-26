@@ -7,28 +7,31 @@ const {
 // const { Cart } = require("../db");
 
 const router = Router();
+
+//GET CARTS BY USER ID
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  try{
-    let response=await getDbInfo(id)
+  try {
+    let response = await getDbInfo(id);
     res.send(response);
-  }catch(err){
-    send.status(400).send(err);
+  } catch (err) {
+    res.status(400).send(err);
   }
-  
 });
 
 router.post("/", async (req, res) => {
-  try{
-    let response= await createCart(req)
-    res.send(response);
-  }catch(err){
+  try {
+    let response = await createCart(req.body);
+    response.status !== "error"
+      ? res.send(response)
+      : res.status(404).send(response);
+  } catch (err) {
     res.status(400).send(err.message);
   }
 });
 
 router.put("/", (req, res) => {
-  res.send(updateCart(req));
+  res.send(updateCart(req.body));
 });
 
 module.exports = router;

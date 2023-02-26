@@ -7,15 +7,15 @@ const {
 
 const router = Router();
 router.get("/", (req, res) => {
-  res.send(getDbInfo(req));
+  res.send(getDbInfo(req.body));
 });
 
 router.post("/", (req, res) => {
-  res.send(createDetail(req));
+  res.send(createDetail(req.body));
 });
 
 router.put("/", (req, res) => {
-  res.send(updateDetail(req));
+  res.send(updateDetail(req.body));
 });
 
 module.exports = router;
