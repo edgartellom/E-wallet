@@ -120,14 +120,8 @@ export const createProducts = createAsyncThunk(
     try {
       console.log(payload, "line60");
       let res = await axios.post("/phones", payload);
-      // const myphone = {
-      //   id:10,
-      //   name:"samsungtest",
-      //   brand:"galaxytest",
-      //   price:10
-      // }
-      //console.log("res",res)
       return res.data;
+      
     } catch (e) {
       console.log("error trying to create", e);
       return {};

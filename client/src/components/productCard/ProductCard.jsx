@@ -7,23 +7,107 @@ import {
 } from "../../redux/slices/productListSlice";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../redux/slices/cartSlice";
+import { createItemCart } from "../../redux/slices/cartSlice";
+import { v4 as uuidv4 } from 'uuid'
+import { useState } from "react";
+import axios from 'axios'
 
 function ProductCard({ props }) {
   const { id, name, brand, price, image, rating, completed } = props;
+
+  const [ carrito, setCarrito] = useState([])
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  const user = 'pepito'
+  const cartId = uuidv4()
 
   const deletePhone = (i) => {
     dispatch(deleteProduct(i));
   };
 
+  const userId = '123'
+
+  // const createCarrito = () => {
+  //   if(user){
+
+  //     //////////////////////////////////////////
+
+  //     // const cartpayload = [...localStorage.getItem('getItems'), cartId, user.id]
+  //     const cartpayload = [id, price, cartId, user.id]
+      
+  //     //podria ser uno de estos 2
+  //     //////////////////////////////////////////
+  //     console.log(cartpayload)
+  //     dispatch(createItemCart(cartpayload))
+  //   }
+  // }
+
+  useEffect(()=> {
+      console.log(localStorage.getItem('cartItems'))
+      console.log(cartId)
+      
+      if(user){
+        const cartId = uuidv4()
+      }
+  },[])
+
   const handleAddToCart = (product) => {
     console.log(product)
     console.log("adding to cart")
     console.log(props)
-    dispatch(addToCart(product))
-    navigate('/cart')
+    
+    if (user.id) {
+      axios.post('url', {
+        id,name, price, image, quantity:1
+      })
+          // axios({
+          //   method: "post",
+          //   url: `http://localhost:3100/users/${userId}/cart`, 
+          //   data:{
+          //     id, 
+          //     name, 
+          //     price,
+          //     image,
+          //     quantity :1
+          //   }
+          // }); 
   }
+
+    dispatch(addToCart(product))
+        navigate('/cart')
+
+  }
+
+  // const handleAddToCart = () => {
+  //   if (userLogged.loggedIn) {
+  //     axios({
+  //       method: "post",
+  //       url: `http://localhost:3100/users/${userId}/cart`, //cuando se cree el sistema de autentificacion el "1" deberia ser reemplazado por el id del usuario
+  //       data: {
+  //         idProducto: product.id,
+  //         amount: 1,
+  //       },
+  //     });
+  //   } else {
+  //     var storage = JSON.parse(localStorage.getItem("guestCart"));
+  //     if (storage == null) {
+  //       storage = [];
+  //     }
+
+  //     var doesExist = storage.findIndex((e) => e.productId === product.id);
+  //     if (doesExist === -1) {
+  //       var data = { productId: product.id, amount: 1 };
+  //       storage.push(data);
+  //     } else {
+  //       storage[doesExist].amount += 1;
+  //     }
+
+  //     localStorage.setItem("guestCart", JSON.stringify(storage));
+  //   }
+  // };
+
 
   let defaultImage = "https://dummyimage.com/450x300/dee2e6/6c757d.jpg";
 

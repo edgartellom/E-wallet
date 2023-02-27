@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
@@ -8,6 +8,7 @@ const initialState = {
     : [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
+  
 };
 
 
@@ -25,10 +26,11 @@ const cartSlice = createSlice({
         state.cartItems[existingIndex] = {
           ...state.cartItems[existingIndex],
           cartQuantity: state.cartItems[existingIndex].cartQuantity + 1,
+          itemPrice : state.cartItems[existingIndex].itemPrice
         };
         
       } else {
-        let tempProductItem = { ...action.payload, cartQuantity: 1 };
+        let tempProductItem = { ...action.payload, cartQuantity: 1, itemPrice: state.cartItems.price };
         state.cartItems.push(tempProductItem);
         
       }
@@ -101,3 +103,16 @@ export const { addToCart, decreaseCart, removeFromCart, getTotals, clearCart } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
+
+export const createItemCart = createAsyncThunk(
+  "type/postData",
+  async(payload) => {
+    try{
+      const response = await axios.post('/rutaEnProceso', payload)
+      return response.data
+    }catch(error){
+      console.log("line 114", error)
+      return []
+    }
+  }
+)

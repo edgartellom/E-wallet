@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, clearCart, decreaseCart, getTotals,removeFromCart} from "../../redux/slices/cartSlice";  
 import { Link } from "react-router-dom";
@@ -7,9 +7,21 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
+  const [carrito, setCarrito] = useState([])
+  const user = '123'
+
   useEffect(() => {
     dispatch(getTotals());
+    console.log(localStorage.getItem('cartItems'))
+    console.log(JSON.parse(localStorage.getItem('cartItems')))
+
+    if(user.id){
+      const cartUser = axios.get('url')
+      const cartData = cartUser.data
+      cart = [...cart, cartData]
+    }
   }, [cart, dispatch]);
+
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
@@ -85,6 +97,7 @@ const Cart = () => {
               ))}
           </div>
           <div className="cart-summary">
+            
             <button className="clear-btn" onClick={() => handleClearCart()}>
               Clear Cart
             </button>
