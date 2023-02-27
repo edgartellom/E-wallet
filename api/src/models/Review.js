@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
       },
       rate: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         validate: {
           min: 1,
           max: 5,
@@ -20,6 +20,11 @@ module.exports = (sequelize) => {
       },
       comment: {
         type: DataTypes.TEXT,
+      },
+      state: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
       },
     },
     {

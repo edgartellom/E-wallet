@@ -30,7 +30,7 @@ const Login = () => {
   const [emailLogin, setEmailLogin] = useState("");
   const [passwordLogin, setPasswordLogin] = useState("");
   const [error, setError] = useState(null);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); //set global state
   const [file, setFile] = useState(null);
   const [adress, setAdress] = useState("");
   const [phone, setPhone] = useState();
@@ -69,7 +69,7 @@ const Login = () => {
           admin: false,
           email: email,
         });
-        console.log(user);
+        console.log(user); //Link to back-end (create user)
       } catch (error) {
         console.log(error);
       }
