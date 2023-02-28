@@ -12,15 +12,28 @@ const userByIdSlice = createSlice({
     userId: [],
     status: 'idle',
     error: null,
+    userLogin: {
+      isLoggedIn: false,
+      userInfo: null,
+    },
   },
-  reducers: {},
+  reducers: {
+    login: (state, action) => {
+      state.userLogin.isLoggedIn = true;
+      state.userLogin.userInfo = action.payload;
+    },
+    logout: (state) => {
+      state.userLogin.isLoggedIn = false;
+      state.userLogin.userInfo = null;
+    },
+  },
   extraReducers: {
     [fetchUsuarios.pending]: (state) => {
       state.status = 'loading';
     },
     [fetchUsuarios.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.usuarios = action.payload;
+      state.userId = action.payload;
     },
     [fetchUsuarios.rejected]: (state, action) => {
       state.status = 'failed';
@@ -28,5 +41,7 @@ const userByIdSlice = createSlice({
     },
   },
 });
+
+export const { login, logout } = userByIdSlice.actions;
 
 export default userByIdSlice.reducer;
