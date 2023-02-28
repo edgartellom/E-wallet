@@ -25,8 +25,14 @@ const createDetail = async (details) => {
   // [{ price: ..., quantity: ..., cartId: ..., phoneId: ... }] => details;
   try {
     let isValid = true;
-    for (let detail in details) {
-      if (!detail.cartId || !detail.phoneId) isValid = false;
+    let i = 0;
+    while (i < details.length && isValid) {
+      let el = details[i];
+      let cartFound = await Cart.findByPk(el.cartId);
+      let phoneFound = await Phone.findByPk(el.phoneId);
+      if (!el.cartId || !el.phoneId || !cartFound || !phoneFound)
+        isValid = false;
+      i++;
     }
     if (isValid) {
       let detailsCreated = await Cart_detail.bulkCreate(details);
