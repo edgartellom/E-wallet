@@ -7,6 +7,8 @@ const {
 const { User } = require("../db");
 
 const router = Router();
+
+//GET ALL USERS
 router.get("/", async (req, res) => {
   try {
     let response = await getAllUsers();
@@ -18,8 +20,15 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", (req, res) => {
-  res.send(createUser(req.body));
+router.post("/", async (req, res) => {
+  try {
+    let response = await createUser(req.body);
+    response.status !== "error"
+      ? res.send(response)
+      : res.status(404).send(response);
+  } catch (error) {
+    res.status(400).send(err.message);
+  }
 });
 
 router.put("/", (req, res) => {
