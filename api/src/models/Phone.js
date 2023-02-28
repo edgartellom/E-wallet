@@ -70,7 +70,11 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
       },
       battery: {
-        type: DataTypes.DECIMAL(4, 0),
+        type: DataTypes.INTEGER,
+        validate: {
+          min: 0,
+          max: 10000,
+        },
       },
       price: {
         type: DataTypes.DECIMAL(8, 2),
@@ -80,6 +84,9 @@ module.exports = (sequelize) => {
       },
       image: {
         type: DataTypes.STRING,
+        validate: {
+          isUrl: true,
+        },
       },
       state: {
         type: DataTypes.BOOLEAN,

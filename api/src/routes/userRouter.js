@@ -1,27 +1,38 @@
 const { Router } = require("express");
+const {
+  createUser,
+  getAllUsers,
+  updateUser,
+} = require("../controllers/userController");
 const { User } = require("../db");
-const { getAllUsers } = require("../controllers/userController");
+
 
 const router = Router();
-
-router.get("/", async (req, res, next) => {
+router.get("/", async (req, res) => {
   try {
-    try {
-      const allUsers = await User.findAll();
-      res.status(200).send(allUsers);
-    } catch (error) {
-      next(error);
+    let response = await getAllUsers();
+    if (response.status) {
+      res.send(response.users);
     }
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    res.status(400).send(err);
   }
 });
+
+router.post("/", (req, res) => {
+  res.send(createUser(req.body));
+});
+
+router.put("/", (req, res) => {
+  res.send(updateUser(req.body));
+});
+
 
 router.get("/:id", async (req,res,next) => {
   try {
     const { id } = req.params;
     if(id){
-      const userId = await getAllUsers();
+      const userId = await getAllUsers(id);
       userId.length ?
       res.status(200).send(userId)
       : res.status(400).send("Not Found UserId")
@@ -29,6 +40,6 @@ router.get("/:id", async (req,res,next) => {
   } catch (error) {
     next(error);
   }
-})
+}) 
 
 module.exports = router;
