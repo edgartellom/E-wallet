@@ -1,28 +1,82 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, clearCart, decreaseCart, getTotals,removeFromCart} from "../../redux/slices/cartSlice";  
+import { addToCart, clearCart, decreaseCart, getTotals,removeFromCart, pushToCart} from "../../redux/slices/cartSlice";  
 import { Link } from "react-router-dom";
+import axios from 'axios'
+import { getItemCart } from "../../redux/slices/cartSlice";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  var cart2 = useSelector((state) => state.cart.cartItems)
+  const userCart = useSelector((state) => state.cart.userCart)
   const dispatch = useDispatch();
 
+  console.log(userCart)
+
+  const arr = [...cart.cartItems]
+  var aux = []
+  console.log(arr)
+
   const [carrito, setCarrito] = useState([])
-  const user = '123'
+
+  const pepeId = 'byNoKTMnl6eE0JtDcGJ9WP4iZZJ3'
+  const cartId = 'dcd61acf-9e3e-42c3-953a-aeb4b2115cbe'
 
   useEffect(() => {
-    dispatch(getTotals());
-    console.log(localStorage.getItem('cartItems'))
-    console.log(JSON.parse(localStorage.getItem('cartItems')))
+    //dispatch(getTotals());
 
-    if(user.id){
-      const cartUser = axios.get('url')
-      const cartData = cartUser.data
-      cart = [...cart, cartData]
+    if(pepeId){
+      const cartUser = axios.get('/cartDetails', pepeId).then(res => console.log(res.data))
+      // const cartData = cartUser.data
+      // cart = [...cart, cartData]
+      // console.log(cartUser.data)
+      // console.log(cartUser)
+      
+      //http://localhost:3001/cartDetails/dcd61acf-9e3e-42c3-953a-aeb4b2115cbe
     }
+
+    const fetchCartDetails = async() => {
+      if(cartId){
+        const cartDetail = await axios.get(`http://localhost:3001/cartDetails/${cartId}`)
+        setCarrito(cartDetail.data.list)
+        console.log(cartDetail.data.list)
+        console.log(carrito)
+        console.log(cart.cartItems)
+        
+          aux = [...cart.cartItems, ...cartDetail.data.list]
+          setCarrito(...aux)
+          cart2 = [...cart2, ...cartDetail.data.list]
+          console.log(cart2)
+        console.log(aux)
+        console.log(carrito)
+        console.log(userCart)
+        //dispatch(pushToCart(carrito))
+        cart.cartItems.push(...cartDetail.data.list) //doesnt work
+        //cart.cartItems = [...cart.cartItems, cartDetail.data.list ]
+      }
+    }
+    // if(cartId){
+    //   const cartDetails = 
+    //                        .then(response => setCarrito(response.data))
+    //    //cart.cartItems.push(cartDetails)
+    //    console.log(carrito.list)
+    //   // console.log(cart)
+    //   console.log(cart.cartItems)
+    //   // cart.cartItems.push(carrito)
+    // }
+    fetchCartDetails()
+    console.log(aux)
+   console.log(carrito)
+    dispatch(getTotals());
+    dispatch(getItemCart(cartId))
+    console.log(userCart)
+    console.log(cart2)
+    // cart.cartItems = [...cart.cartItems, cartDetail.data.list]
+   // cart.cartItems = [...cartItems, carrito]
   }, [cart, dispatch]);
 
 
+  
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
   };
@@ -38,7 +92,7 @@ const Cart = () => {
   return (
     <div className="cart-container">
       <h2>Shopping Cart</h2>
-      {cart.cartItems.length === 0 ? (
+      {cart2.length === 0 ? ( ////////aux - cart.cartItems
         <div className="cart-empty">
           <p>Your cart is currently empty</p>
           <div className="start-shopping">
@@ -69,9 +123,9 @@ const Cart = () => {
             <h3 className="total">Total</h3>
           </div>
           <div className="cart-items">
-            {cart.cartItems &&
-              cart.cartItems.map((cartItem) => (
-                <div className="cart-item" key={cartItem.id}>
+            {cart2 &&                  //////////////
+              cart2.map((cartItem) => ( ///////////
+                <div className="cart-item" key={cartItem.id}> 
                   <div className="cart-product">
                     <img src={cartItem.image} alt={cartItem.name} />
                     <div>

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from 'axios'
 
 
 const initialState = {
@@ -8,7 +9,7 @@ const initialState = {
     : [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
-  
+  userCart:[]
 };
 
 
@@ -36,6 +37,30 @@ const cartSlice = createSlice({
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+
+    pushToCart(state, action){
+      state.cartItems.push(action.payload)
+    },
+
+    addToUserCart(state, action){
+      const existingIndex = state.cartItems.findIndex(
+          (item) => item.id === action.payload.id
+        );
+  
+        if (existingIndex >= 0) {
+          state.cartItemsUser[existingIndex] = {
+            ...state.cartItemsUser[existingIndex],
+            cartQuantity: state.cartItemsUser[existingIndex].cartQuantity + 1,
+            itemPrice : state.cartItemsUser[existingIndex].itemPrice
+          };
+          
+        } else {
+          let tempProductItem = { ...action.payload, cartQuantity: 1, itemPrice: state.cartItemsUser.price };
+          state.cartItemsUser.push(tempProductItem);
+          
+        }
+        localStorage.setItem("cartItems", JSON.stringify(state.cartItemsUser));
+  },
     decreaseCart(state, action) {
       const itemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
@@ -97,21 +122,72 @@ const cartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(createItemCart.fulfilled, (state,action) => {
+      state.userCart = action.payload
+      state.userCart.push(action.payload)
+    })
+
+    // builder.addCase(getItemCart.fulfilled, (state, state) => {
+    //   state.userCart = action.payload
+    // })
+  }
 });
 
-export const { addToCart, decreaseCart, removeFromCart, getTotals, clearCart } =
+export const { addToCart, decreaseCart, removeFromCart, getTotals, clearCart, addToUserCart, pushToCart } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
 
+/////////////////////////Shopping Cart when user is logged in////////
+
 export const createItemCart = createAsyncThunk(
-  "type/postData",
+  "userCart/postUserCart",
   async(payload) => {
     try{
-      const response = await axios.post('/rutaEnProceso', payload)
+      const response = await axios.post('/cartDetails', payload)
       return response.data
     }catch(error){
       console.log("line 114", error)
+      return []
+    }
+  }
+)
+
+export const getItemCart = createAsyncThunk(
+  'userCart/getUserCartById',
+  async(id) => {
+    try{
+      const res = await axios.get(`/cartDetails/${id}`)
+      return res.data
+    }catch(err){
+      console.log(err)
+      return []
+    }
+  }
+)
+
+export const createCartId = createAsyncThunk(
+  'type/postData',
+  async(payload) => {
+    try{
+      const res = await axios.post('/cart', payload)
+      return res.data
+    }catch(e){
+      console.log(e)
+      return []
+    }
+  }
+)
+
+export const getCartId = createAsyncThunk(
+  'cart/getCart',
+  async(id) => {
+    try{
+      const res = await axios.get(`/cart:${id}`)
+      return res.data
+    }catch(e){
+      console.log(e)
       return []
     }
   }

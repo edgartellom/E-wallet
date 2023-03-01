@@ -6,77 +6,65 @@ import {
   getProductList,
 } from "../../redux/slices/productListSlice";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "../../redux/slices/cartSlice";
-import { createItemCart } from "../../redux/slices/cartSlice";
+import { addToCart, addToUserCart } from "../../redux/slices/cartSlice";
+
 import { v4 as uuidv4 } from 'uuid'
 import { useState } from "react";
 import axios from 'axios'
+import { createItemCart } from "../../redux/slices/cartSlice";
 
 function ProductCard({ props }) {
   const { id, name, brand, price, image, rating, completed } = props;
-
   const [ carrito, setCarrito] = useState([])
+  const totalPrice = useSelector(state => state.cart.cartTotalAmount)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const user = 'pepito'
-  const cartId = uuidv4()
+  const cartid = uuidv4()
+  const cartId = 'dcd61acf-9e3e-42c3-953a-aeb4b2115cbe'
+  const pepeId = 'byNoKTMnl6eE0JtDcGJ9WP4iZZJ3'
 
   const deletePhone = (i) => {
     dispatch(deleteProduct(i));
   };
 
-  const userId = '123'
+  // funciona hardcodeando
 
-  // const createCarrito = () => {
-  //   if(user){
+  // useEffect(()=> {
+  //    if(pepeId){
+  //     axios.post('/carts', {
+  //       userId:pepeId,
+  //       totalPrice
+  //     })
+  //     axios.get(`/carts/${pepeId}`).then(res => console.log(res.data))
+  //    }
+  // },[])
 
-  //     //////////////////////////////////////////
-
-  //     // const cartpayload = [...localStorage.getItem('getItems'), cartId, user.id]
-  //     const cartpayload = [id, price, cartId, user.id]
-      
-  //     //podria ser uno de estos 2
-  //     //////////////////////////////////////////
-  //     console.log(cartpayload)
-  //     dispatch(createItemCart(cartpayload))
-  //   }
-  // }
-
-  useEffect(()=> {
-      console.log(localStorage.getItem('cartItems'))
-      console.log(cartId)
-      
-      if(user){
-        const cartId = uuidv4()
-      }
-  },[])
+  ///////////////////
 
   const handleAddToCart = (product) => {
     console.log(product)
     console.log("adding to cart")
     console.log(props)
     
-    if (user.id) {
-      axios.post('url', {
-        id,name, price, image, quantity:1
-      })
-          // axios({
-          //   method: "post",
-          //   url: `http://localhost:3100/users/${userId}/cart`, 
-          //   data:{
-          //     id, 
-          //     name, 
-          //     price,
-          //     image,
-          //     quantity :1
-          //   }
-          // }); 
-  }
+    //http://localhost:3001/cartDetails
+    if (pepeId) {
+      const obj = {phoneId:id, price:price,quantity:1, cartId: cartId}
+      carrito.push(obj)
+      // setCarrito({phoneId:id, price:price,quantity:1, cartId: cartId})
+      console.log(carrito)
+      console.log(obj)
+      dispatch(createItemCart(carrito))
+      //axios.post('/cartDetails', carrito)
+      console.log("posting")
+      dispatch(addToCart(product))
 
-    dispatch(addToCart(product))
-        navigate('/cart')
+  }
+  
+    
+          navigate('/cart')
 
   }
 
