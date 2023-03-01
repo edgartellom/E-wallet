@@ -12,11 +12,15 @@ const getDbInfo = async (userId) => {
         userId,
         state: succeeded,
       },
-      include: [
-        { model: User, attributes: ["id"] },
-        { model: Cart, attributes: ["id"] },
-      ],
+      // include: [
+      //   { model: User, attributes: ["id"] },
+      //   { model: Cart, attributes: ["id"] },
+      // ],
     });
+    if (orders.length > 0) {
+      return { orders: orders, status: "success" };
+    }
+    return { message: "Orders Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }
@@ -41,14 +45,24 @@ const intentPayment = async (dataPayment) => {
 };
 
 const createOrder = async (order) => {
-  const { userId } = order;
+  const { userId, cartId } = order;
   try {
-    let user = User.findByPk(userId);
-    if (user) {
-      Order.create(order);
-      return { message: "Order created succesfully", status: "success" };
+    let user = await User.findByPk(userId);
+    let cart = await Cart.findByPk(cartId);
+    if (user && cart) {
+      let orderCreated = await Order.create({
+        ...order,
+        userId: user.id,
+        cartId: cart.id,
+        state: "succeeded",
+      });
+      return {
+        orderCreated,
+        message: "Order created succesfully",
+        status: "success",
+      };
     } else {
-      return { message: "Invalid User", status: "error" };
+      return { message: "Invalid Order", status: "error" };
     }
   } catch (error) {
     return { message: error.message, status: "error" };
@@ -58,7 +72,7 @@ const createOrder = async (order) => {
 const updateOrder = async (order) => {
   const { id, toTalPrice, state } = order;
   try {
-    const orderFromDb = Order.findByPk(id);
+    const orderFromDb = await Order.findByPk(id);
     if (orderFromDb) {
       orderFromDb.update({
         toTalPrice,

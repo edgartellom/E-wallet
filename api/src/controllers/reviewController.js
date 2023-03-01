@@ -13,21 +13,33 @@ const getDbInfo = async (phoneId) => {
         { model: User, attributes: ["id"] },
       ],
     });
-    return { reviews: reviews, status: "success" };
+    if (reviews.length > 0) {
+      return { reviews: reviews, status: "success" };
+    }
+    return { message: "Reviews Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }
 };
 
 const createReview = async (review) => {
-  const { phoneId } = review;
+  const { phoneId, userId } = review;
   try {
-    let phone = Phone.findByPk(phoneId);
-    if (phone) {
-      Review.create(review);
-      return { message: "Review created succesfully", status: "success" };
+    let phone = await Phone.findByPk(phoneId);
+    let user = await User.findByPk(userId);
+    if (phone && user) {
+      let reviewCreated = await Review.create({
+        ...review,
+        phoneId: phone.id,
+        userId: user.id,
+      });
+      return {
+        reviewCreated,
+        message: "Review created succesfully",
+        status: "success",
+      };
     } else {
-      return { message: "Invalid Phone", status: "error" };
+      return { message: "Invalid Review", status: "error" };
     }
   } catch (error) {
     return { message: error.message, status: "error" };
@@ -37,7 +49,7 @@ const createReview = async (review) => {
 const updateReview = async (review) => {
   const { id, rate, comment, state } = review;
   try {
-    const reviewFromDb = Review.findByPk(id);
+    const reviewFromDb = await Review.findByPk(id);
     if (reviewFromDb) {
       reviewFromDb.update({
         rate,

@@ -60,8 +60,12 @@ const createUser = async (user) => {
       },
     });
     if (!userFound) {
-      User.create(user);
-      return { message: "User created succesfully", status: "success" };
+      let userCreated = await User.create(user);
+      return {
+        userCreated,
+        message: "User created succesfully",
+        status: "success",
+      };
     } else {
       return { message: "User already exists", status: "error" };
     }
@@ -73,7 +77,7 @@ const createUser = async (user) => {
 const updateUser = async (user) => {
   const { id, username, email, admin, state } = user;
   try {
-    const userFromDb = User.findByPk(id);
+    const userFromDb = await User.findByPk(id);
     if (userFromDb) {
       userFromDb.update({
         username,

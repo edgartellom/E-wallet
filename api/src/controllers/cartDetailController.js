@@ -12,7 +12,10 @@ const getDbInfo = async (cartId) => {
         { model: Cart, attributes: ["id"] },
       ],
     });
-    return { list: listDetail, status: "success" };
+    if (listDetail.length > 0) {
+      return { list: listDetail, status: "success" };
+    }
+    return { message: "Cart Details Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }
@@ -21,8 +24,26 @@ const getDbInfo = async (cartId) => {
 const createDetail = async (details) => {
   // [{ price: ..., quantity: ..., cartId: ..., phoneId: ... }] => details;
   try {
-    Cart_detail.bulkCreate(details);
-    return { message: "Detail created succesfully", status: "success" };
+    let isValid = true;
+    let i = 0;
+    while (i < details.length && isValid) {
+      let el = details[i];
+      let cartFound = await Cart.findByPk(el.cartId);
+      let phoneFound = await Phone.findByPk(el.phoneId);
+      if (!el.cartId || !el.phoneId || !cartFound || !phoneFound)
+        isValid = false;
+      i++;
+    }
+    if (isValid) {
+      let detailsCreated = await Cart_detail.bulkCreate(details);
+      return {
+        detailsCreated,
+        message: "Details created succesfully",
+        status: "success",
+      };
+    } else {
+      return { message: "Invalid Details", status: "error" };
+    }
   } catch (error) {
     return { message: error.message, status: "error" };
   }
@@ -31,7 +52,7 @@ const createDetail = async (details) => {
 const updateDetail = async (detail) => {
   const { id, price, quantity, state } = detail;
   try {
-    const detailFromDb = Cart_detail.findByPk(id);
+    const detailFromDb = await Cart_detail.findByPk(id);
     if (detailFromDb) {
       detailFromDb.update({
         price,
