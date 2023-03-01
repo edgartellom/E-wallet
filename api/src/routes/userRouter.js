@@ -21,7 +21,7 @@ router.get("/:id", async (req,res,next) => {
   try {
     const { id } = req.params;
     if(id){
-      const userId = await getAllUsers();
+      const userId = await getAllUsers(id);
       userId.length ?
       res.status(200).send(userId)
       : res.status(400).send("Not Found UserId")
@@ -30,5 +30,6 @@ router.get("/:id", async (req,res,next) => {
     next(error);
   }
 })
+
 
 module.exports = router;

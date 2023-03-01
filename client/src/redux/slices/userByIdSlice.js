@@ -20,7 +20,7 @@ const userByIdSlice = createSlice({
     },
     [fetchUsuarios.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.usuarios = action.payload;
+      state.userId = action.payload;
     },
     [fetchUsuarios.rejected]: (state, action) => {
       state.status = 'failed';
