@@ -6,17 +6,20 @@ import {
   getProductList,
 } from "../../redux/slices/productListSlice";
 import { useNavigate } from "react-router-dom";
-import { addToCart, addToUserCart } from "../../redux/slices/cartSlice";
+import { addToCart, addToUserCart, getItemCart } from "../../redux/slices/cartSlice";
 
 import { v4 as uuidv4 } from 'uuid'
 import { useState } from "react";
 import axios from 'axios'
 import { createItemCart } from "../../redux/slices/cartSlice";
+import { cartLogIn } from "../../redux/slices/cartSlice";
+import { concatArrays } from "../../redux/slices/cartSlice";
 
 function ProductCard({ props }) {
   const { id, name, brand, price, image, rating, completed } = props;
   const [ carrito, setCarrito] = useState([])
-  const totalPrice = useSelector(state => state.cart.cartTotalAmount)
+  var totalPrice = useSelector(state => state.cart.cartTotalAmount)
+  var localStorageCarrito = useSelector(state => state.cart.cartItems)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -25,6 +28,8 @@ function ProductCard({ props }) {
   const cartid = uuidv4()
   const cartId = 'dcd61acf-9e3e-42c3-953a-aeb4b2115cbe'
   const pepeId = 'byNoKTMnl6eE0JtDcGJ9WP4iZZJ3'
+
+  const cartDb = useSelector((state) => state.cart.userCart.list)
 
   const deletePhone = (i) => {
     dispatch(deleteProduct(i));
@@ -43,6 +48,15 @@ function ProductCard({ props }) {
   // },[])
 
   ///////////////////
+
+  useEffect(()=>{
+    dispatch(getItemCart(cartId))
+    var aux = axios.get(`/cartDetails/${cartId}`)
+    console.log(aux.data)
+    console.log(cartDb)
+    dispatch(concatArrays(cartDb))
+    console.log(localStorageCarrito)
+  }, [])
 
   const handleAddToCart = (product) => {
     console.log(product)
@@ -64,7 +78,7 @@ function ProductCard({ props }) {
   }
   
     
-          navigate('/cart')
+        //  navigate('/cart')
 
   }
 

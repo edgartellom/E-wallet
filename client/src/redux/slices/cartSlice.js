@@ -38,8 +38,12 @@ const cartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
 
-    pushToCart(state, action){
-      state.cartItems.push(action.payload)
+    // pushToCart(state, action){
+    //   state.cartItems.push(action.payload)
+    // },
+    concatArrays: (state, action) => {
+      state.cartItems = state.cartItems.concat(state.userCart);
+      state.array2 = action.payload;
     },
 
     addToUserCart(state, action){
@@ -121,20 +125,29 @@ const cartSlice = createSlice({
       state.cartItems = [];
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+
+    cartLogIn(state, action){
+      if(state.userCart.lenght >0){
+        if(state.cartItems.length >0){
+          state.userCart.push(state.cartItems)
+          console.log(state.userCart)
+        }
+      }
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(createItemCart.fulfilled, (state,action) => {
       state.userCart = action.payload
-      state.userCart.push(action.payload)
+      // state.userCart.push(action.payload)
     })
 
-    // builder.addCase(getItemCart.fulfilled, (state, state) => {
-    //   state.userCart = action.payload
-    // })
+    builder.addCase(getItemCart.fulfilled, (state, action) => {
+      state.userCart = action.payload
+    })
   }
 });
 
-export const { addToCart, decreaseCart, removeFromCart, getTotals, clearCart, addToUserCart, pushToCart } =
+export const { addToCart, decreaseCart, removeFromCart, getTotals, clearCart, addToUserCart, cartLogIn, concatArrays } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
@@ -156,9 +169,9 @@ export const createItemCart = createAsyncThunk(
 
 export const getItemCart = createAsyncThunk(
   'userCart/getUserCartById',
-  async(id) => {
+  async(payload) => {
     try{
-      const res = await axios.get(`/cartDetails/${id}`)
+      const res = await axios.get(`/cartDetails/${payload}`)
       return res.data
     }catch(err){
       console.log(err)

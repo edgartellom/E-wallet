@@ -14,7 +14,8 @@ const getDbInfo = async (cartId) => {
     });
     console.log(listDetail)
     console.log("first")
-    return { list: listDetail, status: "success" };
+      return listDetail
+    // return { list: listDetail, status: "success" };
   } catch (error) {
     console.log(error, "error18")
     return { message: error.message, status: "error" };

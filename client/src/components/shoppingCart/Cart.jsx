@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, clearCart, decreaseCart, getTotals,removeFromCart, pushToCart} from "../../redux/slices/cartSlice";  
+import { addToCart, clearCart, decreaseCart, getTotals,removeFromCart} from "../../redux/slices/cartSlice";  
 import { Link } from "react-router-dom";
 import axios from 'axios'
 import { getItemCart } from "../../redux/slices/cartSlice";
@@ -21,58 +21,24 @@ const Cart = () => {
 
   const pepeId = 'byNoKTMnl6eE0JtDcGJ9WP4iZZJ3'
   const cartId = 'dcd61acf-9e3e-42c3-953a-aeb4b2115cbe'
+  //dispatch(getItemCart(cartId))
+
+  // const fetchCartDetails = async() => {
+  //     if(cartId){
+       
+  //       const cartDetail = await axios.get(`http://localhost:3001/cartDetails/${cartId}`)
+  //       setCarrito(cartDetail.data.list)
+  //       console.log(cartDetail.data.list)
+  //       console.log(carrito)
+  //       console.log(userCart)
+  //     }
+  //   }
 
   useEffect(() => {
-    //dispatch(getTotals());
-
-    if(pepeId){
-      const cartUser = axios.get('/cartDetails', pepeId).then(res => console.log(res.data))
-      // const cartData = cartUser.data
-      // cart = [...cart, cartData]
-      // console.log(cartUser.data)
-      // console.log(cartUser)
-      
-      //http://localhost:3001/cartDetails/dcd61acf-9e3e-42c3-953a-aeb4b2115cbe
-    }
-
-    const fetchCartDetails = async() => {
-      if(cartId){
-        const cartDetail = await axios.get(`http://localhost:3001/cartDetails/${cartId}`)
-        setCarrito(cartDetail.data.list)
-        console.log(cartDetail.data.list)
-        console.log(carrito)
-        console.log(cart.cartItems)
-        
-          aux = [...cart.cartItems, ...cartDetail.data.list]
-          setCarrito(...aux)
-          cart2 = [...cart2, ...cartDetail.data.list]
-          console.log(cart2)
-        console.log(aux)
-        console.log(carrito)
-        console.log(userCart)
-        //dispatch(pushToCart(carrito))
-        cart.cartItems.push(...cartDetail.data.list) //doesnt work
-        //cart.cartItems = [...cart.cartItems, cartDetail.data.list ]
-      }
-    }
-    // if(cartId){
-    //   const cartDetails = 
-    //                        .then(response => setCarrito(response.data))
-    //    //cart.cartItems.push(cartDetails)
-    //    console.log(carrito.list)
-    //   // console.log(cart)
-    //   console.log(cart.cartItems)
-    //   // cart.cartItems.push(carrito)
-    // }
-    fetchCartDetails()
-    console.log(aux)
-   console.log(carrito)
+    
+    //fetchCartDetails()
     dispatch(getTotals());
-    dispatch(getItemCart(cartId))
     console.log(userCart)
-    console.log(cart2)
-    // cart.cartItems = [...cart.cartItems, cartDetail.data.list]
-   // cart.cartItems = [...cartItems, carrito]
   }, [cart, dispatch]);
 
 

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../redux/slices/productListSlice";
 import { ProductCard } from "../../components";
+import { getItemCart } from "../../redux/slices/cartSlice";
 
 const PhonesHome = () => {
   const dispatch = useDispatch();
@@ -9,9 +10,11 @@ const PhonesHome = () => {
   const currentPage = useSelector((store) => store.paginated.currentPage);
   let list = useSelector((store) => store.product.list);
   let phones = [...list];
+ 
 
   useEffect(() => {
     if (!list.length) dispatch(getProductList());
+    
   }, []);
 
   const phonesPerPage = 3;
@@ -19,6 +22,7 @@ const PhonesHome = () => {
   const indexFirstPhone = indexLastPhone - phonesPerPage;
   const currentPhones = phones.slice(indexFirstPhone, indexLastPhone);
 
+  
   return (
     <div>
       <div>
