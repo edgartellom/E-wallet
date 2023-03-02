@@ -37,142 +37,136 @@ const getApiInfo = async () => {
   return apiInfo;
 };
 
-const loadApiInDb = async (data) => {
-  data.map(async (phoneData) => {
-    const [phoneCreated, created] = await Phone.findOrCreate({
-      where: {
-        brand: phoneData.brand,
-        name: phoneData.name,
-      },
-      defaults: {
-        model: phoneData.model,
-        network: phoneData.network,
-        launch: phoneData.launch,
-        dimensions: phoneData.dimensions,
-        weight: phoneData.weight,
-        displayType: phoneData.displayType,
-        displaySize: phoneData.displaySize,
-        displayResolution: phoneData.displayResolution,
-        os: phoneData.os,
-        ram: phoneData.ram,
-        internMemory: phoneData.internMemory,
-        chipset: phoneData.chipset,
-        cpu: phoneData.cpu,
-        selfieCameraResolution: phoneData.selfieCameraResolution,
-        selfieCameraVideo: phoneData.selfieCameraVideo,
-        mainCameraResolution: phoneData.mainCameraResolution,
-        mainCameraVideo: phoneData.mainCameraVideo,
-        battery: phoneData.battery,
-        price: phoneData.price,
-        color: phoneData.color,
-        image: phoneData.image,
-      },
-      include: [Category],
-    });
-    const category = await Category.findAll({
-      where: { name: { [Op.in]: phoneData.category } },
-    });
-    if (category) {
-      await phoneCreated.addCategory(category);
-    }
-    // if (created) {
-    //   console.log(`Phone ${phoneData.brand} ${phoneData.name} created `);
-    // } else {
-    //   console.log(
-    //     `Phone ${phoneData.brand} ${phoneData.name} created previously.`
-    //   );
-    // }
-  });
-};
-
-const getDbInfo = async () => {
-  return await Phone.findAll({
-    include: {
-      model: Category,
-      attributes: ["name"],
-      through: {
-        attributes: [],
-      },
-    },
-  });
-};
-
 const getAllPhones = async () => {
-  const apiInfo = await getApiInfo();
-  if (process.env.DB_SEED_LOADED !== "true") {
-    // Cargar los datos del API en la base de datos
-    loadApiInDb(apiInfo)
-      .then(() => {
-        // Marcar el seed como cargado
-        console.log("API Phones loaded into database succesfully!");
-        process.env.DB_SEED_LOADED = "true";
+  try {
+    const apiInfo = await getApiInfo();
+    let createdCount = 0;
+    let foundCount = 0;
+    let phonePromises = await Promise.all(
+      apiInfo.map(async (phoneData) => {
+        const [phone, created] = await Phone.findOrCreate({
+          where: {
+            brand: phoneData.brand,
+            name: phoneData.name,
+          },
+          defaults: {
+            model: phoneData.model,
+            network: phoneData.network,
+            launch: phoneData.launch,
+            dimensions: phoneData.dimensions,
+            weight: phoneData.weight,
+            displayType: phoneData.displayType,
+            displaySize: phoneData.displaySize,
+            displayResolution: phoneData.displayResolution,
+            os: phoneData.os,
+            ram: phoneData.ram,
+            internMemory: phoneData.internMemory,
+            chipset: phoneData.chipset,
+            cpu: phoneData.cpu,
+            selfieCameraResolution: phoneData.selfieCameraResolution,
+            selfieCameraVideo: phoneData.selfieCameraVideo,
+            mainCameraResolution: phoneData.mainCameraResolution,
+            mainCameraVideo: phoneData.mainCameraVideo,
+            battery: phoneData.battery,
+            price: phoneData.price,
+            color: phoneData.color,
+            image: phoneData.image,
+          },
+          include: [Category],
+        });
+        if (created) {
+          createdCount++;
+        } else {
+          foundCount++;
+        }
+        const category = await Category.findAll({
+          where: { name: { [Op.in]: phoneData.category } },
+        });
+        if (category) {
+          await phone.addCategory(category);
+        }
+        return phone;
       })
-      .catch((err) => {
-        console.error("Error to load API Phones into database", err);
-      });
-  } else {
-    console.log("API Phones already loaded into database.");
+    );
+    console.log(
+      `${createdCount} phones created, ${foundCount} phones found in the database.`
+    );
+    const phones = await Phone.findAll({
+      include: {
+        model: Category,
+        attributes: ["name"],
+        through: {
+          attributes: [],
+        },
+      },
+    });
+    return { data: phones, status: "success" };
+  } catch (error) {
+    return { message: error.message, status: "error" };
   }
-  const dbInfo = await getDbInfo();
-  // const infoTotal = apiInfo.concat(dbInfo);
-  return dbInfo;
 };
 
-const updatePhone = async ({
-  id,
-  brand,
-  name,
-  model,
-  network,
-  launch,
-  dimensions,
-  weight,
-  displaySize,
-  displayResolution,
-  os,
-  ram,
-  internMemory,
-  chipset,
-  cpu,
-  selfieCameraResolution,
-  selfieCameraVideo,
-  mainCameraResolution,
-  mainCameraVideo,
-  battery,
-  price,
-  color,
-  image,
-  category,
-  state,
-}) => {
-  let phone = await Phone.findByPk(id);
-  if (!phone) return { error: "PHONE NOT FOUND" };
-  phone.brand = brand;
-  phone.name = name;
-  phone.model = model;
-  phone.network = network;
-  phone.launch = launch;
-  phone.dimensions = dimensions;
-  phone.weight = weight;
-  phone.displaySize = displaySize;
-  phone.displayResolution = displayResolution;
-  phone.os = os;
-  phone.ram = ram;
-  phone.internMemory = internMemory;
-  phone.chipset = chipset;
-  phone.cpu = cpu;
-  phone.selfieCameraResolution = selfieCameraResolution;
-  phone.selfieCameraVideo = selfieCameraVideo;
-  phone.mainCameraResolution = mainCameraResolution;
-  phone.mainCameraVideo = mainCameraVideo;
-  phone.battery = battery;
-  phone.price = price;
-  phone.color = color;
-  phone.image = image;
-  phone.category = category;
-  phone.state = state;
-  await phone.save();
-  return phone;
+const updatePhone = async (phone) => {
+  const {
+    id,
+    brand,
+    name,
+    model,
+    network,
+    launch,
+    dimensions,
+    weight,
+    displaySize,
+    displayResolution,
+    os,
+    ram,
+    internMemory,
+    chipset,
+    cpu,
+    selfieCameraResolution,
+    selfieCameraVideo,
+    mainCameraResolution,
+    mainCameraVideo,
+    battery,
+    price,
+    color,
+    image,
+    category,
+    state,
+  } = phone;
+  try {
+    const phoneFromDb = await Phone.findByPk(id);
+    if (!phoneFromDb) return { message: "PHONE NOT FOUND", status: "error" };
+    await phoneFromDb.update({
+      brand,
+      name,
+      model,
+      network,
+      launch,
+      dimensions,
+      weight,
+      displaySize,
+      displayResolution,
+      os,
+      ram,
+      internMemory,
+      chipset,
+      cpu,
+      selfieCameraResolution,
+      selfieCameraVideo,
+      mainCameraResolution,
+      mainCameraVideo,
+      battery,
+      price,
+      color,
+      image,
+      category,
+      state,
+    });
+    return { message: "Phone updated succesfully", status: "success" };
+  } catch (error) {
+    return { message: error.message, status: "error" };
+  }
 };
 
 module.exports = {

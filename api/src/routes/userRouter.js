@@ -13,11 +13,11 @@ const router = Router();
 router.get("/", async (req, res) => {
   try {
     let response = await getAllUsers();
-    if (response.status) {
-      res.send(response.users);
+    if (response.status === "success") {
+      res.send(response.data);
     }
-  } catch (err) {
-    res.status(400).send(err);
+  } catch (error) {
+    res.status(400).send(error.message);
   }
 });
 
@@ -26,9 +26,11 @@ router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     let response = await getUserById(id);
-    res.send(response);
-  } catch (err) {
-    res.status(400).send(err);
+    response.status !== "error"
+      ? res.send(response.data)
+      : res.status(404).send(response);
+  } catch (error) {
+    res.status(400).send(error.message);
   }
 });
 
@@ -39,12 +41,19 @@ router.post("/", async (req, res) => {
       ? res.send(response)
       : res.status(404).send(response);
   } catch (error) {
-    res.status(400).send(err.message);
+    res.status(400).send(error.message);
   }
 });
 
-router.put("/", (req, res) => {
-  res.send(updateUser(req.body));
+router.put("/", async (req, res) => {
+  try {
+    let response = await updateUser(req.body);
+    response.status !== "error"
+      ? res.send(response)
+      : res.status(404).send(response);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
 });
 
 module.exports = router;

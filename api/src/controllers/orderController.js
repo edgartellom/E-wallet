@@ -18,7 +18,7 @@ const getDbInfo = async (userId) => {
       // ],
     });
     if (orders.length > 0) {
-      return { orders: orders, status: "success" };
+      return { data: orders, status: "success" };
     }
     return { message: "Orders Not Found", status: "error" };
   } catch (error) {
@@ -78,8 +78,9 @@ const updateOrder = async (order) => {
         toTalPrice,
         state,
       });
+      return { message: "Order updated succesfully", status: "success" };
     }
-    return { message: "Order updated succesfully", status: "success" };
+    return { message: "Order Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }

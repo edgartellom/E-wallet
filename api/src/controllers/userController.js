@@ -13,7 +13,6 @@ const getApiInfo = async () => {
       email: el.email?.stringValue,
       admin: el.admin?.booleanValue,
     }));
-    console.log(apiInfo);
     return apiInfo;
   } catch (error) {
     console.log({ message: error.message });
@@ -23,29 +22,27 @@ const getApiInfo = async () => {
 const getAllUsers = async () => {
   try {
     const apiInfo = await getApiInfo();
-    const promises = apiInfo.map(async (userData) => {
-      const [created, userCreated] = await User.findOrCreate({
-        where: {
-          id: userData.id,
-          email: userData.email,
-        },
-        defaults: {
-          username: userData.username,
-          admin: userData.admin,
-        },
-      });
-      return { created, userCreated };
-    });
-    await Promise.all(promises);
-    const allUsers = await User.findAll();
-    const numNewUsers = promises.filter((promise) => promise.created).length;
-    if (numNewUsers) {
-      console.log("Users loaded into database successfully!");
-    } else {
-      console.log("Users database already up to date");
-    }
-    console.log(`${numNewUsers} new users created`);
-    return { users: allUsers, status: "success" };
+    let createdCount = 0;
+    let foundCount = 0;
+    let userPromises = await Promise.all(
+      apiInfo.map(async (userData) => {
+        const [user, created] = await User.findOrCreate({
+          where: { id: userData.id, email: userData.email },
+          defaults: { username: userData.username, admin: userData.admin },
+        });
+        if (created) {
+          createdCount++;
+        } else {
+          foundCount++;
+        }
+        return user;
+      })
+    );
+    console.log(
+      `${createdCount} users created, ${foundCount} users found in the database.`
+    );
+    const users = await User.findAll();
+    return { data: users, status: "success" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }
@@ -53,52 +50,56 @@ const getAllUsers = async () => {
 
 const getUserById = async (userId) => {
   try {
-    const user = await Cart.findByPk(userId);
+    const user = await User.findByPk(userId);
 
     if (user) {
-      return { user: user, status: "success" };
+      return { data: user, status: "success" };
     }
     return { message: "User Not Found", status: "error" };
   } catch (error) {
-    return { message: error, status: "error" };
+    return { message: error.message, status: "error" };
   }
 };
 
 const createUser = async (user) => {
-  const { email } = user;
+  const { id, username, email, admin } = user;
   try {
-    let userFound = User.findOne({
+    let userFound = await User.findOne({
       where: {
         email: email,
       },
     });
-    if (!userFound) {
-      let userCreated = await User.create(user);
-      return {
-        userCreated,
-        message: "User created succesfully",
-        status: "success",
-      };
-    } else {
-      return { message: "User already exists", status: "error" };
-    }
+    if (userFound) return { message: "User already exists", status: "error" };
+
+    let userCreated = await User.create({
+      id: id,
+      username: username,
+      email: email,
+      admin: admin,
+    });
+    return {
+      userCreated,
+      message: "User created succesfully",
+      status: "success",
+    };
   } catch (error) {
     return { message: error.message, status: "error" };
   }
 };
 
 const updateUser = async (user) => {
-  const { id, username, email, admin, state } = user;
+  const { id, username, admin, state } = user;
   try {
     const userFromDb = await User.findByPk(id);
     if (userFromDb) {
-      userFromDb.update({
+      await userFromDb.update({
         username,
         admin,
         state,
       });
+      return { message: "User updated succesfully", status: "success" };
     }
-    return { message: "User updated succesfully", status: "success" };
+    return { message: "User Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }
