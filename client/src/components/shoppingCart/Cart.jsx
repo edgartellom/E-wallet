@@ -13,9 +13,9 @@ const Cart = () => {
 
   console.log(userCart)
 
-  const arr = [...cart.cartItems]
+  
   var aux = []
-  console.log(arr)
+
 
   const [carrito, setCarrito] = useState([])
 
@@ -41,7 +41,8 @@ const Cart = () => {
     console.log(userCart)
   }, [cart, dispatch]);
 
-
+  console.log(userCart)
+  console.log(cart2)
   
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));

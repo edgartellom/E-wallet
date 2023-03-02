@@ -26,10 +26,10 @@ function ProductCard({ props }) {
 
   const user = 'pepito'
   const cartid = uuidv4()
-  const cartId = 'dcd61acf-9e3e-42c3-953a-aeb4b2115cbe'
+  const cartId = '1b29ac4e-3e96-46b1-8e9e-8811de6ca345'
   const pepeId = 'byNoKTMnl6eE0JtDcGJ9WP4iZZJ3'
 
-  const cartDb = useSelector((state) => state.cart.userCart.list)
+  const cartDb = useSelector((state) => state.cart.userCart)
 
   const deletePhone = (i) => {
     dispatch(deleteProduct(i));
@@ -51,12 +51,15 @@ function ProductCard({ props }) {
 
   useEffect(()=>{
     dispatch(getItemCart(cartId))
-    var aux = axios.get(`/cartDetails/${cartId}`)
-    console.log(aux.data)
-    console.log(cartDb)
+    //var aux = axios.get(`/cartDetails/${cartId}`)
+    //console.log(aux.data)
+    
     dispatch(concatArrays(cartDb))
+    console.log(cartDb)
+
     console.log(localStorageCarrito)
   }, [])
+  console.log(cartDb)
 
   const handleAddToCart = (product) => {
     console.log(product)
@@ -78,7 +81,7 @@ function ProductCard({ props }) {
   }
   
     
-        //  navigate('/cart')
+          navigate('/cart')
 
   }
 

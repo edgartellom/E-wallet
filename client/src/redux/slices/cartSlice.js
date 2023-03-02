@@ -43,7 +43,7 @@ const cartSlice = createSlice({
     // },
     concatArrays: (state, action) => {
       state.cartItems = state.cartItems.concat(state.userCart);
-      state.array2 = action.payload;
+      //state.userCart = action.payload;
     },
 
     addToUserCart(state, action){
@@ -138,7 +138,7 @@ const cartSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(createItemCart.fulfilled, (state,action) => {
       state.userCart = action.payload
-      // state.userCart.push(action.payload)
+      //  state.userCart.push(action.payload)
     })
 
     builder.addCase(getItemCart.fulfilled, (state, action) => {
