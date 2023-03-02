@@ -51,6 +51,19 @@ const getAllUsers = async () => {
   }
 };
 
+const getUserById = async (userId) => {
+  try {
+    const user = await Cart.findByPk(userId);
+
+    if (user) {
+      return { user: user, status: "success" };
+    }
+    return { message: "User Not Found", status: "error" };
+  } catch (error) {
+    return { message: error, status: "error" };
+  }
+};
+
 const createUser = async (user) => {
   const { email } = user;
   try {
@@ -93,6 +106,7 @@ const updateUser = async (user) => {
 
 module.exports = {
   getAllUsers,
+  getUserById,
   createUser,
   updateUser,
 };
