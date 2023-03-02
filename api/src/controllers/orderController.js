@@ -18,7 +18,7 @@ const getDbInfo = async (userId) => {
       // ],
     });
     if (orders.length > 0) {
-      return { orders: orders, status: "success" };
+      return { data: orders, status: "success" };
     }
     return { message: "Orders Not Found", status: "error" };
   } catch (error) {

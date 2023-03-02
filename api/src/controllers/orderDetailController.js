@@ -2,7 +2,7 @@ const { Order_detail, Phone, Order } = require("../db");
 
 const getDbInfo = async (orderId) => {
   try {
-    const listDetail = Order_detail.findAll({
+    const orderDetails = Order_detail.findAll({
       where: {
         orderId,
         state: true,
@@ -12,8 +12,8 @@ const getDbInfo = async (orderId) => {
         { model: Order, attributes: ["id"] },
       ],
     });
-    if (listDetail.length > 0) {
-      return { list: listDetail, status: "success" };
+    if (orderDetails.length > 0) {
+      return { data: orderDetails, status: "success" };
     }
     return { message: "Order Details Not Found", status: "error" };
   } catch (error) {

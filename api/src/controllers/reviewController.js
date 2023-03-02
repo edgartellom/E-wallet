@@ -14,7 +14,7 @@ const getDbInfo = async (phoneId) => {
       ],
     });
     if (reviews.length > 0) {
-      return { reviews: reviews, status: "success" };
+      return { data: reviews, status: "success" };
     }
     return { message: "Reviews Not Found", status: "error" };
   } catch (error) {

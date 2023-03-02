@@ -13,11 +13,11 @@ const router = Router();
 router.get("/", async (req, res) => {
   try {
     let response = await getAllUsers();
-    if (response.status) {
-      res.send(response);
+    if (response.status === "success") {
+      res.send(response.data);
     }
-  } catch (err) {
-    res.status(400).send(err);
+  } catch (error) {
+    res.status(400).send(error.message);
   }
 });
 
@@ -27,7 +27,7 @@ router.get("/:id", async (req, res) => {
   try {
     let response = await getUserById(id);
     response.status !== "error"
-      ? res.send(response)
+      ? res.send(response.data)
       : res.status(404).send(response);
   } catch (error) {
     res.status(400).send(error.message);

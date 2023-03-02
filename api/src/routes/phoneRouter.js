@@ -7,7 +7,7 @@ const router = Router();
 router.get("/", async (req, res, next) => {
   try {
     const { brand } = req.query;
-    const allPhones = await getAllPhones();
+    const allPhones = (await getAllPhones()).data;
     if (brand) {
       let phoneBrand = await allPhones.filter((el) =>
         el.brand.toLowerCase().includes(brand.toLowerCase())

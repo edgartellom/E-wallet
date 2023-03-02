@@ -11,7 +11,7 @@ const getDbInfo = async (userId) => {
       // include: { model: User, attributes: ["id"] },
     });
     if (carts.length > 0) {
-      return { carts: carts, status: "success" };
+      return { data: carts, status: "success" };
     }
     return { message: "Carts Not Found", status: "error" };
   } catch (error) {

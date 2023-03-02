@@ -42,7 +42,7 @@ const getAllUsers = async () => {
       `${createdCount} users created, ${foundCount} users found in the database.`
     );
     const users = await User.findAll();
-    return { users, status: "success" };
+    return { data: users, status: "success" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }
@@ -53,11 +53,11 @@ const getUserById = async (userId) => {
     const user = await User.findByPk(userId);
 
     if (user) {
-      return { user: user, status: "success" };
+      return { data: user, status: "success" };
     }
     return { message: "User Not Found", status: "error" };
   } catch (error) {
-    return { message: error, status: "error" };
+    return { message: error.message, status: "error" };
   }
 };
 

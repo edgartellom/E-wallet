@@ -12,9 +12,10 @@ router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     let response = await getDbInfo(id);
-    res.send(response);
-  } catch (err) {
-    res.status(400).send(err);
+    console.log(response.status);
+    res.send(response.data);
+  } catch (error) {
+    res.status(400).send(error.message);
   }
 });
 
@@ -25,7 +26,7 @@ router.post("/", async (req, res) => {
       ? res.send(response)
       : res.status(404).send(response);
   } catch (error) {
-    res.status(400).send(err.message);
+    res.status(400).send(error.message);
   }
 });
 
