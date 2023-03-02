@@ -3,6 +3,7 @@ const {
   createUser,
   getAllUsers,
   updateUser,
+  getUserById,
 } = require("../controllers/userController");
 const { User } = require("../db");
 
@@ -15,6 +16,17 @@ router.get("/", async (req, res) => {
     if (response.status) {
       res.send(response.users);
     }
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+//GET USER BY ID
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    let response = await getUserById(id);
+    res.send(response);
   } catch (err) {
     res.status(400).send(err);
   }
