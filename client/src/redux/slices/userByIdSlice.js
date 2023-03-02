@@ -16,15 +16,18 @@ const userByIdSlice = createSlice({
       isLoggedIn: false,
       userInfo: null,
     },
+    currentUser: null,
   },
   reducers: {
     login: (state, action) => {
       state.userLogin.isLoggedIn = true;
       state.userLogin.userInfo = action.payload;
+      state.currentUser = action.payload; // Actualiza el usuario actual
     },
     logout: (state) => {
       state.userLogin.isLoggedIn = false;
       state.userLogin.userInfo = null;
+      state.currentUser = null; // Borra el usuario actual al hacer logout
     },
   },
   extraReducers: {

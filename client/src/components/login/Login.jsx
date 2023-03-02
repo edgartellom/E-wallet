@@ -20,7 +20,11 @@ import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import  fetchUsuarios  from "../../redux/Slices/userByIdSlice"
+import { login } from "../../redux/Slices/userByIdSlice";
+
+
+
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -37,23 +41,28 @@ const Login = () => {
   const [phone, setPhone] = useState();
   const dispatch= useDispatch()
 
-  const usuario= useSelector(state=>state.user)
+
+  useEffect(() => {
+
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+
+  
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
 
 
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  console.log(storage);
   ///////////REGISTER//////
 
   const handleFormSubmit = async (event) => {
@@ -77,9 +86,7 @@ const Login = () => {
           email: email,
         });
       
-      
-         dispatch(fetchUsuarios(user.uid))
-
+        
 
         console.log(user); //Link to back-end (create user)
       } catch (error) {
@@ -89,8 +96,8 @@ const Login = () => {
       setMessage("Usuario creado");
 
       toast.success("Account created");
-      navigate("/products");
-      //window.location.href = "/";
+      //navigate("/products");
+      window.location.href = "/";
     } catch (error) {
       toast.error("something wrong");
       setError(error.message);
@@ -112,7 +119,8 @@ const Login = () => {
         emailLogin,
         passwordLogin
       );
-      setUser(userCredential.user);
+   setUser(userCredential.user);
+
       //navigate("/products");
       window.location.href = "/";
     } catch (error) {
@@ -142,36 +150,35 @@ const Login = () => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         
-        const user = result.user;
-
+          const user = result.user;
+          window.location.href = "/"
         
       })
       .catch((error) => {
 
         const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
+        
         const email = error.customData.email;
-        // The AuthCredential type that was used.
+    
         const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
+        
       });
   };
 
   return (
     <div>
-       
-      {user !== null ? (
-        <button
-          type="button"
-          className="btn btn-outline-dark"
-          data-bs-toggle="modal"
-          data-bs-target="#logout"
-          onClick={handleSignOut}>
-          Logout
-        </button>
-      ) : (
+        {user ? ( 
+        <><p>Bienvenido, {user.user}</p><button onClick={handleSignOut}
+        type="button"
+              className="btn btn-outline-dark"
+              data-bs-toggle="modal"
+              data-bs-target="#signinModal">
+                Sign off</button></>
+      ) :
+    (
         <div>
+      
           <div className="d-inline-block mx-2">
             <button
               type="button"
@@ -309,7 +316,7 @@ const Login = () => {
           </div>
         </div>
       )}
-    </div>
+      </div>
   );
 };
 export default Login;
