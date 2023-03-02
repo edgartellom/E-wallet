@@ -118,61 +118,67 @@ const getAllPhones = async () => {
   return dbInfo;
 };
 
-const updatePhone = async ({
-  id,
-  brand,
-  name,
-  model,
-  network,
-  launch,
-  dimensions,
-  weight,
-  displaySize,
-  displayResolution,
-  os,
-  ram,
-  internMemory,
-  chipset,
-  cpu,
-  selfieCameraResolution,
-  selfieCameraVideo,
-  mainCameraResolution,
-  mainCameraVideo,
-  battery,
-  price,
-  color,
-  image,
-  category,
-  state,
-}) => {
-  let phone = await Phone.findByPk(id);
-  if (!phone) return { error: "PHONE NOT FOUND" };
-  phone.brand = brand;
-  phone.name = name;
-  phone.model = model;
-  phone.network = network;
-  phone.launch = launch;
-  phone.dimensions = dimensions;
-  phone.weight = weight;
-  phone.displaySize = displaySize;
-  phone.displayResolution = displayResolution;
-  phone.os = os;
-  phone.ram = ram;
-  phone.internMemory = internMemory;
-  phone.chipset = chipset;
-  phone.cpu = cpu;
-  phone.selfieCameraResolution = selfieCameraResolution;
-  phone.selfieCameraVideo = selfieCameraVideo;
-  phone.mainCameraResolution = mainCameraResolution;
-  phone.mainCameraVideo = mainCameraVideo;
-  phone.battery = battery;
-  phone.price = price;
-  phone.color = color;
-  phone.image = image;
-  phone.category = category;
-  phone.state = state;
-  await phone.save();
-  return phone;
+const updatePhone = async (phone) => {
+  const {
+    id,
+    brand,
+    name,
+    model,
+    network,
+    launch,
+    dimensions,
+    weight,
+    displaySize,
+    displayResolution,
+    os,
+    ram,
+    internMemory,
+    chipset,
+    cpu,
+    selfieCameraResolution,
+    selfieCameraVideo,
+    mainCameraResolution,
+    mainCameraVideo,
+    battery,
+    price,
+    color,
+    image,
+    category,
+    state,
+  } = phone;
+  try {
+    const phoneFromDb = await Phone.findByPk(id);
+    if (!phoneFromDb) return { message: "PHONE NOT FOUND", status: "error" };
+    await phoneFromDb.update({
+      brand,
+      name,
+      model,
+      network,
+      launch,
+      dimensions,
+      weight,
+      displaySize,
+      displayResolution,
+      os,
+      ram,
+      internMemory,
+      chipset,
+      cpu,
+      selfieCameraResolution,
+      selfieCameraVideo,
+      mainCameraResolution,
+      mainCameraVideo,
+      battery,
+      price,
+      color,
+      image,
+      category,
+      state,
+    });
+    return { message: "Phone updated succesfully", status: "success" };
+  } catch (error) {
+    return { message: error.message, status: "error" };
+  }
 };
 
 module.exports = {

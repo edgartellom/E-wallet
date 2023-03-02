@@ -125,21 +125,14 @@ router.put("/", async (req, res, next) => {
     if (!brand || !name || !model || !price || !color || !image) {
       return res.status(400).send({ error: "Missing info" });
     } else {
-      let modifyPhone = await updatePhone({
-        id,
-        brand,
-        name,
-        model,
-        price,
-        color,
-        image,
-      });
-
-      return res.status(200).send(modifyPhone);
+      let response = await updatePhone(req.body);
+      response.status !== "error"
+        ? res.send(response)
+        : res.status(404).send(response);
     }
   } catch (error) {
     console.log(error);
-    return res.status(400).send("Error");
+    return res.status(400).send(error.message);
   }
 });
 

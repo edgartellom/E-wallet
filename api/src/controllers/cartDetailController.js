@@ -54,13 +54,14 @@ const updateDetail = async (detail) => {
   try {
     const detailFromDb = await Cart_detail.findByPk(id);
     if (detailFromDb) {
-      detailFromDb.update({
+      await detailFromDb.update({
         price,
         quantity,
         state,
       });
+      return { message: "Detail updated succesfully", status: "success" };
     }
-    return { message: "Detail updated succesfully", status: "success" };
+    return { message: "Cart Detail Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }

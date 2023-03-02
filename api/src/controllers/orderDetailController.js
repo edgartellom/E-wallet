@@ -53,8 +53,9 @@ const updateDetail = async (detail) => {
         quantity,
         state,
       });
+      return { message: "Detail updated succesfully", status: "success" };
     }
-    return { message: "Detail updated succesfully", status: "success" };
+    return { message: "Order Detail Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }

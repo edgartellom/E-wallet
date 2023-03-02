@@ -78,8 +78,9 @@ const updateOrder = async (order) => {
         toTalPrice,
         state,
       });
+      return { message: "Order updated succesfully", status: "success" };
     }
-    return { message: "Order updated succesfully", status: "success" };
+    return { message: "Order Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }

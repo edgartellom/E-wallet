@@ -56,8 +56,9 @@ const updateReview = async (review) => {
         comment,
         state,
       });
+      return { message: "Review updated succesfully", status: "success" };
     }
-    return { message: "Review updated succesfully", status: "success" };
+    return { message: "Review Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }

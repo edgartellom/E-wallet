@@ -46,12 +46,13 @@ const updateCart = async (cart) => {
   try {
     const cartFromDb = await Cart.findByPk(id);
     if (cartFromDb) {
-      cartFromDb.update({
+      await cartFromDb.update({
         toTalPrice,
         state,
       });
+      return { message: "Cart updated succesfully", status: "success" };
     }
-    return { message: "Cart updated succesfully", status: "success" };
+    return { message: "Cart Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }

@@ -29,8 +29,15 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/", (req, res) => {
-  res.send(updateDetail(req.body));
+router.put("/", async (req, res) => {
+  try {
+    let response = await updateDetail(req.body);
+    response.status !== "error"
+      ? res.send(response)
+      : res.status(404).send(response);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
 });
 
 module.exports = router;
