@@ -3,28 +3,58 @@ const {
   createUser,
   getAllUsers,
   updateUser,
+  getUserById,
 } = require("../controllers/userController");
 const { User } = require("../db");
 
 
 const router = Router();
+
+//GET ALL USERS
 router.get("/", async (req, res) => {
   try {
     let response = await getAllUsers();
-    if (response.status) {
-      res.send(response.users);
+    if (response.status === "success") {
+      res.send(response.data);
     }
-  } catch (err) {
-    res.status(400).send(err);
+  } catch (error) {
+    res.status(400).send(error.message);
   }
 });
 
-router.post("/", (req, res) => {
-  res.send(createUser(req.body));
+//GET USER BY ID
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    let response = await getUserById(id);
+    response.status !== "error"
+      ? res.send(response.data)
+      : res.status(404).send(response);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
 });
 
-router.put("/", (req, res) => {
-  res.send(updateUser(req.body));
+router.post("/", async (req, res) => {
+  try {
+    let response = await createUser(req.body);
+    response.status !== "error"
+      ? res.send(response)
+      : res.status(404).send(response);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+});
+
+router.put("/", async (req, res) => {
+  try {
+    let response = await updateUser(req.body);
+    response.status !== "error"
+      ? res.send(response)
+      : res.status(404).send(response);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
 });
 
 

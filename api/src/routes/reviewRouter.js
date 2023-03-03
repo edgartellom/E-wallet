@@ -7,16 +7,40 @@ const {
 const { Review } = require("../db");
 
 const router = Router();
-router.get("/", (req, res) => {
-  res.send(getDbInfo(req.body));
+
+//GET REVIEWS BY PHONE ID
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    let response = await getDbInfo(id);
+    response.status !== "error"
+      ? res.send(response.data)
+      : res.status(404).send(response);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
 });
 
-router.post("/", (req, res) => {
-  res.send(createReview(req.body));
+router.post("/", async (req, res) => {
+  try {
+    let response = await createReview(req.body);
+    response.status !== "error"
+      ? res.send(response)
+      : res.status(404).send(response);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
 });
 
-router.put("/", (req, res) => {
-  res.send(updateReview(req.body));
+router.put("/", async (req, res) => {
+  try {
+    let response = await updateReview(req.body);
+    response.status !== "error"
+      ? res.send(response)
+      : res.status(404).send(response);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
 });
 
 module.exports = router;

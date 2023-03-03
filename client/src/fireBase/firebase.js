@@ -11,14 +11,14 @@ import {
   setDoc,
   deleteDoc,
 } from "firebase/firestore";
-import { getAuth, GoogleAuthProvider  } from "firebase/auth";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import {
   getStorage,
   ref,
   uploadBytesResumable,
   getDownloadURL,
   getBytes,
-} from "firebase/storage"; 
+} from "firebase/storage";
 
 const firebaseConfig = {
   // apiKey: "AIzaSyBXy8ahKPSssP3A1I0M7WVi9zER6uBab2s",
@@ -33,9 +33,8 @@ const firebaseConfig = {
   storageBucket: "sphoenix-4614d.appspot.com",
   messagingSenderId: "82543688503",
   appId: "1:82543688503:web:86cdced7d2a95fa7aff8b2",
-  measurementId: "G-4WF1943WFE"
+  measurementId: "G-4WF1943WFE",
 };
-
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
@@ -73,6 +72,3 @@ export const storage = getStorage(app);
 //     console.error("Error adding document: ", e);
 //   }
 // }
-
-
-

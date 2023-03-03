@@ -1,13 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, onAuthStateChanged, signOut, fetchSignInMethodsForEmail, updateProfile } from "firebase/auth";
+import { useSelector } from "react-redux";
+import "firebase/app";
+import "firebase/auth";
+import { app, auth, db, storage } from "../../fireBase/firebase";
+//import { useFirebaseApp } from 'reactfire'
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  fetchSignInMethodsForEmail,
+  updateProfile,
+} from "firebase/auth";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { loginRequest, loginSuccess, loginFailure, logout } from '../../redux/Slices/loginSlice'
-
-import { app, auth, db, storage } from "../../fireBase/firebase";
+//import { loginRequest, loginSuccess, loginFailure, logout } from '../../redux/slices/loginSlice'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,7 +35,6 @@ const Login = () => {
   const [file, setFile] = useState(null);
   const [adress, setAdress] = useState("");
   const [phone, setPhone] = useState();
-  const dispatch= useDispatch()
 
   const { isLoggedIn } = useSelector((state) => state.Login);
 
@@ -30,7 +42,7 @@ const Login = () => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         setUser(user);
-        dispatch(loginSuccess(user));
+        dispatch(loginSuccess());
       } else {
         setUser(null);
         dispatch(logout());
@@ -70,9 +82,6 @@ const Login = () => {
           admin: false,
           email: email,
         });
-      
-        
-
         console.log(user); //Link to back-end (create user)
       } catch (error) {
         console.log(error);
@@ -81,8 +90,8 @@ const Login = () => {
       setMessage("Usuario creado");
 
       toast.success("Account created");
-      //navigate("/products");
-      window.location.href = "/";
+      navigate("/products");
+      //window.location.href = "/";
     } catch (error) {
       toast.error("something wrong");
       setError(error.message);
@@ -127,34 +136,46 @@ const Login = () => {
     }
   };
 
+  //////LOGIN GOOGLE/////
 
+  // const handleOnClick = async () => {
+  //   const googleProvider = new GoogleAuthProvider();
+  //   await singInWithGoogle(googleProvider);
+  // };
+  // async function singInWithGoogle(googleProvider) {
+  //   try {
+  //     const res = await signInWithPopup(auth, googleProvider);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   const handleOnClick = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-
+        // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        
-          const user = result.user;
-          window.location.href = "/"
-        
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
       })
       .catch((error) => {
-
+        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        
+        // The email of the user's account used.
         const email = error.customData.email;
-    
+        // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
-        
+        // ...
       });
   };
 
   return (
     <div>
-        {isLoggedIn == true ?  ( 
+        {user ?  ( 
         <><p>Bienvenido, {user.email}</p><button onClick={handleSignOut}
         type="button"
               className="btn btn-outline-dark"

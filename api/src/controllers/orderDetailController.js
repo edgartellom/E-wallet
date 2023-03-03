@@ -2,7 +2,7 @@ const { Order_detail, Phone, Order } = require("../db");
 
 const getDbInfo = async (orderId) => {
   try {
-    const listDetail = Order_detail.findAll({
+    const orderDetails = Order_detail.findAll({
       where: {
         orderId,
         state: true,
@@ -12,7 +12,10 @@ const getDbInfo = async (orderId) => {
         { model: Order, attributes: ["id"] },
       ],
     });
-    return { list: listDetail, status: "success" };
+    if (orderDetails.length > 0) {
+      return { data: orderDetails, status: "success" };
+    }
+    return { message: "Order Details Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }
@@ -21,8 +24,20 @@ const getDbInfo = async (orderId) => {
 const createDetail = async (details) => {
   // [{ price: ..., quantity: ..., orderId: ..., phoneId: ... }] => details;
   try {
-    Cart_detail.bulkCreate(details);
-    return { message: "Detail created succesfully", status: "success" };
+    let isValid = true;
+    for (let detail in details) {
+      if (!detail.orderId || !detail.phoneId) isValid = false;
+    }
+    if (isValid) {
+      let detailsCreated = await Order_detail.bulkCreate(details);
+      return {
+        detailsCreated,
+        message: "Details created succesfully",
+        status: "success",
+      };
+    } else {
+      return { message: "Invalid Details", status: "error" };
+    }
   } catch (error) {
     return { message: error.message, status: "error" };
   }
@@ -31,15 +46,16 @@ const createDetail = async (details) => {
 const updateDetail = async (detail) => {
   const { id, price, quantity, state } = detail;
   try {
-    const detailFromDb = Order_detail.findByPk(id);
+    const detailFromDb = await Order_detail.findByPk(id);
     if (detailFromDb) {
       detailFromDb.update({
         price,
         quantity,
         state,
       });
+      return { message: "Detail updated succesfully", status: "success" };
     }
-    return { message: "Detail updated succesfully", status: "success" };
+    return { message: "Order Detail Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }

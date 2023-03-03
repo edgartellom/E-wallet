@@ -11,21 +11,23 @@ const getDbInfo = async (userId) => {
       include: { model: User, attributes: ["id"] },
     });
     if (carts.length > 0) {
-      return { carts: carts, status: "success" };
+      return { data: carts, status: "success" };
     }
-    return { message: "Not Found", status: "error" };
+    return { message: "Carts Not Found", status: "error" };
   } catch (error) {
     return { message: error, status: "error" };
   }
 };
 
 const createCart = async (cart) => {
+  const { userId } = cart;
   try {
-    const { userId } = await cart;
-    console.log(userId);
     let user = await User.findByPk(userId);
     if (user) {
-      let cartCreated = await Cart.create({ ...cart, userId: user.id });
+      let cartCreated = await Cart.create({
+        ...cart,
+        userId: user.id,
+      });
       return {
         cartCreated,
         message: "Cart created succesfully",
@@ -42,14 +44,15 @@ const createCart = async (cart) => {
 const updateCart = async (cart) => {
   const { id, toTalPrice, state } = cart;
   try {
-    const cartFromDb = Cart.findByPk(id);
+    const cartFromDb = await Cart.findByPk(id);
     if (cartFromDb) {
-      cartFromDb.update({
+      await cartFromDb.update({
         toTalPrice,
         state,
       });
+      return { message: "Cart updated succesfully", status: "success" };
     }
-    return { message: "Cart updated succesfully", status: "success" };
+    return { message: "Cart Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }
