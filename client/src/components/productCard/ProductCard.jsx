@@ -18,9 +18,9 @@ function ProductCard({ props }) {
   };
 
   const handleAddToCart = (product) => {
-    console.log(product)
-    console.log("adding to cart")
-    console.log(props)
+    // console.log(product)
+    // console.log("adding to cart")
+    // console.log(props)
     dispatch(addToCart(product))
     navigate('/cart')
   }
@@ -29,11 +29,11 @@ function ProductCard({ props }) {
 
   return (
     <div className="col mb-5">
-      <div className="card h-100">
-        <div className="badge bg-dark text-white position-absolute inner-card">
+      <div className="card h-100 p-5">
+        {/* <div className="badge bg-dark text-white position-absolute inner-card">
           Sale
-        </div>
-
+        </div> */}
+        
         <Link to={`/products/${id}`}>
           <img
             className="card-img-top"
