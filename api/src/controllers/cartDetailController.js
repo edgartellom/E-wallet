@@ -2,7 +2,7 @@ const { Cart_detail, Phone, Cart } = require("../db");
 
 const getDbInfo = async (cartId) => {
   try {
-    const listDetail = await Cart_detail.findAll({
+    const cartDetails = await Cart_detail.findAll({
       where: {
         cartId,
         state: true,
@@ -12,8 +12,8 @@ const getDbInfo = async (cartId) => {
         { model: Cart, attributes: ["id"] },
       ],
     });
-    if (listDetail.length > 0) {
-      return { list: listDetail, status: "success" };
+    if (cartDetails.length > 0) {
+      return { data: cartDetails, status: "success" };
     }
     return { message: "Cart Details Not Found", status: "error" };
   } catch (error) {
@@ -54,13 +54,14 @@ const updateDetail = async (detail) => {
   try {
     const detailFromDb = await Cart_detail.findByPk(id);
     if (detailFromDb) {
-      detailFromDb.update({
+      await detailFromDb.update({
         price,
         quantity,
         state,
       });
+      return { message: "Detail updated succesfully", status: "success" };
     }
-    return { message: "Detail updated succesfully", status: "success" };
+    return { message: "Cart Detail Not Found", status: "error" };
   } catch (error) {
     return { message: error.message, status: "error" };
   }
