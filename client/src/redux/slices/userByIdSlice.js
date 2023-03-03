@@ -11,7 +11,7 @@ const userByIdSlice = createSlice({
   initialState: {
     userId: [],
     status: 'idle',
-    error: null,s
+    error: null,
   },
  
   
