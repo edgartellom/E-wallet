@@ -48,7 +48,7 @@ const Navbar = () => {
                       All Products
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
@@ -60,7 +60,7 @@ const Navbar = () => {
                     <Link className="dropdown-item" to="#!">
                       New Arrivals
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </li>
               <li className="nav-item">
