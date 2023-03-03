@@ -20,7 +20,7 @@ import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser, clearUser, postUser } from "../../redux/slices/userSlice.js";
+import { setUser, clearUser } from "../../redux/slices/userSlice.js";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -71,13 +71,13 @@ const Login = () => {
           username: username,
           email: user.email,
           admin: false,
-        }),
-        postUser({
-          id: user.uid,
-          username: username,
-          email: user.email,
-          admin: false,
         })
+        // postUser({
+        //   id: user.uid,
+        //   username: username,
+        //   email: user.email,
+        //   admin: false,
+        // })
       );
 
       console.log(user); //Link to back-end (create user)
@@ -85,8 +85,6 @@ const Login = () => {
       setMessage("Usuario creado");
 
       toast.success("Account created");
-      navigate("/products");
-      //window.location.href = "/";
       navigate("/products");
       //window.location.href = "/";
     } catch (error) {
@@ -111,45 +109,13 @@ const Login = () => {
         passwordLogin
       );
       dispatch(setUser(user));
-      // dispatch(
-      //   setUser({ id: user.uid, username: user.displayName, email: user.email })
-      // );
-      //navigate("/products");
+
       window.location.href = "/";
     } catch (error) {
       console.error("Sign in failed!", error);
       setError(error.message);
     }
   };
-
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     const providers = await fetchSignInMethodsForEmail(auth, emailLogin);
-  //     if (providers.length === 0) {
-  //       setError("Email address not registered. Please sign up.");
-  //       return;
-  //     }
-  //     const userCredential = await signInWithEmailAndPassword(
-  //       auth,
-  //       emailLogin,
-  //       passwordLogin
-  //     );
-
-  //     const user = userCredential.user;
-
-  //     // Actualizar el estado global del usuario
-  //     dispatch(
-  //       setUser({ email: user.email, username: user.displayName, id: user.uid })
-  //     );
-
-  //     //navigate("/products");
-  //     window.location.href = "/";
-  //   } catch (error) {
-  //     console.error("Sign in failed!", error);
-  //     setError(error.message);
-  //   }
-  // };
 
   ////SINGOUT/////
 
