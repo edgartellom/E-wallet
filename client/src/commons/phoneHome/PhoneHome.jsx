@@ -14,13 +14,13 @@ const PhonesHome = () => {
     if (!list.length) dispatch(getProductList());
   }, []);
 
-  const phonesPerPage = 3;
+  const phonesPerPage = 4;
   const indexLastPhone = currentPage * phonesPerPage;
   const indexFirstPhone = indexLastPhone - phonesPerPage;
   const currentPhones = phones.slice(indexFirstPhone, indexLastPhone);
 
   return (
-    <div>
+    <div className="container">
       <div>
         <div>
           <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
