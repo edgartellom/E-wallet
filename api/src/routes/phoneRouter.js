@@ -88,8 +88,7 @@ router.post("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    let allPhones = await (getAllPhones()).data;
-    console.log(allPhones);
+    let allPhones = (await getAllPhones()).data;
     if (id) {
       let phoneId = await allPhones.filter((e) => e.id == id);
       phoneId.length
@@ -100,11 +99,6 @@ router.get("/:id", async (req, res, next) => {
     next(error);
   }
 });
-
-
-
-
-
 
 router.delete("/:id", async (req, res, next) => {
   try {
