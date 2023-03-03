@@ -50,6 +50,7 @@ const Navbar = () => {
                       Home
                     </Link>
                   </li>
+
                   <li className="nav-item">
                     <Link className="nav-link" to="/phones">
                       Create phones
@@ -89,6 +90,10 @@ const Navbar = () => {
                         </Link>
                       </li>
                     </ul>
+
+                  {/* <li>
+                    <hr className="dropdown-divider" />
+
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/about">
@@ -99,7 +104,7 @@ const Navbar = () => {
                     <Link className="nav-link" to="/contact">
                       Contact Us
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
                 <SearchBar />
                 <Login />
