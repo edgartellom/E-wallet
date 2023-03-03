@@ -6,8 +6,8 @@ import paginationReducer from "./slices/paginationSlice";
 //import searchProductsReducer from "./slices/searchProductsSlice"
 import cartSlice from "./slices/cartSlice";
 import categoryListSlice from "./slices/categoryListSlice";
+import userReducer from "./slices/userSlice";
 //import searchProductsReducer from "./slices/searchProductsSlice"
-
 
 export const store = configureStore({
   reducer: {
@@ -16,7 +16,8 @@ export const store = configureStore({
     product: productListReducer,
     categories: categoryListSlice,
     paginated: paginationReducer,
-    cart: cartSlice
+    cart: cartSlice,
+    user: userReducer,
   },
 });
 
