@@ -40,6 +40,27 @@ const Login = () => {
 
   const users = auth.currentUser;
 
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(
+          setUser({
+            id: user.uid,
+            username: username,
+            email: user.email,
+            admin: false,
+          })
+        );
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   ///////////REGISTER//////
 
   const handleFormSubmit = async (event) => {
