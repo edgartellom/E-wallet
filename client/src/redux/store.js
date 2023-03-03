@@ -6,6 +6,7 @@ import paginationReducer from "./slices/paginationSlice";
 //import searchProductsReducer from "./slices/searchProductsSlice"
 import cartSlice from "./slices/cartSlice";
 import categoryListSlice from "./slices/categoryListSlice";
+import { cartApi } from "../services/cart.query";
 //import searchProductsReducer from "./slices/searchProductsSlice"
 
 
@@ -16,8 +17,11 @@ export const store = configureStore({
     product: productListReducer,
     categories: categoryListSlice,
     paginated: paginationReducer,
-    cart: cartSlice
+    cart: cartSlice,
+    [cartApi.reducerPath]: cartApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(cartApi.middleware),
 });
 
 export default store;

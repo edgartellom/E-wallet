@@ -2,6 +2,7 @@ import PhoneHome from "../../commons/phoneHome/PhoneHome";
 import Carrusel from "../../commons/carrusel/Carrusel";
 import Notification from "../../components/samples/notifications.sample";
 
+
 const Home = () => {
   return (
     <>
@@ -11,7 +12,6 @@ const Home = () => {
           <div>
             <PhoneHome />
           </div>
-          <Notification/>
         </div>
       </section>
     </>
