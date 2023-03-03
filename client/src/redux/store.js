@@ -7,7 +7,7 @@ import paginationReducer from "./slices/paginationSlice";
 import cartSlice from "./slices/cartSlice";
 import categoryListSlice from "./slices/categoryListSlice";
 import userByIdSlice from "./slices/userByIdSlice";
-import loginSlice from "./Slices/loginSlice";
+import loginSlice from "./slices/loginSlice";
 //import searchProductsReducer from "./slices/searchProductsSlice"
 
 
@@ -20,7 +20,7 @@ export const store = configureStore({
     paginated: paginationReducer,
     cart: cartSlice,
     user: userByIdSlice,
-    Login: loginSlice
+    login: loginSlice,
   },
 });
 

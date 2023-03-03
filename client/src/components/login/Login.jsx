@@ -36,7 +36,7 @@ const Login = () => {
   const [adress, setAdress] = useState("");
   const [phone, setPhone] = useState();
 
-  const { isLoggedIn } = useSelector((state) => state.Login);
+  const { isLoggedIn } = useSelector((state) => state.login);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
