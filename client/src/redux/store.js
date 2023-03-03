@@ -6,8 +6,8 @@ import paginationReducer from "./slices/paginationSlice";
 //import searchProductsReducer from "./slices/searchProductsSlice"
 import cartSlice from "./slices/cartSlice";
 import categoryListSlice from "./slices/categoryListSlice";
-import userReducer from "./slices/userSlice";
 import { cartApi } from "../services/cart.query";
+
 //import searchProductsReducer from "./slices/searchProductsSlice"
 
 export const store = configureStore({
@@ -18,7 +18,6 @@ export const store = configureStore({
     categories: categoryListSlice,
     paginated: paginationReducer,
     cart: cartSlice,
-    user: userReducer,
     [cartApi.reducerPath]: cartApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

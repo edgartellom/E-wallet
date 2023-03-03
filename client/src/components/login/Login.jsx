@@ -20,7 +20,7 @@ import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser, clearUser, postUser } from "../../redux/slices/userSlice.js";
+import { setUser, clearUser } from "../../redux/slices/userSlice.js";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -38,26 +38,27 @@ const Login = () => {
 
   const provider = new GoogleAuthProvider();
 
+  const users = auth.currentUser;
+
   useEffect(() => {
-    const currentUser = auth.currentUser;
-    if (currentUser) {
-      dispatch(
-        setUser({
-          id: currentUser.uid,
-          username: username,
-          email: email,
-          admin: false,
-        })
-      );
-      dispatch(
-        postUser({
-          id: user.uid,
-          username: username,
-          email: email,
-          admin: false,
-        })
-      );
-    }
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(
+          setUser({
+            id: user.uid,
+            username: username,
+            email: user.email,
+            admin: false,
+          })
+        );
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   ///////////REGISTER//////
@@ -85,14 +86,28 @@ const Login = () => {
       } catch (error) {
         console.log(error);
       }
+      dispatch(
+        setUser({
+          id: user.uid,
+          username: username,
+          email: user.email,
+          admin: false,
+        })
+        // postUser({
+        //   id: user.uid,
+        //   username: username,
+        //   email: user.email,
+        //   admin: false,
+        // })
+      );
 
       console.log(user); //Link to back-end (create user)
 
       setMessage("Usuario creado");
 
       toast.success("Account created");
-      // navigate("/products");
-      window.location.href = "/";
+      navigate("/products");
+      //window.location.href = "/";
     } catch (error) {
       toast.error("something wrong");
       setError(error.message);
@@ -115,10 +130,7 @@ const Login = () => {
         passwordLogin
       );
       dispatch(setUser(user));
-      // dispatch(
-      //   setUser({ id: user.uid, username: user.displayName, email: user.email })
-      // );
-      //navigate("/products");
+
       window.location.href = "/";
     } catch (error) {
       console.error("Sign in failed!", error);
