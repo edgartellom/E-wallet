@@ -1,30 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "firebase/app";
-import "firebase/auth";
-import { app, auth, db, storage } from "../../fireBase/firebase";
-
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-  fetchSignInMethodsForEmail,
-  updateProfile,
-} from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, onAuthStateChanged, signOut, fetchSignInMethodsForEmail, updateProfile } from "firebase/auth";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../redux/Slices/userByIdSlice";
+import { loginRequest, loginSuccess, loginFailure, logout } from '../../redux/Slices/loginSlice'
 
-
-
-
+import { app, auth, db, storage } from "../../fireBase/firebase";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -41,22 +24,24 @@ const Login = () => {
   const [phone, setPhone] = useState();
   const dispatch= useDispatch()
 
+  const { isLoggedIn } = useSelector((state) => state.Login);
 
   useEffect(() => {
-
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         setUser(user);
+        dispatch(loginSuccess(user));
       } else {
         setUser(null);
+        dispatch(logout());
       }
     });
-
   
     return () => {
       unsubscribe();
     };
   }, []);
+
 
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
@@ -92,7 +77,7 @@ const Login = () => {
       } catch (error) {
         console.log(error);
       }
-
+       //dispatch(isLoggedIn(user))
       setMessage("Usuario creado");
 
       toast.success("Account created");
@@ -119,8 +104,9 @@ const Login = () => {
         emailLogin,
         passwordLogin
       );
+   
    setUser(userCredential.user);
-
+   
       //navigate("/products");
       window.location.href = "/";
     } catch (error) {
@@ -168,8 +154,8 @@ const Login = () => {
 
   return (
     <div>
-        {user ? ( 
-        <><p>Bienvenido, {user.user}</p><button onClick={handleSignOut}
+        {isLoggedIn == true ?  ( 
+        <><p>Bienvenido, {user.email}</p><button onClick={handleSignOut}
         type="button"
               className="btn btn-outline-dark"
               data-bs-toggle="modal"

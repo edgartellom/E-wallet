@@ -11,25 +11,10 @@ const userByIdSlice = createSlice({
   initialState: {
     userId: [],
     status: 'idle',
-    error: null,
-    userLogin: {
-      isLoggedIn: false,
-      userInfo: null,
-    },
-    currentUser: null,
+    error: null,s
   },
-  reducers: {
-    login: (state, action) => {
-      state.userLogin.isLoggedIn = true;
-      state.userLogin.userInfo = action.payload;
-      state.currentUser = action.payload; // Actualiza el usuario actual
-    },
-    logout: (state) => {
-      state.userLogin.isLoggedIn = false;
-      state.userLogin.userInfo = null;
-      state.currentUser = null; // Borra el usuario actual al hacer logout
-    },
-  },
+ 
+  
   extraReducers: {
     [fetchUsuarios.pending]: (state) => {
       state.status = 'loading';
@@ -45,6 +30,6 @@ const userByIdSlice = createSlice({
   },
 });
 
-export const { login, logout } = userByIdSlice.actions;
+
 
 export default userByIdSlice.reducer;
