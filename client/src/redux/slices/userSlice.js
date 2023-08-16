@@ -21,11 +21,12 @@ const userSlice = createSlice({
       state.email = null;
       state.admin = null;
     },
-    postUser: async (state, action) => {
-      await axios.post("/users", action.payload);
-    },
+    // postUser: async (state, action) => {
+    //   const { id, username, email, admin } = action.payload;
+    //   await axios.post("/users", { id, username, email, admin });
+    // },
   },
 });
 
-export const { setUser, clearUser, postUser } = userSlice.actions;
+export const { setUser, clearUser } = userSlice.actions;
 export default userSlice.reducer;

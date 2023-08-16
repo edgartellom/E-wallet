@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "firebase/app";
 import "firebase/auth";
-import { app, auth, db, storage } from "../../fireBase/firebase";
+import { db } from "../../fireBase/firebase";
 
 import {
   getAuth,
@@ -15,17 +15,16 @@ import {
   fetchSignInMethodsForEmail,
   updateProfile,
 } from "firebase/auth";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser, clearUser } from "../../redux/slices/userSlice.js";
+import { setUser, clearUser } from "../../redux/slices/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const userState = useSelector((state) => state.user);
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -38,10 +37,8 @@ const Login = () => {
 
   const provider = new GoogleAuthProvider();
 
-  const users = auth.currentUser;
-
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         dispatch(
           setUser({
@@ -52,7 +49,7 @@ const Login = () => {
           })
         );
       } else {
-        setUser(null);
+        dispatch(clearUser());
       }
     });
 
@@ -72,13 +69,13 @@ const Login = () => {
         email,
         password
       );
-      const user = userCredential.user;
+      const createdUser = userCredential.user;
 
       //store user data in firestore database
       try {
-        const userDoc = doc(db, "users", user.uid);
+        const userDoc = doc(db, "users", createdUser.uid);
         await setDoc(userDoc, {
-          id: user.uid,
+          id: createdUser.uid,
           username: username,
           admin: false,
           email: email,
@@ -86,22 +83,16 @@ const Login = () => {
       } catch (error) {
         console.log(error);
       }
-      dispatch(
-        setUser({
-          id: user.uid,
-          username: username,
-          email: user.email,
-          admin: false,
-        })
-        // postUser({
-        //   id: user.uid,
-        //   username: username,
-        //   email: user.email,
-        //   admin: false,
-        // })
-      );
+      const newUser = {
+        id: createdUser.uid,
+        username: username,
+        email: createdUser.email,
+        admin: false,
+      };
+      dispatch(setUser(newUser));
+      await axios.post("/users", newUser);
 
-      console.log(user); //Link to back-end (create user)
+      console.log(createdUser); //Link to back-end (create user)
 
       setMessage("Usuario creado");
 
@@ -109,6 +100,7 @@ const Login = () => {
       navigate("/products");
       //window.location.href = "/";
     } catch (error) {
+      console.error("Error al realizar la solicitud POST", error);
       toast.error("something wrong");
       setError(error.message);
     }
@@ -129,7 +121,15 @@ const Login = () => {
         emailLogin,
         passwordLogin
       );
-      dispatch(setUser(user));
+      // Usar el estado local del usuario para actualizar el estado global
+      dispatch(
+        setUser({
+          id: userCredential.user.uid,
+          username: username,
+          email: userCredential.user.email,
+          admin: false,
+        })
+      );
 
       window.location.href = "/";
     } catch (error) {
@@ -175,13 +175,14 @@ const Login = () => {
 
   return (
     <div>
-      {user.id !== null ? (
+      {userState?.id ? (
         <button
           type="button"
           className="btn btn-outline-dark"
           data-bs-toggle="modal"
           data-bs-target="#logout"
-          onClick={handleSignOut}>
+          onClick={handleSignOut}
+        >
           Logout
         </button>
       ) : (
@@ -191,7 +192,8 @@ const Login = () => {
               type="button"
               className="btn btn-outline-dark"
               data-bs-toggle="modal"
-              data-bs-target="#signinModal">
+              data-bs-target="#signinModal"
+            >
               Signin
             </button>
           </div>
@@ -200,7 +202,8 @@ const Login = () => {
               type="button"
               className="btn btn-outline-dark"
               data-bs-toggle="modal"
-              data-bs-target="#signupModal">
+              data-bs-target="#signupModal"
+            >
               Signup
             </button>
           </div>
@@ -210,7 +213,8 @@ const Login = () => {
             id="signinModal"
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+            aria-hidden="true"
+          >
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
@@ -221,7 +225,8 @@ const Login = () => {
                     type="button"
                     className="btn-close"
                     data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div className="modal-body">
                   <form onSubmit={handleSubmit} id="login-form">
@@ -253,7 +258,8 @@ const Login = () => {
                       <button
                         className="btn btn-primary"
                         type="button"
-                        onClick={handleOnClick}>
+                        onClick={handleOnClick}
+                      >
                         Login with Google
                       </button>
                     </div>
@@ -269,7 +275,8 @@ const Login = () => {
             id="signupModal"
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+            aria-hidden="true"
+          >
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
@@ -280,7 +287,8 @@ const Login = () => {
                     type="button"
                     className="btn-close"
                     data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div className="modal-body">
                   <form onSubmit={handleFormSubmit} id="signup-form">
