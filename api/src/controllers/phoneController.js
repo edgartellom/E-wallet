@@ -1,120 +1,176 @@
-const axios = require('axios');
-const { Phone, Category } = require('../db');
-require('dotenv').config();
+const axios = require("axios");
+const { Op } = require("sequelize");
+const { Phone, Category } = require("../db");
+require("dotenv").config();
 const API_URL = process.env.API_URL;
 
 const getApiInfo = async () => {
-    const phones = (await axios (`${API_URL}/phones`)).data
-    const apiInfo = await phones.map(el => (
-            {
-                "id": el.id,
-                "brand": el.brand,
-                "name": el.name,
-                "model": el.model,
-                "network": el.network,
-                "launch": el.launch,
-                "dimensions": el.dimensions,
-                "weight": el.weight,
-                "displayType": el.display.type,
-                "displaySize": el.display.size,
-                "displayResolution": el.display.resolution,
-                "os": el.os,
-                "ram": el.memory.ram.map(el => el),
-                "internMemory": el.memory.intern.map(el => el),
-                "chipset": el.chipset,
-                "cpu": el.cpu,
-                "selfieCameraResolution": el.cameras.selfie.resolution,
-                "selfieCameraVideo": el.cameras.selfie.video,
-                "mainCameraResolution": el.cameras.main.resolution,
-                "mainCameraVideo": el.cameras.main.video,
-                "battery": el.battery,
-                "price": el.price,
-                "color": el.color.map(el => el),
-                "image": el.image,
-                "categories": el.category.map(c => ({"name": c.name}))
-            }
-        ))
-    return apiInfo;
-}
-
-const getDbInfo = async () => {
-    return await Phone.findAll({
-        include: {
-            model: Category,
-            attributes: ['name'],
-            through: {
-                attributes: []
-            }
-        }
-    });
-}
+  const phones = (await axios(`${API_URL}/phones`)).data;
+  let orderedData = await phones.sort((a, b) => a.brand.localeCompare(b.brand));
+  const apiInfo = await orderedData.map((el) => ({
+    // id: el.id,
+    brand: el.brand,
+    name: el.name,
+    model: el.model,
+    network: el.network,
+    launch: el.launch,
+    dimensions: el.dimensions,
+    weight: el.weight,
+    displayType: el.display.type,
+    displaySize: el.display.size,
+    displayResolution: el.display.resolution,
+    os: el.os,
+    ram: el.memory.ram.map((ram) => ram),
+    internMemory: el.memory.intern.map((mem) => mem),
+    chipset: el.chipset,
+    cpu: el.cpu,
+    selfieCameraResolution: el.cameras.selfie.resolution,
+    selfieCameraVideo: el.cameras.selfie.video,
+    mainCameraResolution: el.cameras.main.resolution,
+    mainCameraVideo: el.cameras.main.video,
+    battery: el.battery,
+    price: el.price,
+    color: el.color.map((col) => col),
+    image: el.image,
+    category: el.category.map((cat) => cat.name),
+  }));
+  return apiInfo;
+};
 
 const getAllPhones = async () => {
+  try {
     const apiInfo = await getApiInfo();
-    const dbInfo = await getDbInfo();
-    const infoTotal = apiInfo.concat(dbInfo);
-    return infoTotal;
-}
+    let createdCount = 0;
+    let foundCount = 0;
+    let phonePromises = await Promise.all(
+      apiInfo.map(async (phoneData) => {
+        const [phone, created] = await Phone.findOrCreate({
+          where: {
+            brand: phoneData.brand,
+            name: phoneData.name,
+          },
+          defaults: {
+            model: phoneData.model,
+            network: phoneData.network,
+            launch: phoneData.launch,
+            dimensions: phoneData.dimensions,
+            weight: phoneData.weight,
+            displayType: phoneData.displayType,
+            displaySize: phoneData.displaySize,
+            displayResolution: phoneData.displayResolution,
+            os: phoneData.os,
+            ram: phoneData.ram,
+            internMemory: phoneData.internMemory,
+            chipset: phoneData.chipset,
+            cpu: phoneData.cpu,
+            selfieCameraResolution: phoneData.selfieCameraResolution,
+            selfieCameraVideo: phoneData.selfieCameraVideo,
+            mainCameraResolution: phoneData.mainCameraResolution,
+            mainCameraVideo: phoneData.mainCameraVideo,
+            battery: phoneData.battery,
+            price: phoneData.price,
+            color: phoneData.color,
+            image: phoneData.image,
+          },
+          include: [Category],
+        });
+        if (created) {
+          createdCount++;
+        } else {
+          foundCount++;
+        }
+        const category = await Category.findAll({
+          where: { name: { [Op.in]: phoneData.category } },
+        });
+        if (category) {
+          await phone.addCategory(category);
+        }
+        return phone;
+      })
+    );
+    console.log(
+      `${createdCount} phones created, ${foundCount} phones found in the database.`
+    );
+    const phones = await Phone.findAll({
+      include: {
+        model: Category,
+        attributes: ["name"],
+        through: {
+          attributes: [],
+        },
+      },
+    });
+    //return phones;
+    return { data: phones, status: "success" };
+  } catch (error) {
+    return { message: error.message, status: "error" };
+  }
+};
 
-const updatePhone = async (
-    {
-        id,
-        brand,
-        name,
-        model,
-        network,
-        launch,
-        dimensions,
-        weight,
-        displaySize,
-        displayResolution,
-        os,
-        ram,
-        internMemory,
-        chipset,
-        cpu,
-        selfieCameraResolution,
-        selfieCameraVideo,
-        mainCameraResolution,
-        mainCameraVideo,
-        battery,
-        price,
-        color,
-        image,
-        category
-    }) => {
-    
-    let phone = await Phone.findByPk(id);
-    if(!phone) return {error:"PHONE NOT FOUND"};
-    phone.brand = brand;
-    phone.name = name;
-    phone.model = model;
-    phone.network = network;
-    phone.launch = launch;
-    phone.dimensions = dimensions;
-    phone.weight = weight;
-    phone.displaySize = displaySize;
-    phone.displayResolution = displayResolution;
-    phone.os = os;
-    phone.ram = ram;
-    phone.internMemory = internMemory;
-    phone.chipset = chipset;
-    phone.cpu = cpu;
-    phone.selfieCameraResolution = selfieCameraResolution;
-    phone.selfieCameraVideo = selfieCameraVideo;
-    phone.mainCameraResolution = mainCameraResolution;
-    phone.mainCameraVideo = mainCameraVideo;
-    phone.battery = battery;
-    phone.price = price;
-    phone.color = color;
-    phone.image = image;
-    phone.category = category;
-    await phone.save();
-    return phone;
-
-}
+const updatePhone = async (phone) => {
+  const {
+    id,
+    brand,
+    name,
+    model,
+    network,
+    launch,
+    dimensions,
+    weight,
+    displaySize,
+    displayResolution,
+    os,
+    ram,
+    internMemory,
+    chipset,
+    cpu,
+    selfieCameraResolution,
+    selfieCameraVideo,
+    mainCameraResolution,
+    mainCameraVideo,
+    battery,
+    price,
+    color,
+    image,
+    category,
+    state,
+  } = phone;
+  try {
+    const phoneFromDb = await Phone.findByPk(id);
+    if (!phoneFromDb) return { message: "PHONE NOT FOUND", status: "error" };
+    await phoneFromDb.update({
+      brand,
+      name,
+      model,
+      network,
+      launch,
+      dimensions,
+      weight,
+      displaySize,
+      displayResolution,
+      os,
+      ram,
+      internMemory,
+      chipset,
+      cpu,
+      selfieCameraResolution,
+      selfieCameraVideo,
+      mainCameraResolution,
+      mainCameraVideo,
+      battery,
+      price,
+      color,
+      image,
+      category,
+      state,
+    });
+    return { message: "Phone updated succesfully", status: "success" };
+  } catch (error) {
+    return { message: error.message, status: "error" };
+  }
+};
 
 module.exports = {
-    getAllPhones,
-    updatePhone
-}
+  getAllPhones,
+  updatePhone,
+};

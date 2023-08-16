@@ -1,0 +1,17 @@
+.imgDashboard {
+    width: 50px;
+    height: 50px;
+    margin:0;
+    padding:0;
+
+}
+
+.table {
+    table-layout: fixed;
+}
+
+.table td .table th {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

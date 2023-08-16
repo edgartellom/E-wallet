@@ -1,0 +1,46 @@
+.div-cointainer{
+    background-color: whitesmoke;
+}
+.input-container {
+    width: 70%;
+    margin: 30px;
+  }
+h3{
+    margin: 30px;
+}
+.form{
+    position: relative;
+}
+.checkout-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 9cm;
+  height: 7cm;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 1rem;
+  background-color: rgb(8, 8, 41);
+  color: whitesmoke;
+}
+
+  @media screen and (max-width: 1100px) {
+    .checkout-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .hache4{
+    display: felx;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  .hache6{
+    margin-bottom: 20px;
+  }
+  .span{   
+   justify-content: end;
+  }
